@@ -3,7 +3,7 @@
 Site estático da Neon, softwarehouse para pequenos negócios de São Paulo.
 
 - `index.html`: página única (hero "entrada do metrô" + seção de serviços "Plataforma 1"), com CSS e JS embutidos, sem build.
-- `assets/hero-metro.jpg`: foto do hero, ampliada 4x com IA (EDSR) a partir de 678px.
+- `assets/hero-metro.jpg`: foto do hero, foto original de 1950px.
 
 Para ver localmente, abra `index.html` no navegador.
 
