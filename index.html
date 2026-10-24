@@ -33,8 +33,16 @@ a{color:inherit}
 .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,3,15,.86) 0%,rgba(5,3,15,.42) 40%,rgba(5,3,15,0) 62%)}
 .sign{right:9%;top:120px;display:flex;flex-direction:column;align-items:center}
 .sign .cable{width:2px;height:50px;background:#3A3550}
-.sign .plate{padding:10px 30px 16px;border:4px solid #fff;border-radius:14px;background:rgba(7,3,26,.55);box-shadow:0 0 22px var(--pink),0 0 70px var(--purple),inset 0 0 18px rgba(255,46,154,.6);opacity:0;animation:turnOn 1100ms linear 250ms forwards}
-.sign .word{font-family:'Bungee Inline',sans-serif;font-size:104px;line-height:1;color:#FFE0F0;text-shadow:0 0 10px var(--pink),0 0 30px var(--pink),0 0 80px var(--pink)}
+.sign .plate{padding:10px 30px 16px;border:4px solid var(--tube);border-radius:14px;background:rgba(7,3,26,.55);box-shadow:0 0 22px var(--glow),0 0 70px var(--glow2),inset 0 0 18px var(--glow);opacity:0;animation:turnOn 1100ms linear 250ms forwards}
+.sign .word{display:inline-flex;font-family:'Bungee Inline',sans-serif;font-size:104px;line-height:1;color:var(--tube);text-shadow:0 0 10px var(--glow),0 0 30px var(--glow),0 0 80px var(--glow)}
+/* Letreiro vivo: cor dos tubos troca de rosa para azul, letras piscam de vez em quando */
+@property --glow{syntax:'<color>';inherits:true;initial-value:#FF2E9A}
+@property --glow2{syntax:'<color>';inherits:true;initial-value:#A24BFF}
+@property --tube{syntax:'<color>';inherits:true;initial-value:#FFE0F0}
+.sign{--glow:#FF2E9A;--glow2:#A24BFF;--tube:#FFE0F0;transition:--glow 700ms var(--ease),--glow2 700ms var(--ease),--tube 700ms var(--ease)}
+.sign.azul{--glow:#2E8CFF;--glow2:#40E6DC;--tube:#E2F3FF}
+.sign .word span.pisca,.sign .word.pisca{animation:flick 520ms linear}
+@keyframes flick{0%,100%{opacity:1}12%{opacity:.15}20%{opacity:.9}32%{opacity:.25}46%{opacity:1}60%{opacity:.4}70%{opacity:1}}
 nav{position:absolute;left:0;right:0;top:0;z-index:2;padding:30px clamp(20px,5vw,72px) 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
 .brand{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:.24em;text-decoration:none}
 .links{display:flex;flex-wrap:wrap;align-items:center;gap:28px;font-size:15px;font-weight:600}
@@ -91,10 +99,12 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   main{flex:0 0 auto}
   .hero{flex:1 1 auto;height:auto;min-height:0}
   nav{padding-top:3.4vh}
-  .sign{top:12vh}
-  .sign .cable{height:5vh}
-  .sign .word{font-size:clamp(56px,10.5vh,104px)}
-  .copy{bottom:6.5vh;gap:2vh}
+  .sign{right:auto;left:clamp(20px,5vw,72px);top:8.6vh}
+  .sign .cable{height:2.6vh}
+  .sign .plate{padding:.8vh 2.6vh 1.3vh;border-width:3px}
+  .sign .word{font-size:clamp(44px,7.6vh,84px)}
+  .copy{bottom:5vh;gap:1.6vh}
+  h1{line-height:1.02}
   h1{font-size:clamp(36px,6.4vh,68px)}
   .lead{font-size:clamp(15px,2.1vh,19px)}
   .btn{padding:clamp(12px,1.8vh,16px) 26px}
@@ -117,7 +127,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .settle,.rv,.sign .plate,.spill{animation:none;opacity:1}
+  .settle,.rv,.sign .plate,.spill,.sign .word span{animation:none;opacity:1}
+  .sign{transition:none}
   .spill{opacity:.55}
   .reveal{opacity:1;transform:none;transition:none}
   .par,.btn,.nl::after{transition:none}
@@ -135,7 +146,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   <div class="shade" aria-hidden="true"></div>
   <div class="par sign" data-depth="34" aria-hidden="true">
     <div class="cable"></div>
-    <div class="plate"><span class="word">NEON</span></div>
+    <div class="plate"><span class="word"><span>N</span><span>E</span><span>O</span><span>N</span></span></div>
   </div>
   <nav>
     <a class="brand rv" href="#hero" style="animation-delay:60ms">NEON / SOFTWAREHOUSE</a>
@@ -233,6 +244,29 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     });
   }, { threshold: 0.15 });
   items.forEach(function (el) { io.observe(el); });
+})();
+
+// Letreiro: a cada poucos segundos uma letra falha, o letreiro todo pisca ou os tubos ficam azuis
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sign = document.querySelector('.sign');
+  var word = sign.querySelector('.word');
+  var letters = word.querySelectorAll('span');
+  var timer;
+  function blink(el) {
+    el.classList.remove('pisca'); void el.offsetWidth; el.classList.add('pisca');
+  }
+  function tick() {
+    if (!document.hidden) {
+      var r = Math.random();
+      if (r < 0.45) blink(letters[Math.floor(Math.random() * letters.length)]);
+      else if (r < 0.7) blink(word);
+      else { blink(word); sign.classList.toggle('azul'); }
+    }
+    timer = setTimeout(tick, 2600 + Math.random() * 3400);
+  }
+  timer = setTimeout(tick, 2400);
+  window.addEventListener('pagehide', function () { clearTimeout(timer); });
 })();
 </script>
 </body>
