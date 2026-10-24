@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon mobile A (Banca) · Softwarehouse para pequenos negócios em São Paulo</title>
+<meta name="description" content="Site, logo, cardápio, redes e sistemas para pequenos negócios de São Paulo.">
+<meta name="theme-color" content="#05030F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Sora:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/hero-metro.jpg">
+<style>
+:root{
+  --ease:cubic-bezier(.22,1,.36,1);
+  --bg:#07041A;--night:#05030F;--ink:#F4EFFF;--soft:#E2DAF5;--muted:#B2A7D4;
+  --pink:#FF2E9A;--purple:#A24BFF;--blue:#2E8CFF;--cyan:#40E6DC;--yellow:#F2D75A;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Sora',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.page{position:relative;overflow:hidden}
+
+/* Hero */
+.hero{position:relative;height:min(100vh,820px);min-height:640px;overflow:hidden;background:var(--night)}
+.ph{position:absolute;inset:0;background:url("../assets/hero-metro.jpg") center 55%/cover no-repeat}
+.par{position:absolute;transition:transform 420ms var(--ease);will-change:transform}
+.par-photo{inset:-16px}
+.settle{position:absolute;inset:0;animation:settle 1600ms var(--ease) both}
+.spill{position:absolute;left:45%;top:0;width:70%;height:90%;background:radial-gradient(ellipse at 50% 30%,rgba(255,46,154,.6) 0%,rgba(162,75,255,.25) 35%,transparent 65%);mix-blend-mode:screen;opacity:0;animation:spillOn 1100ms linear 250ms forwards}
+.grain{position:absolute;inset:0;width:100%;height:100%;opacity:.16;mix-blend-mode:overlay;pointer-events:none}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,3,15,.86) 0%,rgba(5,3,15,.42) 40%,rgba(5,3,15,0) 62%)}
+.sign{right:9%;top:120px;display:flex;flex-direction:column;align-items:center}
+.sign .cable{width:2px;height:50px;background:#3A3550}
+.sign .plate{padding:10px 30px 16px;border:4px solid var(--tube);border-radius:14px;background:rgba(7,3,26,.55);box-shadow:0 0 22px var(--glow),0 0 70px var(--glow2),inset 0 0 18px var(--glow);opacity:0;animation:turnOn 1100ms linear 250ms forwards}
+.sign .word{display:inline-flex;font-family:'Bungee Inline',sans-serif;font-size:104px;line-height:1;color:var(--tube);text-shadow:0 0 10px var(--glow),0 0 30px var(--glow),0 0 80px var(--glow)}
+/* Letreiro vivo: cor dos tubos troca de rosa para azul, letras piscam de vez em quando */
+@property --glow{syntax:'<color>';inherits:true;initial-value:#FF2E9A}
+@property --glow2{syntax:'<color>';inherits:true;initial-value:#A24BFF}
+@property --tube{syntax:'<color>';inherits:true;initial-value:#FFE0F0}
+.sign{--glow:#FF2E9A;--glow2:#A24BFF;--tube:#FFE0F0;transition:--glow 700ms var(--ease),--glow2 700ms var(--ease),--tube 700ms var(--ease)}
+.sign.azul{--glow:#2E8CFF;--glow2:#40E6DC;--tube:#E2F3FF}
+.sign .word span.pisca,.sign .word.pisca{animation:flick 520ms linear}
+@keyframes flick{0%,100%{opacity:1}12%{opacity:.15}20%{opacity:.9}32%{opacity:.25}46%{opacity:1}60%{opacity:.4}70%{opacity:1}}
+nav{position:absolute;left:0;right:0;top:0;z-index:2;padding:30px clamp(20px,5vw,72px) 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:.24em;text-decoration:none}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:28px;font-size:15px;font-weight:600}
+.nl{position:relative;text-decoration:none}
+.nl::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform 180ms var(--ease)}
+.nl:hover::after{transform:scaleX(1)}
+.copy{position:absolute;z-index:1;left:clamp(20px,5vw,72px);bottom:110px;max-width:600px;display:flex;flex-direction:column;gap:20px}
+.eyebrow{font-family:'Space Mono',monospace;font-size:14px;letter-spacing:.2em;text-transform:uppercase}
+h1{margin:0;font-size:clamp(38px,5.2vw,70px);font-weight:800;line-height:1.02;letter-spacing:-.02em}
+.lead{margin:0;font-size:19px;line-height:1.5;color:var(--soft);max-width:480px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;padding:16px 26px;border-radius:999px;font-weight:800;text-decoration:none;transition:transform 180ms var(--ease),box-shadow 180ms var(--ease),background-color 180ms var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:scale(.97);transition-duration:100ms}
+.btn-p{background:var(--pink);color:#0B0420;box-shadow:0 0 26px rgba(255,46,154,.6)}
+.btn-p:hover{box-shadow:0 0 38px rgba(255,46,154,.9)}
+.btn-g{border:2px solid var(--ink);color:var(--ink);font-weight:600}
+.btn-g:hover{background-color:rgba(244,239,255,.12)}
+.btn-s{padding:12px 20px}
+a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.tactile{position:absolute;left:0;right:0;bottom:0;height:30px;background-color:#CFAE28;background-image:radial-gradient(circle at center,var(--yellow) 0 4px,transparent 5px);background-size:20px 15px;border-top:3px solid #0A0816;box-shadow:0 -8px 30px rgba(242,215,90,.18)}
+
+/* Plataforma */
+.platform{position:relative;padding:0 0 110px}
+.reflection{position:absolute;left:-30px;right:-30px;top:0;height:640px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 45%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 45%,transparent 100%)}
+.reflection .ph{transform:scaleY(-1);filter:blur(14px) brightness(.42) saturate(1.5)}
+.glow{position:absolute;right:2%;top:-40px;width:620px;max-width:90%;height:520px;background:radial-gradient(ellipse at 50% 20%,rgba(255,46,154,.32) 0%,rgba(162,75,255,.12) 40%,transparent 70%);pointer-events:none}
+.wrap{position:relative;max-width:1180px;margin:0 auto;padding:92px clamp(20px,5vw,48px) 0;display:flex;flex-direction:column;gap:40px}
+h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{position:relative;display:flex;flex-direction:column;gap:12px;padding:26px 26px 28px;border-radius:16px;background:rgba(14,10,34,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(162,75,255,.35);border-top:3px solid var(--pink);box-shadow:0 -6px 24px -10px rgba(255,46,154,.7);text-decoration:none}
+.card strong{font-size:22px}
+.card p{margin:0;font-size:16px;line-height:1.5;color:#D6CDEE}
+.line{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-family:'Space Mono',monospace;font-weight:700;font-size:15px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 600ms var(--ease),transform 600ms var(--ease),border-color 180ms var(--ease),box-shadow 180ms var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.card.in:hover{transition-delay:0ms!important;transform:translateY(-4px);border-color:rgba(255,46,154,.7);box-shadow:0 -6px 30px -8px rgba(255,46,154,.9),0 18px 40px -20px rgba(162,75,255,.6)}
+.card.in:active{transform:scale(.98)}
+.clients{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;font-size:15px;color:var(--muted)}
+.clients strong{color:var(--ink)}
+.plat-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+
+/* Entrada */
+.rv{opacity:0;animation:rise 720ms var(--ease) forwards}
+@keyframes settle{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes turnOn{0%{opacity:.08}10%{opacity:1}14%{opacity:.2}22%{opacity:1}27%{opacity:.35}36%,100%{opacity:1}}
+@keyframes spillOn{0%{opacity:0}10%{opacity:.55}14%{opacity:.1}22%{opacity:.55}27%{opacity:.2}36%,100%{opacity:.55}}
+
+/* Computador: tudo numa tela só, sem scroll */
+@media (min-width:1024px) and (min-height:600px){
+  html,body{height:100%;overflow:hidden}
+  .page{height:100vh;display:flex;flex-direction:column}
+  main{flex:0 0 auto}
+  .hero{flex:1 1 auto;height:auto;min-height:0}
+  nav{padding-top:3.4vh}
+  .sign{right:auto;left:clamp(20px,5vw,72px);top:8.6vh}
+  .sign .cable{height:2.6vh}
+  .sign .plate{padding:.8vh 2.6vh 1.3vh;border-width:3px}
+  .sign .word{font-size:clamp(44px,7.6vh,84px)}
+  .copy{bottom:5vh;gap:1.6vh}
+  h1{line-height:1.02}
+  h1{font-size:clamp(36px,6.4vh,68px)}
+  .lead{font-size:clamp(15px,2.1vh,19px)}
+  .btn{padding:clamp(12px,1.8vh,16px) 26px}
+  .btn-s{padding:12px 20px}
+  .platform{padding:0 0 3.6vh}
+  .wrap{max-width:none;margin:0;padding:3.4vh clamp(20px,5vw,72px) 0;gap:2.6vh}
+  h2{font-size:clamp(22px,3.4vh,34px)}
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .card{padding:clamp(14px,2vh,22px) 20px;gap:clamp(6px,1vh,10px)}
+  .card strong{font-size:clamp(16px,2.2vh,20px)}
+  .card p{font-size:clamp(13px,1.75vh,15px);line-height:1.45}
+  .line{width:30px;height:30px;font-size:13px}
+}
+
+@media (max-width:820px){
+  .links .nl{display:none}
+  .sign{right:50%;top:96px;transform:translateX(50%)}
+  .sign .word{font-size:64px}
+  .copy{bottom:70px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .settle,.rv,.sign .plate,.spill,.sign .word span{animation:none;opacity:1}
+  .sign{transition:none}
+  .spill{opacity:.55}
+  .reveal{opacity:1;transform:none;transition:none}
+  .par,.btn,.nl::after{transition:none}
+}
+
+/* ===== Mobile: base comum ===== */
+.wa{display:none}
+@media (max-width:820px){
+  nav{padding:18px 20px 0;flex-wrap:nowrap}
+  .brand{font-size:11px;letter-spacing:.12em;white-space:nowrap}
+  .btn-s{padding:9px 14px;font-size:13px;white-space:nowrap}
+  .hero{height:100svh;min-height:600px;max-height:900px}
+  .copy{left:20px;right:20px;bottom:56px;gap:14px}
+  h1{font-size:clamp(34px,10vw,44px)}
+  .lead{font-size:16px}
+  .ctas{flex-direction:column;gap:10px}
+  .ctas .btn{text-align:center;padding:17px 20px;font-size:17px}
+  .tactile{height:24px}
+  .wrap{padding:56px 20px 0;gap:26px}
+  h2{font-size:28px}
+  .plat-head{display:flex;flex-direction:column;gap:18px}
+  .clients{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px}
+  .platform{padding-bottom:120px}
+  .wa{display:flex;align-items:center;gap:10px;position:fixed;z-index:9;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));justify-content:center;padding:16px;border-radius:999px;background:#25D366;color:#04210F;font-weight:800;text-decoration:none;box-shadow:0 10px 30px -6px rgba(37,211,102,.55);opacity:0;transform:translateY(24px);pointer-events:none;transition:opacity 220ms var(--ease),transform 220ms var(--ease)}
+  .wa.show{opacity:1;transform:none;pointer-events:auto}
+  .wa:active{transform:scale(.97)}
+}
+@media (prefers-reduced-motion:reduce){.wa{transition:none}}
+
+@media (max-width:820px){
+  .ph{background-position:74% center}
+  .shade{background:linear-gradient(180deg,rgba(5,3,15,.55) 0%,rgba(5,3,15,0) 30%,rgba(5,3,15,.25) 48%,rgba(5,3,15,.92) 78%)}
+  .sign{right:50%;top:92px;transform:translateX(50%)}
+  .sign .word{font-size:clamp(48px,15vw,64px)}
+  .grid{grid-template-columns:1fr;gap:12px}
+  .card{flex-direction:row;flex-wrap:wrap;align-items:center;column-gap:14px;padding:18px;border-top:1px solid rgba(162,75,255,.35);border-left:4px solid var(--pink)}
+  .card strong{font-size:19px}
+  .card p{flex-basis:100%;font-size:15px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero" id="hero">
+  <div class="par par-photo" data-depth="10" aria-hidden="true">
+    <div class="settle"><div class="ph" style="filter:saturate(1.25) contrast(1.08) brightness(.88)"></div></div>
+    <div class="spill"></div>
+  </div>
+  <svg class="grain" aria-hidden="true"><filter id="grao"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grao)"/></svg>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="par sign" data-depth="34" aria-hidden="true">
+    <div class="cable"></div>
+    <div class="plate"><span class="word"><span>N</span><span>E</span><span>O</span><span>N</span></span></div>
+  </div>
+  <nav>
+    <a class="brand rv" href="#hero" style="animation-delay:60ms">NEON / SOFTWAREHOUSE</a>
+    <div class="links rv" style="animation-delay:120ms">
+      <a class="nl" href="#servicos">Serviços</a>
+      <a class="nl" href="#projetos">Projetos</a>
+      <a class="nl" href="#como">Como funciona</a>
+      <a class="btn btn-p btn-s" href="#contato">Fale com a gente</a>
+    </div>
+  </nav>
+  <div class="copy">
+    <span class="eyebrow rv" style="color:#FF8CC6;animation-delay:200ms">Desça aqui</span>
+    <h1 class="rv" style="animation-delay:270ms">Todo negócio merece uma placa acesa.</h1>
+    <p class="lead rv" style="animation-delay:340ms">Site, logo, cardápio, redes e sistemas para pequenos negócios de São Paulo.</p>
+    <div class="ctas rv" style="animation-delay:410ms">
+      <a class="btn btn-p" href="https://wa.me/5511900000000?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Quero minha placa</a>
+      <a class="btn btn-g" href="#servicos">Ver serviços</a>
+    </div>
+  </div>
+  <div class="tactile" aria-hidden="true"></div>
+</header>
+
+<main>
+<section class="platform" id="servicos">
+  <div class="reflection" aria-hidden="true"><div class="ph"></div></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="plat-head">
+      <div class="reveal" style="display:flex;flex-direction:column;gap:12px;max-width:640px">
+        <span class="eyebrow" style="color:var(--yellow)">Plataforma 1 · O que a gente acende</span>
+        <h2>Do zero à placa ligada, num só lugar.</h2>
+      </div>
+      <div class="clients reveal" id="projetos" style="transition-delay:280ms">
+        <span class="eyebrow" style="font-size:15px;letter-spacing:.16em">Já acendemos</span>
+        <strong>Naruá</strong><strong>Granola Pura</strong><strong>Makiolki</strong>
+      </div>
+    </div>
+    <div class="grid">
+      <a class="card reveal" href="#contato" style="transition-delay:0ms">
+        <span class="line" style="background:var(--pink);color:#0B0420">1</span>
+        <strong>Site</strong>
+        <p>Uma página que aparece no Google e leva o cliente direto para o WhatsApp.</p>
+      </a>
+      <a class="card reveal" href="#contato" style="transition-delay:70ms">
+        <span class="line" style="background:var(--purple);color:#fff">2</span>
+        <strong>Logo e identidade</strong>
+        <p>Marca, cores e fontes que fazem o seu negócio ser reconhecido de longe.</p>
+      </a>
+      <a class="card reveal" href="#contato" style="transition-delay:140ms">
+        <span class="line" style="background:var(--blue);color:#fff">3</span>
+        <strong>Cardápio e redes</strong>
+        <p>Cardápio digital e posts prontos para o Instagram, no mesmo visual.</p>
+      </a>
+      <a class="card reveal" href="#contato" style="transition-delay:210ms">
+        <span class="line" style="background:var(--cyan);color:#05121A">4</span>
+        <strong>Sistemas sob medida</strong>
+        <p>Vendas, custos e estoque organizados, como fizemos no Naruá.</p>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+<a class="wa" href="https://wa.me/5511900000000?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>Chamar no WhatsApp</a>
+</div>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Parallax leve no hero: a placa se move mais que a foto
+  var hero = document.getElementById('hero');
+  var layers = hero.querySelectorAll('.par[data-depth]');
+  function onMove(e) {
+    var r = hero.getBoundingClientRect();
+    var mx = ((e.clientX - r.left) / r.width) * 2 - 1;
+    var my = ((e.clientY - r.top) / r.height) * 2 - 1;
+    layers.forEach(function (el) {
+      var d = Number(el.dataset.depth);
+      var base = el.classList.contains('sign') && window.innerWidth <= 820 ? ' translateX(50%)' : '';
+      el.style.transform = 'translate(' + Math.round(mx * -d) + 'px,' + Math.round(my * -d * 0.4) + 'px)' + base;
+    });
+  }
+  if (!reduce && window.matchMedia('(pointer: fine)').matches) hero.addEventListener('mousemove', onMove);
+
+  // Revela a plataforma quando entra na tela
+  var items = document.querySelectorAll('.reveal');
+  var timers = [];
+  window.addEventListener('pagehide', function () { timers.forEach(clearTimeout); io && io.disconnect(); });
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { var t = en.target; io.unobserve(t); timers.push(setTimeout(function () { t.classList.add('in'); }, 380)); }
+    });
+  }, { threshold: 0.15 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+
+// Letreiro: a cada poucos segundos uma letra falha, o letreiro todo pisca ou os tubos ficam azuis
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sign = document.querySelector('.sign');
+  var word = sign.querySelector('.word');
+  var letters = word.querySelectorAll('span');
+  var timer;
+  function blink(el) {
+    el.classList.remove('pisca'); void el.offsetWidth; el.classList.add('pisca');
+  }
+  function tick() {
+    if (!document.hidden) {
+      var r = Math.random();
+      if (r < 0.45) blink(letters[Math.floor(Math.random() * letters.length)]);
+      else if (r < 0.7) blink(word);
+      else { blink(word); sign.classList.toggle('azul'); }
+    }
+    timer = setTimeout(tick, 2600 + Math.random() * 3400);
+  }
+  timer = setTimeout(tick, 2400);
+  window.addEventListener('pagehide', function () { clearTimeout(timer); });
+})();
+</script>
+
+<script>
+(function(){var wa=document.querySelector('.wa'),hero=document.getElementById('hero');
+if(!('IntersectionObserver' in window))return;
+var io=new IntersectionObserver(function(e){wa.classList.toggle('show',!e[0].isIntersecting)},{threshold:0.05});
+io.observe(hero);window.addEventListener('pagehide',function(){io.disconnect()});})();
+</script>
+</body>
+</html>
