@@ -251,6 +251,62 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .cli-row{scroll-behavior:auto}
   .cli-frame:hover .cli-screen img{transform:none}
 }
+
+/* ===== Quem somos ===== */
+.quem{position:relative;padding:10vh clamp(20px,5vw,72px) 12vh;overflow:hidden;
+  background:radial-gradient(ellipse 60% 50% at 0% 40%,rgba(255,46,154,.16),transparent 70%),radial-gradient(ellipse 50% 40% at 100% 90%,rgba(46,140,255,.14),transparent 70%),var(--night)}
+.quem-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1280px;margin:0 auto}
+/* Foto de bastidores como vitrine iluminada */
+.quem-foto{position:relative;margin:0;border-radius:18px;overflow:hidden;aspect-ratio:3/4;max-height:78vh;border:2px solid rgba(255,184,220,.6);
+  box-shadow:0 0 24px rgba(255,46,154,.45),0 0 80px rgba(162,75,255,.25),inset 0 0 0 1px rgba(5,3,15,.6)}
+.quem-foto img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1400ms var(--ease)}
+.quem-foto.in img{transform:scale(1)}
+.quem-foto::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,3,15,0) 55%,rgba(5,3,15,.85) 100%)}
+.quem-foto figcaption{position:absolute;z-index:1;left:18px;right:18px;bottom:16px;font-family:'Space Mono',monospace;font-size:13px;color:var(--soft)}
+.quem-foto figcaption b{color:var(--pink);font-weight:700}
+.quem-txt{display:flex;flex-direction:column;gap:22px}
+.quem-txt h2{max-width:620px}
+.quem-txt p{margin:0;font-size:17px;line-height:1.6;color:var(--soft);max-width:600px}
+.quem-txt p strong{color:var(--ink)}
+/* Linha do tempo como linha de metrô: as estações acendem uma de cada vez */
+.trajeto{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:10px 0 4px;padding:0;list-style:none}
+.trajeto::before{content:"";position:absolute;left:10%;right:10%;top:17px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--cyan));opacity:.25}
+.trajeto::after{content:"";position:absolute;left:10%;right:10%;top:17px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--cyan));box-shadow:0 0 14px rgba(162,75,255,.7);transform:scaleX(0);transform-origin:left;transition:transform 900ms var(--ease) 200ms}
+.trajeto.in::after{transform:scaleX(1)}
+.est{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.est i{width:40px;height:40px;border-radius:50%;background:var(--night);border:4px solid var(--night);box-shadow:0 0 0 2px rgba(244,239,255,.3);transition:background-color 220ms var(--ease),box-shadow 220ms var(--ease)}
+.trajeto.in .est i{background:var(--c);box-shadow:0 0 0 2px #fff,0 0 18px var(--c)}
+.trajeto.in .est:nth-child(1) i{transition-delay:200ms}.trajeto.in .est:nth-child(2) i{transition-delay:370ms}.trajeto.in .est:nth-child(3) i{transition-delay:540ms}.trajeto.in .est:nth-child(4) i{transition-delay:710ms}.trajeto.in .est:nth-child(5) i{transition-delay:880ms}
+.est div{display:flex;flex-direction:column;gap:3px}
+.est b{font-size:15px}
+.est span{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.est.agora b{color:#B0DCFF}
+.valores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.valor{padding:16px 18px;border-radius:14px;background:rgba(14,10,34,.72);border:1px solid rgba(162,75,255,.35);border-top:3px solid var(--c)}
+.valor strong{display:block;font-size:16px;margin-bottom:6px}
+.valor p{font-size:14px;line-height:1.5}
+.quem-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
+@media (max-width:1023px){
+  .quem-in{grid-template-columns:1fr}
+  .quem-foto{max-height:none;aspect-ratio:4/5;max-width:520px}
+}
+@media (max-width:820px){
+  .quem{padding:56px 20px 130px}
+  .quem-txt p{font-size:16px}
+  .valores{grid-template-columns:1fr}
+  /* No celular o trajeto vira a mesma linha vertical da "Linha Neon" */
+  .trajeto{grid-template-columns:1fr;gap:14px;padding-left:4px}
+  .trajeto::before,.trajeto::after{left:21px;right:auto;top:20px;bottom:20px;width:6px;height:auto}
+  .trajeto::after{transform:scaleY(0);transform-origin:top}
+  .trajeto.in::after{transform:scaleY(1)}
+  .est{flex-direction:row;text-align:left;gap:16px}
+  .quem-ctas{flex-direction:column}
+  .quem-ctas .btn{text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .quem-foto img,.trajeto::after,.est i{transition:none}
+  .quem-foto img{transform:none}
+}
 </style>
 </head>
 <body>
@@ -273,6 +329,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       <a class="nl" href="#servicos">Serviços</a>
       <a class="nl" href="#projetos">Projetos</a>
       <a class="nl" href="#como">Como funciona</a>
+      <a class="nl" href="#quem">Quem somos</a>
       <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Fale com a gente</a>
     </div>
   </nav>
@@ -387,6 +444,38 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     </article>
   </div>
   <div class="cli-swipe" aria-hidden="true">← ARRASTE PARA VER OS OUTROS CLIENTES →</div>
+</section>
+<section class="quem" id="quem" aria-labelledby="quem-titulo">
+  <div class="quem-in">
+    <figure class="quem-foto reveal">
+      <img src="assets/quem/bastidores.jpg" alt="Bastidores dentro do food truck Naruá, com a equipe cozinhando sob luz rosa e roxa" loading="lazy">
+      <figcaption><b>$</b> bastidores · dentro do Naruá</figcaption>
+    </figure>
+    <div class="quem-txt">
+      <div class="reveal" style="display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow" style="color:var(--yellow)">Quem somos · Próxima estação</span>
+        <h2 id="quem-titulo">A gente nasceu dentro de um food truck.</h2>
+      </div>
+      <p class="reveal" style="transition-delay:70ms">A Neon Scripts começou no balcão do <strong>Naruá</strong>, onde comanda era caderno e cardápio era papel. Trocamos isso por um sistema que mostra o faturamento do dia e os pratos que mais vendem. Deu tão certo que outros negócios do bairro vieram perguntar como fazer igual.</p>
+      <p class="reveal" style="transition-delay:140ms">Hoje somos uma softwarehouse de <strong>São Paulo</strong> que fala a língua de quem tem um negócio pequeno: sem jargão, sem projeto que nunca termina. Marca, site, redes e sistemas, feitos por quem já esteve atrás do balcão.</p>
+      <ol class="trajeto reveal" aria-label="Nosso trajeto até aqui" style="transition-delay:200ms">
+        <li class="est" style="--c:#FF8A1F"><i></i><div><b>Naruá</b><span>Sistema e marca</span></div></li>
+        <li class="est" style="--c:#E0A040"><i></i><div><b>Granola Pura</b><span>Site e pedidos</span></div></li>
+        <li class="est" style="--c:#FF4F8B"><i></i><div><b>Makiolki</b><span>Cardápio digital</span></div></li>
+        <li class="est" style="--c:#3FBF9A"><i></i><div><b>Contorno</b><span>Site animado</span></div></li>
+        <li class="est agora" style="--c:#2E8CFF"><i></i><div><b>Neon Scripts</b><span>Seu negócio</span></div></li>
+      </ol>
+      <div class="valores reveal" style="transition-delay:260ms">
+        <div class="valor" style="--c:var(--pink)"><strong>Papo reto</strong><p>Resposta em horário comercial e alinhamento em até 24h.</p></div>
+        <div class="valor" style="--c:var(--purple)"><strong>Rápido de verdade</strong><p>Um site pode ficar pronto na mesma semana.</p></div>
+        <div class="valor" style="--c:var(--blue)"><strong>Feito para durar</strong><p>Você fica com tudo: domínio, marca e acesso ao sistema.</p></div>
+      </div>
+      <div class="quem-ctas reveal" style="transition-delay:320ms">
+        <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Conversar com a gente</a>
+        <a class="btn btn-g" href="#projetos">Ver projetos</a>
+      </div>
+    </div>
+  </div>
 </section>
 <a class="wa" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>Chamar no WhatsApp</a>
 </div>
