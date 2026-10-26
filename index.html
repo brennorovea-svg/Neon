@@ -259,11 +259,35 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 /* Foto de bastidores como vitrine iluminada */
 .quem-foto{position:relative;margin:0;border-radius:18px;overflow:hidden;aspect-ratio:3/4;max-height:78vh;border:2px solid rgba(255,184,220,.6);
   box-shadow:0 0 24px rgba(255,46,154,.45),0 0 80px rgba(162,75,255,.25),inset 0 0 0 1px rgba(5,3,15,.6)}
-.quem-foto img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1400ms var(--ease)}
-.quem-foto.in img{transform:scale(1)}
-.quem-foto::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,3,15,0) 55%,rgba(5,3,15,.85) 100%)}
-.quem-foto figcaption{position:absolute;z-index:1;left:18px;right:18px;bottom:16px;font-family:'Space Mono',monospace;font-size:13px;color:var(--soft)}
-.quem-foto figcaption b{color:var(--pink);font-weight:700}
+/* Carrossel: trilho com scroll-snap (arrastar no celular), setas e marcadores no computador */
+.qf-trilho{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
+.qf-trilho::-webkit-scrollbar{display:none}
+.qf-trilho:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+.qf-slide{position:relative;flex:0 0 100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always}
+.qf-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.qf-slide:first-child img{transform:scale(1.06);transition:transform 1400ms var(--ease)}
+.quem-foto.in .qf-slide:first-child img{transform:scale(1)}
+.qf-slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,3,15,.55) 0%,rgba(5,3,15,0) 16%,rgba(5,3,15,0) 55%,rgba(5,3,15,.85) 100%)}
+.qf-leg{position:absolute;z-index:1;left:18px;right:116px;bottom:18px;margin:0;font-family:'Space Mono',monospace;font-size:13px;line-height:1.4;color:var(--soft)}
+.qf-leg b{color:var(--pink);font-weight:700}
+/* Vaga reservada para as próximas fotos: some quando entra a foto de verdade */
+.qf-vaga{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;height:100%;padding:24px;text-align:center;
+  background:repeating-linear-gradient(135deg,rgba(162,75,255,.08) 0 14px,transparent 14px 28px),var(--bg);color:var(--muted);font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.qf-vaga svg{color:#FFB8DC;filter:drop-shadow(0 0 8px var(--pink))}
+/* Marcadores no topo, como a barra de stories */
+.qf-marcas{position:absolute;z-index:2;top:8px;left:12px;right:12px;display:flex;gap:6px}
+.qf-marcas button{flex:1;height:24px;padding:0;border:0;background:none;cursor:pointer}
+.qf-marcas button::before{content:"";display:block;height:3px;border-radius:2px;background:rgba(244,239,255,.3);background-image:linear-gradient(90deg,var(--pink),var(--purple));background-size:0 100%;background-repeat:no-repeat;transition:background-size 220ms var(--ease)}
+.qf-marcas button[aria-current="true"]::before{background-size:100% 100%;box-shadow:0 0 8px rgba(255,46,154,.8)}
+.qf-marcas button:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:4px}
+.qf-setas{position:absolute;z-index:2;right:14px;bottom:12px;display:flex;gap:8px}
+.qf-setas button{width:40px;height:40px;border-radius:50%;border:2px solid rgba(244,239,255,.6);background:rgba(5,3,15,.55);color:var(--ink);font:700 16px 'Sora',sans-serif;cursor:pointer;transition:transform 180ms var(--ease),background-color 180ms var(--ease),opacity 180ms var(--ease)}
+.qf-setas button:hover{background-color:rgba(244,239,255,.14)}
+.qf-setas button:active{transform:scale(.97)}
+.qf-setas button:disabled{opacity:.3;cursor:default}
+.qf-setas button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.qf-so-leitor{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (pointer:coarse){.qf-setas{display:none}.qf-leg{right:18px}}
 .quem-txt{display:flex;flex-direction:column;gap:22px}
 .quem-txt h2{max-width:620px}
 .quem-txt p{margin:0;font-size:17px;line-height:1.6;color:var(--soft);max-width:600px}
@@ -318,8 +342,9 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .quem-ctas .btn{text-align:center}
 }
 @media (prefers-reduced-motion:reduce){
-  .quem-foto img,.trajeto::after,.est i,.pessoa,.pessoa i{transition:none}
-  .quem-foto img{transform:none}
+  .quem-foto img,.trajeto::after,.est i,.pessoa,.pessoa i,.qf-marcas button::before,.qf-setas button{transition:none}
+  .quem-foto img,.quem-foto.in .qf-slide:first-child img{transform:none}
+  .qf-trilho{scroll-behavior:auto}
 }
 
 /* ===== Como funciona ===== */
@@ -521,10 +546,30 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 
 <section class="quem" id="quem" aria-labelledby="quem-titulo">
   <div class="quem-in">
-    <figure class="quem-foto reveal">
-      <img src="assets/quem/bastidores.jpg" alt="Bastidores dentro do food truck Naruá, onde rodamos o app que lê as comandas com IA" loading="lazy">
-      <figcaption><b>$</b> bastidores · o app de comandas rodando no Naruá</figcaption>
-    </figure>
+    <div class="quem-foto reveal" role="region" aria-roledescription="carrossel" aria-label="Fotos da Neon Scripts">
+      <div class="qf-trilho" tabindex="0" aria-label="Arraste ou use as setas para ver as fotos">
+      <div class="qf-slide" role="group" aria-roledescription="foto" aria-label="1 de 4">
+        <img src="assets/quem/bastidores.jpg" alt="Bastidores dentro do food truck Naruá, onde rodamos o app que lê as comandas com IA" loading="lazy">
+        <p class="qf-leg"><b>$</b> bastidores · o app de comandas rodando no Naruá</p>
+      </div>
+      <!-- Vagas para as próximas fotos: troque o .qf-vaga por <img src="assets/quem/arquivo.jpg" alt="..." loading="lazy"> e ajuste a legenda -->
+      <div class="qf-slide" role="group" aria-roledescription="foto" aria-label="2 de 4">
+        <div class="qf-vaga"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Foto em breve</span></div>
+        <p class="qf-leg"><b>$</b> em breve · mais bastidores</p>
+      </div>
+      <div class="qf-slide" role="group" aria-roledescription="foto" aria-label="3 de 4">
+        <div class="qf-vaga"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Foto em breve</span></div>
+        <p class="qf-leg"><b>$</b> em breve · mais bastidores</p>
+      </div>
+      <div class="qf-slide" role="group" aria-roledescription="foto" aria-label="4 de 4">
+        <div class="qf-vaga"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Foto em breve</span></div>
+        <p class="qf-leg"><b>$</b> em breve · mais bastidores</p>
+      </div>
+      </div>
+      <div class="qf-marcas"></div>
+      <div class="qf-setas"><button type="button" data-dir="-1" aria-label="Foto anterior">←</button><button type="button" data-dir="1" aria-label="Próxima foto">→</button></div>
+      <p class="qf-so-leitor" aria-live="polite"></p>
+    </div>
     <div class="quem-txt">
       <div class="reveal" style="display:flex;flex-direction:column;gap:12px">
         <span class="eyebrow" style="color:var(--yellow)">Quem somos · Zona leste, SP</span>
@@ -690,6 +735,62 @@ io.observe(hero);window.addEventListener('pagehide',function(){io.disconnect()})
     window.addEventListener('pagehide', function () { io.disconnect(); });
   } else { light(); }
   window.addEventListener('pagehide', function () { timers.forEach(clearTimeout); });
+})();
+</script>
+<script>
+// Quem somos: carrossel de fotos. O trilho rola com scroll-snap (arrasta no celular); setas e marcadores levam à foto certa
+(function () {
+  var box = document.querySelector('.quem-foto');
+  if (!box) return;
+  var trilho = box.querySelector('.qf-trilho');
+  var slides = trilho.querySelectorAll('.qf-slide');
+  var marcas = box.querySelector('.qf-marcas');
+  var setas = box.querySelector('.qf-setas').children;
+  var status = box.querySelector('.qf-so-leitor');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var atual = -1, raf = 0;
+
+  Array.prototype.forEach.call(slides, function (sl, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ' de ' + slides.length);
+    b.addEventListener('click', function () { ir(i); });
+    marcas.appendChild(b);
+  });
+  if (slides.length < 2) { marcas.hidden = true; box.querySelector('.qf-setas').hidden = true; }
+
+  function ir(i) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    trilho.scrollTo({ left: i * trilho.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function marcar() {
+    raf = 0;
+    var i = Math.round(trilho.scrollLeft / Math.max(1, trilho.clientWidth));
+    if (i === atual) return;
+    atual = i;
+    Array.prototype.forEach.call(marcas.children, function (b, k) { b.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    Array.prototype.forEach.call(slides, function (sl, k) { sl.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+    setas[0].disabled = i === 0;
+    setas[1].disabled = i === slides.length - 1;
+    status.textContent = 'Foto ' + (i + 1) + ' de ' + slides.length;
+  }
+  function onScroll() { if (!raf) raf = requestAnimationFrame(marcar); }
+  trilho.addEventListener('scroll', onScroll, { passive: true });
+  Array.prototype.forEach.call(setas, function (b) {
+    b.addEventListener('click', function () { ir(atual + Number(b.dataset.dir)); });
+  });
+  trilho.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); ir(atual + (e.key === 'ArrowRight' ? 1 : -1)); }
+  });
+  function onResize() { trilho.scrollLeft = atual * trilho.clientWidth; }
+  window.addEventListener('resize', onResize);
+  window.addEventListener('pagehide', function () {
+    if (raf) cancelAnimationFrame(raf);
+    trilho.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onResize);
+  });
+  marcar();
+  status.textContent = '';
 })();
 </script>
 </body>
