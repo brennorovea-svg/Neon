@@ -286,7 +286,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .pessoa{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;background:rgba(14,10,34,.72);border:1px solid rgba(162,75,255,.35);text-decoration:none;transition:transform 180ms var(--ease),border-color 180ms var(--ease)}
 .pessoa:hover{transform:translateY(-2px);border-color:rgba(255,46,154,.7)}
 .pessoa:active{transform:scale(.97);transition-duration:100ms}
-.avatar{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:2px solid #FFB8DC;font-family:'Bungee Inline',sans-serif;font-size:18px;color:#FFB8DC;text-shadow:0 0 8px var(--pink);box-shadow:0 0 14px rgba(255,46,154,.6),inset 0 0 10px rgba(255,46,154,.5);background:var(--night) center/cover no-repeat}
+.avatar{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:52px;height:52px;padding:2px;border-radius:50%;border:2px solid #FFB8DC;font-family:'Bungee Inline',sans-serif;font-size:18px;color:#FFB8DC;text-shadow:0 0 8px var(--pink);box-shadow:0 0 14px rgba(255,46,154,.6),inset 0 0 10px rgba(255,46,154,.5);background:var(--night) center/cover no-repeat}
+.avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
 .pessoa-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
 .pessoa-txt b{font-size:16px}
 .pessoa-txt span{font-size:14px;color:var(--soft)}
@@ -480,8 +481,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       </ol>
       <div class="pessoas reveal" style="transition-delay:260ms">
         <a class="pessoa" href="https://www.linkedin.com/in/brenno-rovea/" target="_blank" rel="noopener">
-          <span class="avatar" aria-hidden="true">BR</span>
-          <span class="pessoa-txt"><b>Brenno Rovea</b><span>Fundador · dados e produto</span><small>Ciência de Dados · MBA em BI e Analytics na USP</small></span>
+          <span class="avatar"><img src="assets/quem/brenno.jpg" alt="Foto de Brenno Rovea" width="52" height="52" loading="lazy"></span>
+          <span class="pessoa-txt"><b>Brenno Rovea</b><span>Fundador · dados e produto</span><small>Cientista de dados · MBA em BI e Analytics na USP</small></span>
           <i aria-hidden="true">↗</i>
         </a>
       </div>
