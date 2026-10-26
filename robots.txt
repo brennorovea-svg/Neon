@@ -1,0 +1,5 @@
+# Todo o site pode ser lido pelo Google e outros buscadores
+User-agent: *
+Allow: /
+
+Sitemap: https://neonscripts.com.br/sitemap.xml
