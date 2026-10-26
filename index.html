@@ -281,6 +281,19 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .est b{font-size:15px}
 .est span{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .est.agora b{color:#B0DCFF}
+/* Pessoas: um card por pessoa, pronto para crescer com o time */
+.pessoas{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.pessoa{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;background:rgba(14,10,34,.72);border:1px solid rgba(162,75,255,.35);text-decoration:none;transition:transform 180ms var(--ease),border-color 180ms var(--ease)}
+.pessoa:hover{transform:translateY(-2px);border-color:rgba(255,46,154,.7)}
+.pessoa:active{transform:scale(.97);transition-duration:100ms}
+.avatar{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:2px solid #FFB8DC;font-family:'Bungee Inline',sans-serif;font-size:18px;color:#FFB8DC;text-shadow:0 0 8px var(--pink);box-shadow:0 0 14px rgba(255,46,154,.6),inset 0 0 10px rgba(255,46,154,.5);background:var(--night) center/cover no-repeat}
+.pessoa-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pessoa-txt b{font-size:16px}
+.pessoa-txt span{font-size:14px;color:var(--soft)}
+.pessoa-txt small{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted)}
+.pessoa i{margin-left:auto;font-style:normal;color:#FFB8DC;transition:transform 180ms var(--ease)}
+.pessoa:hover i{transform:translate(2px,-2px)}
+.quem-txt .manifesto{font-size:18px;color:var(--ink);padding-left:16px;border-left:3px solid var(--pink)}
 .valores{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .valor{padding:16px 18px;border-radius:14px;background:rgba(14,10,34,.72);border:1px solid rgba(162,75,255,.35);border-top:3px solid var(--c)}
 .valor strong{display:block;font-size:16px;margin-bottom:6px}
@@ -304,7 +317,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .quem-ctas .btn{text-align:center}
 }
 @media (prefers-reduced-motion:reduce){
-  .quem-foto img,.trajeto::after,.est i{transition:none}
+  .quem-foto img,.trajeto::after,.est i,.pessoa,.pessoa i{transition:none}
   .quem-foto img{transform:none}
 }
 </style>
@@ -448,29 +461,32 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 <section class="quem" id="quem" aria-labelledby="quem-titulo">
   <div class="quem-in">
     <figure class="quem-foto reveal">
-      <img src="assets/quem/bastidores.jpg" alt="Bastidores dentro do food truck Naruá, com a equipe cozinhando sob luz rosa e roxa" loading="lazy">
-      <figcaption><b>$</b> bastidores · dentro do Naruá</figcaption>
+      <img src="assets/quem/bastidores.jpg" alt="Bastidores dentro do food truck Naruá, onde rodamos o app que lê as comandas com IA" loading="lazy">
+      <figcaption><b>$</b> bastidores · o app de comandas rodando no Naruá</figcaption>
     </figure>
     <div class="quem-txt">
       <div class="reveal" style="display:flex;flex-direction:column;gap:12px">
-        <span class="eyebrow" style="color:var(--yellow)">Quem somos · Próxima estação</span>
-        <h2 id="quem-titulo">A gente nasceu dentro de um food truck.</h2>
+        <span class="eyebrow" style="color:var(--yellow)">Quem somos · Zona leste, SP</span>
+        <h2 id="quem-titulo">Anos de grande empresa, agora do lado de quem faz o bairro girar.</h2>
       </div>
-      <p class="reveal" style="transition-delay:70ms">A Neon Scripts começou no balcão do <strong>Naruá</strong>, onde comanda era caderno e cardápio era papel. Trocamos isso por um sistema que mostra o faturamento do dia e os pratos que mais vendem. Deu tão certo que outros negócios do bairro vieram perguntar como fazer igual.</p>
-      <p class="reveal" style="transition-delay:140ms">Hoje somos uma softwarehouse de <strong>São Paulo</strong> que fala a língua de quem tem um negócio pequeno: sem jargão, sem projeto que nunca termina. Marca, site, redes e sistemas, feitos por quem já esteve atrás do balcão.</p>
-      <ol class="trajeto reveal" aria-label="Nosso trajeto até aqui" style="transition-delay:200ms">
-        <li class="est" style="--c:#FF8A1F"><i></i><div><b>Naruá</b><span>Sistema e marca</span></div></li>
-        <li class="est" style="--c:#E0A040"><i></i><div><b>Granola Pura</b><span>Site e pedidos</span></div></li>
-        <li class="est" style="--c:#FF4F8B"><i></i><div><b>Makiolki</b><span>Cardápio digital</span></div></li>
-        <li class="est" style="--c:#3FBF9A"><i></i><div><b>Contorno</b><span>Site animado</span></div></li>
-        <li class="est agora" style="--c:#2E8CFF"><i></i><div><b>Neon Scripts</b><span>Seu negócio</span></div></li>
+      <p class="reveal" style="transition-delay:70ms">Por quase dez anos eu transformei dados em decisão dentro de grandes empresas. Comecei como estagiário no <strong>Magazine Luiza</strong> e virei especialista em BI. Depois coordenei times de dados no <strong>St Marche</strong> e no <strong>Grupo Multi</strong>, e fui gerente de produto de Big Data na <strong>Samsung</strong>.</p>
+      <p class="reveal" style="transition-delay:140ms">Lá dentro aprendi que todo número esquecido é dinheiro deixado na mesa. Grande empresa tem um time inteiro para não deixar isso acontecer. O pequeno empresário não tem, e é para ele que a Neon Scripts existe.</p>
+      <ol class="trajeto reveal" aria-label="Trajetória até a Neon Scripts" style="transition-delay:200ms">
+        <li class="est" style="--c:var(--pink)"><i></i><div><b>Magazine Luiza</b><span>Estágio → BI</span></div></li>
+        <li class="est" style="--c:var(--purple)"><i></i><div><b>St Marche</b><span>Coord. de dados</span></div></li>
+        <li class="est" style="--c:#7A6BFF"><i></i><div><b>Grupo Multi</b><span>Coord. de dados</span></div></li>
+        <li class="est" style="--c:var(--blue)"><i></i><div><b>Samsung</b><span>Big Data</span></div></li>
+        <li class="est agora" style="--c:var(--cyan)"><i></i><div><b>Neon Scripts</b><span>Seu negócio</span></div></li>
       </ol>
-      <div class="valores reveal" style="transition-delay:260ms">
-        <div class="valor" style="--c:var(--pink)"><strong>Papo reto</strong><p>Resposta em horário comercial e alinhamento em até 24h.</p></div>
-        <div class="valor" style="--c:var(--purple)"><strong>Rápido de verdade</strong><p>Um site pode ficar pronto na mesma semana.</p></div>
-        <div class="valor" style="--c:var(--blue)"><strong>Feito para durar</strong><p>Você fica com tudo: domínio, marca e acesso ao sistema.</p></div>
+      <div class="pessoas reveal" style="transition-delay:260ms">
+        <a class="pessoa" href="https://www.linkedin.com/in/brenno-rovea/" target="_blank" rel="noopener">
+          <span class="avatar" aria-hidden="true">BR</span>
+          <span class="pessoa-txt"><b>Brenno Rovea</b><span>Fundador · dados e produto</span><small>Ciência de Dados · MBA em BI e Analytics na USP</small></span>
+          <i aria-hidden="true">↗</i>
+        </a>
       </div>
-      <div class="quem-ctas reveal" style="transition-delay:320ms">
+      <p class="manifesto reveal" style="transition-delay:320ms">Nascemos na zona leste de São Paulo. Somos classe trabalhadora e sabemos que ninguém cresce sozinho: <strong>a gente se ajuda.</strong></p>
+      <div class="quem-ctas reveal" style="transition-delay:380ms">
         <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Conversar com a gente</a>
         <a class="btn btn-g" href="#projetos">Ver projetos</a>
       </div>
