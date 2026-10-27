@@ -27,7 +27,7 @@ Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backd
 - **Space Mono** 400/700: sobretítulos em caixa alta com `letter-spacing .2em`, marca no menu, toques de terminal (`$ ./orcamento`).
 
 ## Letreiro
-Placa com borda de 4px na cor do tubo, raio 14px, fundo `rgba(7,3,26,.55)`. NEON em Bungee Inline; SCRIPTS embaixo em `.355em`, `letter-spacing .06em`, sempre na cor oposta.
+Placa parafusada (sem cabo): 4 parafusos de metal nos cantos (`.parafusos`), sombra embaixo e luz da cor do tubo na parede atrás. Borda de 4px na cor do tubo, raio 14px, fundo `rgba(7,3,26,.55)`. NEON em Bungee Inline; SCRIPTS embaixo em `.355em`, `letter-spacing .06em`, sempre na cor oposta.
 - Rosa: brilho `#FF2E9A`, brilho 2 `#A24BFF`, tubo `#FFB8DC`.
 - Azul: brilho `#2E8CFF`, brilho 2 `#40E6DC`, tubo `#B0DCFF`.
 - Brilho com `text-shadow` em 3 camadas (10/30/80px) e `box-shadow` externo + interno.
