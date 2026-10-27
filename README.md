@@ -3,7 +3,7 @@
 Site estático da Neon, softwarehouse para pequenos negócios de São Paulo.
 
 - `index.html`: página única (hero com o letreiro + serviços, projetos, como funciona, quem somos e contato), com CSS e JS embutidos, sem build.
-- `assets/hero-banca.jpg`: foto do hero (banca de rua na chuva).
+- `assets/hero-metro.jpg`: foto do hero (entrada do metrô à noite).
 
 Para ver localmente, abra `index.html` no navegador.
 
