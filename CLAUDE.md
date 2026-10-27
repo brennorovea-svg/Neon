@@ -17,8 +17,9 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 
 ## Marca
 - Nome: **Neon Scripts** (com espaço). Instagram @neon.scripts. Nunca só "Neon": conflita com o banco Neon e com o Neon Postgres.
+- Não repetir "Neon Scripts" em texto no menu: o letreiro já é a marca.
 - Letreiro: NEON em cima e SCRIPTS embaixo dentro da mesma placa, sempre em cores opostas (rosa/azul) que invertem juntas, com piscadas de vez em quando.
-- **Sem metrô.** Nada de estação, linha, plataforma, baldeação, embarque, piso tátil. O Brenno vetou em 2026-10-27. O código ainda tem restos (foto `assets/hero-metro.jpg`, faixa `.tactile`, classe `.platform`, bolinhas `.line`): trocar quando houver foto própria, não reforçar.
+- **Sem metrô.** Nada de estação, linha, plataforma, baldeação, embarque, piso tátil. O Brenno vetou em 2026-10-27. Foto do hero: `assets/hero-banca.jpg` (banca na chuva, escolhida em 2026-10-27; provavelmente da internet, confirmar licença ou trocar por foto própria). A faixa sob o hero é um tubo de neon (`.tubo`) e os números dos cards são "01-04" acesos.
 - Serviços sempre nesta lista: Marca, Site, Inteligência, Sistemas.
 
 ## Dados fixos
