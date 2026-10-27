@@ -26,6 +26,9 @@ Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backd
 - **Sora** 400/600/800: todo o resto. Título `h1` 800, `clamp(38px,5.2vw,70px)`, entrelinha 1.02, `letter-spacing -.02em`. `h2` 800, `clamp(30px,3.6vw,46px)`. Corpo 16-19px, entrelinha 1.5.
 - **Space Mono** 400/700: sobretítulos em caixa alta com `letter-spacing .2em`, marca no menu, toques de terminal (`$ ./orcamento`).
 
+## Marca (regra fixa)
+Em qualquer peça (letreiro, logo, deck, post, story, assinatura), **SCRIPTS é sempre bem menor que NEON**: cerca de um terço da altura (`.355em` do NEON), embaixo dele, dentro do mesmo retângulo e na cor oposta (NEON rosa com SCRIPTS azul, ou o contrário). Nunca escrever NEON e SCRIPTS no mesmo tamanho nem lado a lado. Em texto corrido o nome é "Neon Scripts", com espaço.
+
 ## Letreiro
 Placa parafusada (sem cabo): 4 parafusos de metal nos cantos (`.parafusos`), sombra embaixo e luz da cor do tubo na parede atrás. Borda de 4px na cor do tubo, raio 14px, fundo `rgba(7,3,26,.55)`. NEON em Bungee Inline; SCRIPTS embaixo em `.355em`, `letter-spacing .06em`, sempre na cor oposta.
 - Rosa: brilho `#FF2E9A`, brilho 2 `#A24BFF`, tubo `#FFB8DC`.
