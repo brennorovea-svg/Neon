@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neon Scripts · Softwarehouse para pequenos negócios em São Paulo</title>
-<meta name="description" content="Site, logo, cardápio, redes sociais e sistemas sob medida para pequenos negócios de São Paulo. A Neon Scripts coloca o seu negócio no ar, do primeiro oi à placa acesa.">
+<title>Neon Scripts · Marca, site e sistemas para pequenos negócios em São Paulo</title>
+<meta name="description" content="Marca, site, inteligência e sistemas para pequenos negócios. A gente entende a sua rotina e acende a placa do seu negócio no digital. Atendimento em São Paulo pelo WhatsApp.">
 <meta name="theme-color" content="#05030F">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://neonscripts.com.br/">
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Neon Scripts">
 <meta property="og:url" content="https://neonscripts.com.br/">
 <meta property="og:title" content="Neon Scripts · Todo negócio merece uma placa acesa">
-<meta property="og:description" content="Site, logo, cardápio, redes sociais e sistemas para pequenos negócios de São Paulo.">
+<meta property="og:description" content="Marca, site, inteligência e sistemas para pequenos negócios. A gente entende a sua rotina e acende a sua placa.">
 <meta property="og:image" content="https://neonscripts.com.br/assets/og-neon-scripts.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -37,7 +37,7 @@
       "url": "https://neonscripts.com.br/",
       "logo": "https://neonscripts.com.br/assets/icon-512.png",
       "image": "https://neonscripts.com.br/assets/og-neon-scripts.jpg",
-      "description": "Softwarehouse que cria site, logo, cardápio, redes sociais e sistemas sob medida para pequenos negócios de São Paulo.",
+      "description": "Marca, site, inteligência e sistemas para pequenos negócios de São Paulo.",
       "telephone": "+55 11 99939-2800",
       "address": {
         "@type": "PostalAddress",
@@ -59,9 +59,9 @@
         "@type": "OfferCatalog",
         "name": "Serviços",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de site" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo e identidade visual" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cardápio digital e redes sociais" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marca e identidade visual" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de site e cardápio digital" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inteligência de dados para pequenos negócios" } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas sob medida" } }
         ]
       }
@@ -160,6 +160,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .clients{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;font-size:15px;color:var(--muted)}
 .clients strong{color:var(--ink)}
 .plat-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+.plat-head>div:first-child{max-width:640px}
 
 /* Entrada */
 .rv{opacity:0;animation:rise 720ms var(--ease) forwards}
@@ -178,7 +179,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .sign .cable{height:1.6vh}
   .sign .plate{padding:.8vh 2.6vh 1.3vh;border-width:3px}
   .sign .plate{font-size:clamp(36px,5.4vh,64px)}
-  .copy{bottom:5vh;gap:1.6vh}
+  .copy{bottom:5vh;gap:1.3vh}
   h1{line-height:1.02}
   h1{font-size:clamp(34px,5.9vh,64px)}
   .lead{font-size:clamp(15px,2.1vh,19px)}
@@ -186,14 +187,17 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .btn-s{padding:12px 20px}
   .platform{padding:0 0 3.6vh}
   .wrap{max-width:none;margin:0;padding:3.4vh clamp(20px,5vw,72px) 0;gap:2.6vh}
-  h2{font-size:clamp(22px,3.4vh,34px)}
+  h2{font-size:clamp(22px,3vh,30px)}
   .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
   .card{padding:clamp(14px,2vh,22px) 20px;gap:clamp(6px,1vh,10px)}
   .card strong{font-size:clamp(16px,2.2vh,20px)}
-  .card p{font-size:clamp(13px,1.75vh,15px);line-height:1.45}
+  .card p{font-size:clamp(13px,1.6vh,15px);line-height:1.4}
   .line{width:30px;height:30px;font-size:13px}
+  .plat-head>div:first-child{max-width:min(760px,calc(100% - 600px))}
 }
 
+/* Tela baixa: a placa precisa de espaço, o sobretítulo sai */
+@media (min-width:1024px) and (min-height:600px) and (max-height:740px){.hero .eyebrow{display:none}}
 @media (max-width:820px){
   .links .nl{display:none}
   .sign{right:50%;top:96px;transform:translateX(50%)}
@@ -248,8 +252,6 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .card p{font-size:15px}
   .card.in:hover{transform:none;box-shadow:none}
 }
-.lbl-mob{display:none}
-@media (max-width:820px){.lbl-desk{display:none}.lbl-mob{display:inline}}
 
 /* ===== Projetos: clientes reais ===== */
 .cli{position:relative;padding:64px clamp(20px,5vw,72px) 80px;overflow:hidden;
@@ -445,16 +447,16 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       <a class="nl" href="#projetos">Projetos</a>
       <a class="nl" href="#como">Como funciona</a>
       <a class="nl" href="#quem">Quem somos</a>
-      <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Fale com a gente</a>
+      <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Fale com a gente</a>
     </div>
   </nav>
   <div class="copy">
-    <span class="eyebrow rv" style="color:#FF8CC6;animation-delay:200ms">Desça aqui</span>
+    <span class="eyebrow rv" style="color:#FF8CC6;animation-delay:200ms">Feito pra quem faz o bairro girar</span>
     <h1 class="rv" style="animation-delay:270ms">Todo negócio merece uma placa acesa.</h1>
-    <p class="lead rv" style="animation-delay:340ms">Site, logo, cardápio, redes e sistemas para pequenos negócios de São Paulo.</p>
+    <p class="lead rv" style="animation-delay:340ms">Marca, site, inteligência e sistemas para pequenos negócios. A gente entende a sua rotina primeiro e depois acende a sua placa.</p>
     <div class="ctas rv" style="animation-delay:410ms">
-      <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Quero minha placa</a>
-      <a class="btn btn-g" href="#servicos">Ver serviços</a>
+      <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Bora conversar?</a>
+      <a class="btn btn-g" href="#servicos">Ver o que a gente faz</a>
     </div>
   </div>
   <div class="tactile" aria-hidden="true"></div>
@@ -466,9 +468,9 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   <div class="glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="plat-head">
-      <div class="reveal" style="display:flex;flex-direction:column;gap:12px;max-width:640px">
-        <span class="eyebrow" style="color:var(--yellow)"><span class="lbl-desk">Plataforma 1 · O que a gente acende</span><span class="lbl-mob">Linha Neon · 4 estações</span></span>
-        <h2>Do zero à placa ligada, num só lugar.</h2>
+      <div class="reveal" style="display:flex;flex-direction:column;gap:12px">
+        <span class="eyebrow" style="color:var(--yellow)">O que a gente faz</span>
+        <h2>Do zero à placa acesa, com a gente do seu lado.</h2>
       </div>
       <a class="clients reveal" href="#projetos" style="transition-delay:280ms;text-decoration:none">
         <span class="eyebrow" style="font-size:15px;letter-spacing:.16em">Clientes</span>
@@ -478,23 +480,23 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     <div class="grid">
       <a class="card reveal" href="#contato" style="transition-delay:0ms">
         <span class="line" style="background:var(--pink);color:#0B0420">1</span>
-        <strong>Site</strong>
-        <p>Uma página que aparece no Google e leva o cliente direto para o WhatsApp.</p>
+        <strong>Marca</strong>
+        <p>Logo, cores e uma cara só sua, pra quem passa na frente lembrar de você.</p>
       </a>
       <a class="card reveal" href="#contato" style="transition-delay:70ms">
         <span class="line" style="background:var(--purple);color:#fff">2</span>
-        <strong>Logo e identidade</strong>
-        <p>Marca, cores e fontes que fazem o seu negócio ser reconhecido de longe.</p>
+        <strong>Site</strong>
+        <p>Aparece no Google e leva o cliente direto pro seu WhatsApp, com cardápio ou catálogo se precisar.</p>
       </a>
       <a class="card reveal" href="#contato" style="transition-delay:140ms">
         <span class="line" style="background:var(--blue);color:#fff">3</span>
-        <strong>Cardápio e redes</strong>
-        <p>Cardápio digital e posts prontos para o Instagram, no mesmo visual.</p>
+        <strong>Inteligência</strong>
+        <p>Os números do seu negócio viram decisão: quanto entrou no dia, o que mais vende e onde dá pra ganhar mais.</p>
       </a>
       <a class="card reveal" href="#contato" style="transition-delay:210ms">
         <span class="line" style="background:var(--cyan);color:#05121A">4</span>
-        <strong>Sistemas sob medida</strong>
-        <p>Vendas, custos e estoque organizados, como fizemos no Naruá.</p>
+        <strong>Sistemas</strong>
+        <p>Comanda, estoque e caixa organizados do jeitinho que a sua rotina pede. Foi assim no Naruá.</p>
       </a>
     </div>
   </div>
@@ -504,8 +506,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 <section class="cli" id="projetos" aria-labelledby="cli-titulo">
   <div class="cli-head reveal">
     <div style="display:flex;flex-direction:column;gap:0">
-      <span class="eyebrow" style="color:var(--yellow)">Projetos · Clientes</span>
-      <h2 id="cli-titulo">Negócios reais que já atendemos.</h2>
+      <span class="eyebrow" style="color:var(--yellow)">Clientes</span>
+      <h2 id="cli-titulo">Quem já acendeu a placa com a gente.</h2>
     </div>
     <div style="display:flex;align-items:flex-end;gap:24px">
     <p class="cli-hint"><span class="h-desk">Passe o mouse sobre um projeto para ver o site rolando. Clique para abrir.</span><span class="h-touch">Arraste para o lado para ver os outros clientes.</span></p>
@@ -519,7 +521,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
         <div class="cli-screen"><img src="assets/clientes/narua.jpg" alt="Site do Naruá: cardápio, onde estamos, Instagram e WhatsApp" loading="lazy"></div></a>
       <div class="cli-info">
         <span class="cli-kind">Food truck · comida asiática</span>
-        <p>Comandas no caderno e cardápio de papel viraram dado: faturamento do dia e os pratos que mais vendem.</p>
+        <p>Antes era tudo no caderno e o cardápio era de papel. Hoje o Naruá sabe quanto vendeu no dia e quais pratos saem mais. E ainda mostra que, além de comida boa, tem tecnologia de ponta.</p>
         <div class="cli-tags"><span>Marca</span><span>Site</span><span>Sistemas</span></div>
         <div class="cli-links"><a href="https://naruafoodtruck.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a href="https://www.instagram.com/narua.foodtruck" target="_blank" rel="noopener">@narua.foodtruck <i>↗</i></a></div>
       </div>
@@ -530,7 +532,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
         <div class="cli-screen"><img src="assets/clientes/makiolki.jpg" alt="Site da Makiolki Doces com cardápio e sacola de pedidos" loading="lazy"></div></a>
       <div class="cli-info">
         <span class="cli-kind">Doceria e café · Caieiras</span>
-        <p>Cardápio com preços e uma sacola que manda o pedido pronto para o WhatsApp da doceria.</p>
+        <p>Cardápio com preço e uma sacolinha que manda o pedido prontinho pro WhatsApp da doceria.</p>
         <div class="cli-tags"><span>Site</span><span>Cardápio digital</span></div>
         <div class="cli-links"><a href="https://www.makiolki.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a href="https://www.instagram.com/makiolki_doces" target="_blank" rel="noopener">@makiolki_doces <i>↗</i></a></div>
       </div>
@@ -541,7 +543,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
         <div class="cli-screen"><img src="assets/clientes/granola.jpg" alt="Site da Granola Pura com pedido pelo WhatsApp" loading="lazy"></div></a>
       <div class="cli-info">
         <span class="cli-kind">Granola artesanal</span>
-        <p>Saiu do "só Instagram": site próprio, e o pedido chega pronto no WhatsApp com quantidade, CEP e nome.</p>
+        <p>Era tudo no Instagram e no papo do WhatsApp. Agora tem site próprio, e o cliente já chega com o pedido montado: quantidade, CEP e nome.</p>
         <div class="cli-tags"><span>Site</span><span>Pedido no WhatsApp</span></div>
         <div class="cli-links"><a href="https://www.granolapura.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a href="https://www.instagram.com/granola.pura" target="_blank" rel="noopener">@granola.pura <i>↗</i></a></div>
       </div>
@@ -552,7 +554,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
         <div class="cli-screen"><img src="assets/clientes/contorno.jpg" alt="Site do Estúdio Contorno: planeje antes de quebrar" loading="lazy"></div></a>
       <div class="cli-info">
         <span class="cli-kind">Estúdio de arquitetura · obras</span>
-        <p>Um site que explica o método em segundos e leva quem vai reformar direto para uma conversa com a arquiteta.</p>
+        <p>Um site que explica em poucos segundos como a Malu trabalha e leva quem vai reformar direto pra uma conversa com ela.</p>
         <div class="cli-tags"><span>Site</span><span>Animações</span></div>
         <div class="cli-links"><a href="https://estudiocontorno.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a href="https://www.instagram.com/estudiocontorno" target="_blank" rel="noopener">@estudiocontorno <i>↗</i></a></div>
       </div>
@@ -569,25 +571,25 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     <li class="how-step reveal" style="transition-delay:0ms">
       <span class="line" style="background:var(--pink);color:#0B0420">1</span>
       <strong>Conversa</strong>
-      <p>Você chama no WhatsApp e, em até 24 horas, marcamos um alinhamento para entender o seu negócio.</p>
+      <p>Você chama a gente e em até 24 horas a gente marca um papo. Se der, eu vou até o seu negócio, que é onde dá pra entender de verdade a sua rotina.</p>
     </li>
     <li class="how-step reveal" style="transition-delay:70ms">
       <span class="line" style="background:var(--purple);color:#fff">2</span>
       <strong>Proposta</strong>
-      <p>Você recebe o que vamos fazer, o prazo e o preço fechado. Sem surpresa no meio do caminho.</p>
+      <p>Você recebe o que a gente vai fazer, o prazo e o valor, tudo combinado antes. E se o valor apertar, a gente conversa.</p>
     </li>
     <li class="how-step reveal" style="transition-delay:140ms">
       <span class="line" style="background:var(--blue);color:#fff">3</span>
       <strong>Criação</strong>
-      <p>A gente cria e mostra cada etapa. Nada vai para o ar sem a sua aprovação.</p>
+      <p>A gente mostra cada passo, e nada vai pro ar sem o seu ok.</p>
     </li>
     <li class="how-step reveal" style="transition-delay:210ms">
       <span class="line" style="background:var(--cyan);color:#05121A">4</span>
       <strong>No ar</strong>
-      <p>Dependendo do que você precisa, o seu site fica pronto ainda na mesma semana. E a gente segue junto depois.</p>
+      <p>Muitas vezes o site fica pronto na mesma semana. E depois a gente continua por perto, é só chamar.</p>
     </li>
   </ol>
-  <p class="how-note reveal">Sistemas sob medida, como o do Naruá, começam com uma conversa mais detalhada para entender a sua operação.</p>
+  <p class="how-note reveal">Sistema sob medida, como o do Naruá, pede uma conversa mais longa. Cada operação tem o seu jeito, e a gente quer entender o seu antes de começar.</p>
 </section>
 
 <section class="quem" id="quem" aria-labelledby="quem-titulo">
@@ -602,7 +604,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
         <h2 id="quem-titulo">Anos de grande empresa, agora do lado de quem faz o bairro girar.</h2>
       </div>
       <p class="reveal" style="transition-delay:70ms">Por quase dez anos eu transformei dados em decisão dentro de grandes empresas. Comecei como estagiário no <strong>Magazine Luiza</strong> e virei especialista em BI. Depois coordenei times de dados no <strong>St Marche</strong> e no <strong>Grupo Multi</strong>, e fui gerente de produto de Big Data na <strong>Samsung</strong>.</p>
-      <p class="reveal" style="transition-delay:140ms">Lá dentro aprendi que todo número esquecido é dinheiro deixado na mesa. Grande empresa tem um time inteiro para não deixar isso acontecer. O pequeno empresário não tem, e é para ele que a Neon Scripts existe.</p>
+      <p class="reveal" style="transition-delay:140ms">Lá dentro aprendi que todo número esquecido é dinheiro deixado na mesa. Grande empresa tem um time inteiro cuidando disso. O pequeno empresário não tem, e é pra ele que a Neon Scripts existe.</p>
       <ol class="trajeto reveal" aria-label="Trajetória até a Neon Scripts" style="transition-delay:200ms">
         <li class="est" style="--c:var(--pink)"><i></i><div><b>Magazine Luiza</b><span>Estágio → BI</span></div></li>
         <li class="est" style="--c:var(--purple)"><i></i><div><b>St Marche</b><span>Coord. de dados</span></div></li>
@@ -619,8 +621,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       </div>
       <p class="manifesto reveal" style="transition-delay:320ms">Nascemos na zona leste de São Paulo. Somos classe trabalhadora e sabemos que ninguém cresce sozinho: <strong>a gente se ajuda.</strong></p>
       <div class="quem-ctas reveal" style="transition-delay:380ms">
-        <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Conversar com a gente</a>
-        <a class="btn btn-g" href="#projetos">Ver projetos</a>
+        <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Conversar com a gente</a>
+        <a class="btn btn-g" href="#projetos">Ver clientes</a>
       </div>
     </div>
   </div>
@@ -630,15 +632,15 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   <div class="wrap-c reveal">
     <span class="eyebrow" style="color:#FF8CC6">Contato</span>
     <h2 id="contato-titulo">Bora acender a sua placa?</h2>
-    <p>Conta pra gente o que o seu negócio faz. Respondemos em horário comercial e marcamos um alinhamento em até 24 horas.</p>
+    <p>Conta pra gente o que o seu negócio faz e como é a sua rotina. A gente responde em horário comercial e marca uma conversa em até 24 horas. Que tal começar hoje?</p>
     <div class="ctas">
-      <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio">Chamar no WhatsApp</a>
+      <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Chamar no WhatsApp</a>
       <a class="btn btn-g" href="https://www.instagram.com/neon.scripts" target="_blank" rel="noopener">@neon.scripts no Instagram</a>
     </div>
   </div>
-  <div class="foot">NEON SCRIPTS · SITE, MARCA E SISTEMAS PARA PEQUENOS NEGÓCIOS</div>
+  <div class="foot">NEON SCRIPTS · FEITO NA ZONA LESTE PRA QUEM FAZ O BAIRRO GIRAR</div>
 </section>
-<a class="wa" href="https://wa.me/5511999392800?text=Oi%2C%20quero%20acender%20a%20placa%20do%20meu%20neg%C3%B3cio"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>Chamar no WhatsApp</a>
+<a class="wa" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>Chamar no WhatsApp</a>
 </div>
 
 <script>
