@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://neonscripts.com.br/assets/og-neon-scripts.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Letreiro neon Neon Scripts sobre a entrada do metrô à noite, com a frase Todo negócio merece uma placa acesa">
+<meta property="og:image:alt" content="Letreiro neon Neon Scripts sobre uma banca de rua na chuva à noite, com a frase Todo negócio merece uma placa acesa">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Ficha da empresa para o Google (dados estruturados) -->
 <script type="application/ld+json">
@@ -80,7 +80,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Sora:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/hero-metro.jpg">
+<link rel="preload" as="image" href="assets/hero-banca.jpg">
 <style>
 :root{
   --ease:cubic-bezier(.22,1,.36,1);
@@ -95,7 +95,7 @@ a{color:inherit}
 
 /* Hero */
 .hero{position:relative;height:min(100vh,820px);min-height:640px;overflow:hidden;background:var(--night)}
-.ph{position:absolute;inset:0;background:url("assets/hero-metro.jpg") center 55%/cover no-repeat}
+.ph{position:absolute;inset:0;background:url("assets/hero-banca.jpg") center 62%/cover no-repeat}
 .par{position:absolute;transition:transform 420ms var(--ease);will-change:transform}
 .par-photo{inset:-16px}
 .settle{position:absolute;inset:0;animation:settle 1600ms var(--ease) both}
@@ -120,7 +120,6 @@ a{color:inherit}
 .sign .word span.pisca,.sign .word.pisca{animation:flick 520ms linear}
 @keyframes flick{0%,100%{opacity:1}12%{opacity:.15}20%{opacity:.9}32%{opacity:.25}46%{opacity:1}60%{opacity:.4}70%{opacity:1}}
 nav{position:absolute;left:0;right:0;top:0;z-index:2;padding:30px clamp(20px,5vw,72px) 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
-.brand{font-family:'Space Mono',monospace;font-size:15px;letter-spacing:.24em;text-decoration:none}
 .links{display:flex;flex-wrap:wrap;align-items:center;gap:28px;font-size:15px;font-weight:600}
 .nl{position:relative;text-decoration:none}
 .nl::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform 180ms var(--ease)}
@@ -139,7 +138,7 @@ h1{margin:0;font-size:clamp(38px,5.2vw,70px);font-weight:800;line-height:1.02;le
 .btn-g:hover{background-color:rgba(244,239,255,.12)}
 .btn-s{padding:12px 20px}
 a:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.tactile{position:absolute;left:0;right:0;bottom:0;height:30px;background-color:#CFAE28;background-image:radial-gradient(circle at center,var(--yellow) 0 4px,transparent 5px);background-size:20px 15px;border-top:3px solid #0A0816;box-shadow:0 -8px 30px rgba(242,215,90,.18)}
+.tubo{position:absolute;left:0;right:0;bottom:0;height:30px;background-color:#CFAE28;background-image:radial-gradient(circle at center,var(--yellow) 0 4px,transparent 5px);background-size:20px 15px;border-top:3px solid #0A0816;box-shadow:0 -8px 30px rgba(242,215,90,.18)}
 
 /* Plataforma */
 .platform{position:relative;padding:0 0 110px}
@@ -217,7 +216,6 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .wa{display:none}
 @media (max-width:820px){
   nav{padding:18px 20px 0;flex-wrap:nowrap}
-  .brand{font-size:11px;letter-spacing:.12em;white-space:nowrap}
   .btn-s{padding:9px 14px;font-size:13px;white-space:nowrap}
   .hero{height:100svh;min-height:600px;max-height:900px}
   .copy{left:20px;right:20px;bottom:56px;gap:14px}
@@ -225,7 +223,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .lead{font-size:16px}
   .ctas{flex-direction:column;gap:10px}
   .ctas .btn{text-align:center;padding:17px 20px;font-size:17px}
-  .tactile{height:24px}
+  .tubo{height:24px}
   .wrap{padding:56px 20px 0;gap:26px}
   h2{font-size:28px}
   .plat-head{display:flex;flex-direction:column;gap:18px}
@@ -341,7 +339,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .quem-txt h2{max-width:620px}
 .quem-txt p{margin:0;font-size:17px;line-height:1.6;color:var(--soft);max-width:600px}
 .quem-txt p strong{color:var(--ink)}
-/* Linha do tempo como linha de metrô: as estações acendem uma de cada vez */
+/* Trajetória: os pontos acendem um de cada vez */
 .trajeto{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:10px 0 4px;padding:0;list-style:none}
 .trajeto::before{content:"";position:absolute;left:10%;right:10%;top:17px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--cyan));opacity:.25}
 .trajeto::after{content:"";position:absolute;left:10%;right:10%;top:17px;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--cyan));box-shadow:0 0 14px rgba(162,75,255,.7);transform:scaleX(0);transform-origin:left;transition:transform 900ms var(--ease) 200ms}
@@ -381,7 +379,6 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .quem{padding:56px 20px 64px}
   .quem-txt p{font-size:16px}
   .valores{grid-template-columns:1fr}
-  /* No celular o trajeto vira a mesma linha vertical da "Linha Neon" */
   .trajeto{grid-template-columns:1fr;gap:14px;padding-left:4px}
   .trajeto::before,.trajeto::after{left:21px;right:auto;top:20px;bottom:20px;width:6px;height:auto}
   .trajeto::after{transform:scaleY(0);transform-origin:top}
@@ -424,6 +421,27 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .how-step strong{margin-top:0;align-self:center}
   .contact{padding:56px 20px 140px}
 }
+
+/* ===== Sem metrô: tubo de neon, números acesos e trajetória fina ===== */
+.links{margin-left:auto}
+.tubo{height:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--cyan));border:0;box-shadow:0 0 14px rgba(255,46,154,.75),0 0 40px rgba(46,140,255,.45)}
+.line,.card .line,.how-step .line{width:auto;height:auto;border:0;border-radius:0;box-shadow:none;background:none;color:var(--c);justify-content:flex-start;font-size:15px;letter-spacing:.14em;text-shadow:0 0 8px var(--c),0 0 22px var(--c)}
+.how-steps::before{display:none}
+.how-step{padding-top:18px;border-top:2px solid var(--c);box-shadow:0 -8px 18px -12px var(--c)}
+.trajeto::before,.trajeto::after{top:19px;height:2px}
+.est i{width:14px;height:14px;margin:13px 0;border:0;background:rgba(244,239,255,.22);box-shadow:none}
+.trajeto.in .est i{background:var(--c);box-shadow:0 0 10px var(--c),0 0 24px var(--c)}
+@media (max-width:820px){
+  .ph{background-position:22% center}
+  .tubo{height:3px}
+  .grid::before,.how-steps::before{display:none}
+  .card{grid-template-columns:1fr;padding:4px 0 4px 18px;margin-bottom:24px;border-left:2px solid var(--c);box-shadow:none}
+  .card .line{grid-row:auto}
+  .card.in:hover{box-shadow:none}
+  .how-step{grid-template-columns:1fr;padding:4px 0 4px 18px;border-top:0;border-left:2px solid var(--c);box-shadow:none}
+  .how-step .line{grid-row:auto}
+  .trajeto::before,.trajeto::after{left:10px;width:2px;top:20px;height:auto}
+}
 </style>
 </head>
 <body>
@@ -441,7 +459,6 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     <div class="plate"><span class="word"><span>N</span><span>E</span><span>O</span><span>N</span></span><span class="word sub"><span>S</span><span>C</span><span>R</span><span>I</span><span>P</span><span>T</span><span>S</span></span></div>
   </div>
   <nav>
-    <a class="brand rv" href="#hero" style="animation-delay:60ms">NEON SCRIPTS</a>
     <div class="links rv" style="animation-delay:120ms">
       <a class="nl" href="#servicos">Serviços</a>
       <a class="nl" href="#projetos">Projetos</a>
@@ -459,7 +476,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       <a class="btn btn-g" href="#servicos">Ver o que a gente faz</a>
     </div>
   </div>
-  <div class="tactile" aria-hidden="true"></div>
+  <div class="tubo" aria-hidden="true"></div>
 </header>
 
 <main>
@@ -478,23 +495,23 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       </a>
     </div>
     <div class="grid">
-      <a class="card reveal" href="#contato" style="transition-delay:0ms">
-        <span class="line" style="background:var(--pink);color:#0B0420">1</span>
+      <a class="card reveal" href="#contato" style="transition-delay:0ms;--c:var(--pink)">
+        <span class="line">01</span>
         <strong>Marca</strong>
         <p>Logo, cores e uma cara só sua, pra quem passa na frente lembrar de você.</p>
       </a>
-      <a class="card reveal" href="#contato" style="transition-delay:70ms">
-        <span class="line" style="background:var(--purple);color:#fff">2</span>
+      <a class="card reveal" href="#contato" style="transition-delay:70ms;--c:var(--purple)">
+        <span class="line">02</span>
         <strong>Site</strong>
         <p>Aparece no Google e leva o cliente direto pro seu WhatsApp, com cardápio ou catálogo se precisar.</p>
       </a>
-      <a class="card reveal" href="#contato" style="transition-delay:140ms">
-        <span class="line" style="background:var(--blue);color:#fff">3</span>
+      <a class="card reveal" href="#contato" style="transition-delay:140ms;--c:var(--blue)">
+        <span class="line">03</span>
         <strong>Inteligência</strong>
         <p>Os números do seu negócio viram decisão: quanto entrou no dia, o que mais vende e onde dá pra ganhar mais.</p>
       </a>
-      <a class="card reveal" href="#contato" style="transition-delay:210ms">
-        <span class="line" style="background:var(--cyan);color:#05121A">4</span>
+      <a class="card reveal" href="#contato" style="transition-delay:210ms;--c:var(--cyan)">
+        <span class="line">04</span>
         <strong>Sistemas</strong>
         <p>Comanda, estoque e caixa organizados do jeitinho que a sua rotina pede. Foi assim no Naruá.</p>
       </a>
@@ -568,23 +585,23 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     <h2 id="como-titulo">Do primeiro oi ao seu negócio no ar.</h2>
   </div>
   <ol class="how-steps">
-    <li class="how-step reveal" style="transition-delay:0ms">
-      <span class="line" style="background:var(--pink);color:#0B0420">1</span>
+    <li class="how-step reveal" style="transition-delay:0ms;--c:var(--pink)">
+      <span class="line">01</span>
       <strong>Conversa</strong>
       <p>Você chama a gente e em até 24 horas a gente marca um papo. Se der, eu vou até o seu negócio, que é onde dá pra entender de verdade a sua rotina.</p>
     </li>
-    <li class="how-step reveal" style="transition-delay:70ms">
-      <span class="line" style="background:var(--purple);color:#fff">2</span>
+    <li class="how-step reveal" style="transition-delay:70ms;--c:var(--purple)">
+      <span class="line">02</span>
       <strong>Proposta</strong>
       <p>Você recebe o que a gente vai fazer, o prazo e o valor, tudo combinado antes. E se o valor apertar, a gente conversa.</p>
     </li>
-    <li class="how-step reveal" style="transition-delay:140ms">
-      <span class="line" style="background:var(--blue);color:#fff">3</span>
+    <li class="how-step reveal" style="transition-delay:140ms;--c:var(--blue)">
+      <span class="line">03</span>
       <strong>Criação</strong>
       <p>A gente mostra cada passo, e nada vai pro ar sem o seu ok.</p>
     </li>
-    <li class="how-step reveal" style="transition-delay:210ms">
-      <span class="line" style="background:var(--cyan);color:#05121A">4</span>
+    <li class="how-step reveal" style="transition-delay:210ms;--c:var(--cyan)">
+      <span class="line">04</span>
       <strong>No ar</strong>
       <p>Muitas vezes o site fica pronto na mesma semana. E depois a gente continua por perto, é só chamar.</p>
     </li>
