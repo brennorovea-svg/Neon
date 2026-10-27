@@ -31,12 +31,16 @@ Placa com borda de 4px na cor do tubo, raio 14px, fundo `rgba(7,3,26,.55)`. NEON
 - Rosa: brilho `#FF2E9A`, brilho 2 `#A24BFF`, tubo `#FFB8DC`.
 - Azul: brilho `#2E8CFF`, brilho 2 `#40E6DC`, tubo `#B0DCFF`.
 - Brilho com `text-shadow` em 3 camadas (10/30/80px) e `box-shadow` externo + interno.
+- Segunda placa (`.placa`) no Contato, sobre a foto do hero escurecida: acende uma vez quando aparece, sem piscar depois.
 
 ## Formas
 - Botão: pílula (`border-radius 999px`), `16px 26px`, peso 800. Principal rosa com brilho `0 0 26px rgba(255,46,154,.6)`; secundário com borda de 2px `--ink`.
 - Card: raio 16px, `26px` de respiro.
 - Margem lateral: `clamp(20px,5vw,72px)`. Largura máxima do conteúdo: 1180px.
 - Foco: `outline 2px #fff`, `offset 3px`.
+- Títulos `h2`: só o de Serviços encolhe (até 30px) para a primeira tela caber em 100vh; os outros seguem o tamanho padrão. O do Contato é maior (`clamp(34px,4.6vw,62px)`), é o fechamento da página.
+- Etapas de Como funciona usam o mesmo card dos serviços no computador; no celular viram linha do tempo.
+- Rodapé (`.rodape`): sobre, links do site e contato, em 3 colunas (2 no celular).
 
 ## Movimento
 Regras da skill `emil-kowalski-motion`: poucos momentos de movimento, só `transform` e `opacity`, uma linguagem só, sempre respeitar `prefers-reduced-motion`.
