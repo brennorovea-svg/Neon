@@ -27,6 +27,8 @@ Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backd
 - **Space Mono** 400/700: sobretítulos em caixa alta com `letter-spacing .2em`, marca no menu, toques de terminal (`$ ./orcamento`).
 
 ## Letreiro
+Logo v3 (2026-10-28): **E ao contrário** e o **O vira um olho amendoado** (tubo na cor de NEON, íris e pupila na cor de SCRIPTS). Histórico em `marca/VERSOES.md`.
+
 Placa parafusada (sem cabo): 4 parafusos de metal nos cantos (`.parafusos`), sombra embaixo e luz da cor do tubo na parede atrás. Borda de 4px na cor do tubo, raio 14px, fundo `rgba(7,3,26,.55)`. NEON em Bungee Inline; SCRIPTS embaixo em `.355em`, `letter-spacing .06em`, sempre na cor oposta.
 - Rosa: brilho `#FF2E9A`, brilho 2 `#A24BFF`, tubo `#FFB8DC`.
 - Azul: brilho `#2E8CFF`, brilho 2 `#40E6DC`, tubo `#B0DCFF`.
@@ -47,7 +49,7 @@ Regras da skill `emil-kowalski-motion`: poucos momentos de movimento, só `trans
 - Easing único: `--ease: cubic-bezier(.22,1,.36,1)`.
 - Controles: 180ms. Hover sobe 2px, clique `scale(.97)` em 100ms.
 - Entrada: 720ms, stagger de 70ms, só em grupos pequenos. Revelar ao rolar: 600ms.
-- Letreiro: liga uma vez na entrada (1.1s). Depois, a cada 2.6 a 6s, pisca uma letra ou a placa toda e rosa/azul trocam (transição de 700ms). Pausa com a aba oculta, desligado em reduced-motion. É a única exceção à regra de "sem loop decorativo".
+- Letreiro: liga uma vez na entrada (1.1s). Depois, a cada 2.6 a 6s, pisca uma letra, o olho pisca (pálpebra fecha em ~110ms e abre em 140ms), ou a placa toda pisca e rosa/azul trocam (transição de 700ms). Pausa com a aba oculta, desligado em reduced-motion. É a única exceção à regra de "sem loop decorativo".
 - Proibido: cursor customizado, partículas, loops infinitos fora do letreiro. Limpar observers e timers.
 
 ## Formatos de redes

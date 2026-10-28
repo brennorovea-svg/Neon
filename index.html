@@ -491,6 +491,19 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 }
 /* Letreiro parafusado: sem cabo, preso por 4 parafusos, com sombra e luz na parede */
 .sign .plate,.placa{position:relative}
+/* Logo v3 (2026-10-28): E ao contrário e o O vira um olho amendoado. Íris sempre na cor de SCRIPTS. Versões em marca/VERSOES.md */
+.placa .word:not(.sub){display:inline-flex}
+.espelho{display:inline-block;transform:scaleX(-1)}
+.o-olho{display:inline-flex;align-items:center;width:.86em;height:1em;margin:0 .02em}
+.olho-svg{display:block;width:100%;height:.86em;overflow:visible;filter:drop-shadow(0 0 3px var(--glow)) drop-shadow(0 0 12px var(--glow)) drop-shadow(0 0 30px var(--glow))}
+.olho-svg .tubo{fill:none;stroke:var(--tube);stroke-width:13;stroke-linejoin:round}
+.olho-svg .friso{fill:none;stroke:#1a0b33;stroke-width:2.4;stroke-linejoin:round;opacity:.75}
+.olho-svg .iris{fill:none;stroke:var(--tubeB);stroke-width:5.5;filter:drop-shadow(0 0 4px var(--glowB))}
+.olho-svg .pupila{fill:var(--tubeB);filter:drop-shadow(0 0 6px var(--glowB))}
+.olho-svg .palpebra{transform-box:fill-box;transform-origin:center;transition:transform 140ms var(--ease)}
+.fecha .olho-svg .palpebra{transform:scaleY(.06);transition-duration:110ms}
+.olho-svg .olhar{will-change:transform}
+@media (prefers-reduced-motion:reduce){.olho-svg .palpebra{transition:none}}
 .sign .plate{box-shadow:0 0 22px var(--glow),0 0 70px var(--glow2),inset 0 0 18px var(--glow),0 22px 40px -12px rgba(0,0,0,.85)}
 .sign::before{content:"";position:absolute;z-index:-1;left:-10%;right:-10%;top:-6%;bottom:-30%;background:radial-gradient(ellipse at 50% 45%,var(--glow) 0%,transparent 62%);opacity:.35;filter:blur(18px);pointer-events:none}
 .parafusos i{position:absolute;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E8E4F2,#6B6680 60%,#2A2638);box-shadow:0 1px 2px rgba(0,0,0,.8)}
@@ -509,7 +522,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   <svg class="grain" aria-hidden="true"><filter id="grao"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grao)"/></svg>
   <div class="shade" aria-hidden="true"></div>
   <div class="par sign" data-depth="34" aria-hidden="true">
-    <div class="plate"><span class="parafusos" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="word"><span>N</span><span>E</span><span>O</span><span>N</span></span><span class="word sub"><span>S</span><span>C</span><span>R</span><span>I</span><span>P</span><span>T</span><span>S</span></span></div>
+    <div class="plate"><span class="parafusos" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="word"><span>N</span><span class="espelho">E</span><span class="o-olho"><svg class="olho-svg" viewBox="0 0 100 100" aria-hidden="true"><g class="palpebra"><path class="tubo" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><path class="friso" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><g class="olhar"><circle class="iris" cx="50" cy="50" r="15"/><circle class="pupila" cx="50" cy="50" r="6.5"/></g></g></svg></span><span>N</span></span><span class="word sub"><span>S</span><span>C</span><span>R</span><span>I</span><span>P</span><span>T</span><span>S</span></span></div>
   </div>
   <nav>
     <div class="links rv" style="animation-delay:120ms">
@@ -703,7 +716,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 <section class="contact" id="contato" aria-labelledby="contato-titulo">
   <div class="contact-ph" aria-hidden="true"></div>
   <div class="wrap-c reveal">
-    <div class="placa" aria-hidden="true"><span class="parafusos" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="word">NEON</span><span class="word sub">SCRIPTS</span></div>
+    <div class="placa" aria-hidden="true"><span class="parafusos" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="word"><span>N</span><span class="espelho">E</span><span class="o-olho"><svg class="olho-svg" viewBox="0 0 100 100" aria-hidden="true"><g class="palpebra"><path class="tubo" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><path class="friso" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><g class="olhar"><circle class="iris" cx="50" cy="50" r="15"/><circle class="pupila" cx="50" cy="50" r="6.5"/></g></g></svg></span><span>N</span></span><span class="word sub">SCRIPTS</span></div>
     <span class="eyebrow" style="color:#FF8CC6">Contato</span>
     <h2 id="contato-titulo">Bora acender a sua placa?</h2>
     <p>Conta pra gente o que o seu negócio faz e como é a sua rotina. A gente responde em horário comercial e marca uma conversa em até 24 horas. Que tal começar hoje?</p>
@@ -766,12 +779,13 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   items.forEach(function (el) { io.observe(el); });
 })();
 
-// Letreiro: a cada poucos segundos uma letra falha, o letreiro todo pisca ou NEON e SCRIPTS trocam de cor entre si
+// Letreiro: a cada poucos segundos uma letra falha, o olho pisca, o letreiro todo pisca ou NEON e SCRIPTS trocam de cor entre si
 (function () {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var sign = document.querySelector('.sign');
   var words = sign.querySelectorAll('.word');
-  var letters = sign.querySelectorAll('.word span');
+  var letters = sign.querySelectorAll('.word > span');
+  var olho = sign.querySelector('.o-olho');
   var timer;
   function blink(el) {
     el.classList.remove('pisca'); void el.offsetWidth; el.classList.add('pisca');
@@ -779,7 +793,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   function tick() {
     if (!document.hidden) {
       var r = Math.random();
-      if (r < 0.45) blink(letters[Math.floor(Math.random() * letters.length)]);
+      if (r < 0.3) blink(letters[Math.floor(Math.random() * letters.length)]);
+      else if (r < 0.5) { olho.classList.add('fecha'); setTimeout(function () { olho.classList.remove('fecha'); }, 150); }
       else if (r < 0.7) words.forEach(blink);
       else { words.forEach(blink); sign.classList.toggle('azul'); }
     }
@@ -787,6 +802,44 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   }
   timer = setTimeout(tick, 2400);
   window.addEventListener('pagehide', function () { clearTimeout(timer); });
+})();
+</script>
+
+<script>
+// Olho segue o mouse: só a íris anda, até 11 unidades do centro, com suavização. Só em mouse e sem reduced-motion.
+(function () {
+  if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var olhos = [].slice.call(document.querySelectorAll('.o-olho')).map(function (el) {
+    return { el: el, g: el.querySelector('.olhar'), x: 0, y: 0, tx: 0, ty: 0 };
+  });
+  var mx = null, my = null, raf = 0;
+  function frame() {
+    raf = 0;
+    var parado = true;
+    olhos.forEach(function (o) {
+      var r = o.el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      if (mx !== null) {
+        var dx = mx - (r.left + r.width / 2), dy = my - (r.top + r.height / 2);
+        var d = Math.sqrt(dx * dx + dy * dy) || 1, k = Math.min(1, d / 240);
+        o.tx = dx / d * 11 * k; o.ty = dy / d * 6 * k;
+      }
+      o.x += (o.tx - o.x) * 0.18; o.y += (o.ty - o.y) * 0.18;
+      if (Math.abs(o.tx - o.x) > 0.05 || Math.abs(o.ty - o.y) > 0.05) parado = false;
+      o.g.setAttribute('transform', 'translate(' + o.x.toFixed(2) + ' ' + o.y.toFixed(2) + ')');
+    });
+    if (!parado) raf = requestAnimationFrame(frame);
+  }
+  function pede() { if (!raf) raf = requestAnimationFrame(frame); }
+  function move(e) { mx = e.clientX; my = e.clientY; pede(); }
+  function sai() { mx = null; olhos.forEach(function (o) { o.tx = 0; o.ty = 0; }); pede(); }
+  window.addEventListener('pointermove', move, { passive: true });
+  document.documentElement.addEventListener('mouseleave', sai);
+  window.addEventListener('pagehide', function () {
+    window.removeEventListener('pointermove', move);
+    if (raf) cancelAnimationFrame(raf);
+  });
 })();
 </script>
 
