@@ -239,6 +239,10 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .sign{left:20px;right:20px;top:128px;align-items:stretch;transform:none}
   .sign .plate{text-align:center}
   .sign .plate{font-size:clamp(60px,21vw,92px)}
+  /* Placa e texto em fluxo: a placa empurra o texto, nunca fica por cima dele */
+  .hero{display:flex;flex-direction:column;height:auto;min-height:100svh;max-height:none;padding:128px 20px 56px}
+  .sign{position:relative;left:auto;right:auto;top:auto;flex:none;margin:0 0 28px}
+  .copy{position:relative;left:auto;right:auto;bottom:auto;margin-top:auto}
   .grid{position:relative;grid-template-columns:1fr;gap:0;padding-left:4px}
   .grid::before{content:"";position:absolute;left:21px;top:22px;bottom:40px;width:6px;border-radius:3px;background:linear-gradient(180deg,var(--pink),var(--purple),var(--blue),var(--cyan))}
   .card{display:grid;grid-template-columns:44px 1fr;column-gap:16px;row-gap:4px;padding:6px 0 26px;background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:0}
