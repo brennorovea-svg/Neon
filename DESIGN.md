@@ -50,7 +50,9 @@ Regras da skill `emil-kowalski-motion`: poucos momentos de movimento, só `trans
 - Controles: 180ms. Hover sobe 2px, clique `scale(.97)` em 100ms.
 - Entrada: 720ms, stagger de 70ms, só em grupos pequenos. Revelar ao rolar: 600ms.
 - Letreiro: liga uma vez na entrada (1.1s). Depois, a cada 2.6 a 6s, pisca uma letra, o olho pisca (pálpebra fecha em ~110ms e abre em 140ms), ou a placa toda pisca e rosa/azul trocam (transição de 700ms). Pausa com a aba oculta, desligado em reduced-motion. É a única exceção à regra de "sem loop decorativo".
-- Proibido: cursor customizado, partículas, loops infinitos fora do letreiro. Limpar observers e timers.
+- Momentos da skill `neon-motion` aprovados em 2026-10-30: sobretítulo do hero decodifica uma vez (letras travam a cada 28ms); números 01-04 dos Serviços ligam com `turnOn` quando o card aparece; hover dos cards na cor do serviço (`--c`) com sublinhado no nome; em Como funciona a linha de cada etapa se desenha (420ms, 300ms entre etapas) e o número liga ao fim; legenda da foto de Quem somos é digitada uma vez; "placa acesa" (hero) e "a gente se ajuda." (Quem somos) acendem em rosa com a piscada do letreiro, uma vez; nos botões de WhatsApp o clique afunda (.97) e o brilho estoura e volta em 260ms.
+- Aurora do Contato: três manchas (rosa, roxo, azul) derivam atrás da placa, 30 a 44s por volta, só enquanto a seção está na tela e parada com movimento reduzido. É a segunda exceção ao "sem loop decorativo", aprovada pelo Brenno.
+- Proibido: cursor customizado, partículas, loops infinitos fora do letreiro e da aurora do Contato. Limpar observers e timers.
 
 ## Formatos de redes
 Post 1080x1350, story 1080x1920, perfil 1080x1080. Peças de story precisam de gancho de dor do cliente e chamada ("Chama no direct"), não só frase de marca.
