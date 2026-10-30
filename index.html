@@ -539,14 +539,12 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .hero h1 .acende{animation:acende 1100ms linear 1050ms both}
 .manifesto.in .acende{animation:acende 1100ms linear 950ms both}
 @media (prefers-reduced-motion:reduce){.hero h1 .acende,.manifesto.in .acende{animation:none}}
-/* Quem somos: nomes da trajetória acendem como neon, cada um na sua cor, junto com o ponto */
-.trajeto::before,.trajeto::after{background:linear-gradient(90deg,#4FB8FF,#3FD27A,#A24BFF,#2F55FF,var(--cyan))}
-.est b,.est.agora b{color:var(--c2);text-shadow:0 0 8px var(--c),0 0 22px var(--c);opacity:.12}
-.trajeto.in .est b{opacity:1;animation:turnOn 1100ms linear var(--td,200ms) backwards}
-.est:nth-child(2){--td:370ms}.est:nth-child(3){--td:540ms}.est:nth-child(4){--td:710ms}.est:nth-child(5){--td:880ms}
-.trajeto.in .est:hover b{animation:flick 520ms linear}
-@media (max-width:820px){.trajeto::before,.trajeto::after{background:linear-gradient(180deg,#4FB8FF,#3FD27A,#A24BFF,#2F55FF,var(--cyan))}}
-@media (prefers-reduced-motion:reduce){.est b,.est.agora b{opacity:1}.trajeto.in .est b,.trajeto.in .est:hover b{animation:none}}
+/* Quem somos: as empresas citadas no texto acendem como neon, cada uma na sua cor */
+.empresas strong{color:var(--c2);text-shadow:0 0 8px var(--c),0 0 22px var(--c)}
+.empresas.in strong{animation:turnOn 1100ms linear 700ms backwards}
+.empresas.in strong:nth-of-type(2){animation-delay:870ms}.empresas.in strong:nth-of-type(3){animation-delay:1040ms}.empresas.in strong:nth-of-type(4){animation-delay:1210ms}
+.empresas.in strong:hover{animation:flick 520ms linear}
+@media (prefers-reduced-motion:reduce){.empresas.in strong,.empresas.in strong:hover{animation:none}}
 /* Contato: aurora lenta atrás da placa, só quando a seção está na tela */
 .aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .aurora i{position:absolute;left:50%;top:26%;width:420px;height:260px;margin:-130px 0 0 -210px;border-radius:50%;filter:blur(60px);opacity:.38;mix-blend-mode:screen;will-change:transform;animation:var(--orb) linear infinite paused}
@@ -808,14 +806,14 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
         <span class="eyebrow" style="color:var(--yellow)">Quem somos · Zona leste, SP</span>
         <h2 id="quem-titulo">Anos de grande empresa, agora do lado de quem faz o bairro girar.</h2>
       </div>
-      <p class="reveal" style="transition-delay:70ms">Por quase dez anos eu transformei dados em decisão dentro de grandes empresas. Comecei como estagiário no <strong>Magazine Luiza</strong> e virei especialista em BI. Depois coordenei times de dados no <strong>St Marche</strong> e no <strong>Grupo Multi</strong>, e fui gerente de produto de Big Data na <strong>Samsung</strong>.</p>
+      <p class="reveal empresas" style="transition-delay:70ms">Por quase dez anos eu transformei dados em decisão dentro de grandes empresas. Comecei como estagiário no <strong style="--c:#4FB8FF;--c2:#D2ECFF">Magazine Luiza</strong> e virei especialista em BI. Depois coordenei times de dados no <strong style="--c:#3FD27A;--c2:#C8F6DA">St Marche</strong> e no <strong style="--c:#A24BFF;--c2:#E6D0FF">Grupo Multi</strong>, e fui gerente de produto de Big Data na <strong style="--c:#2F55FF;--c2:#C2CCFF">Samsung</strong>.</p>
       <p class="reveal" style="transition-delay:140ms">Lá dentro aprendi que todo número esquecido é dinheiro deixado na mesa. Grande empresa tem um time inteiro cuidando disso. O pequeno empresário não tem, e é pra ele que a Neon Scripts existe.</p>
       <ol class="trajeto reveal" aria-label="Trajetória até a Neon Scripts" style="transition-delay:200ms">
-        <li class="est" style="--c:#4FB8FF;--c2:#D2ECFF"><i></i><div><b>Magazine Luiza</b><span>Estágio → BI</span></div></li>
-        <li class="est" style="--c:#3FD27A;--c2:#C8F6DA"><i></i><div><b>St Marche</b><span>Coord. de dados</span></div></li>
-        <li class="est" style="--c:#A24BFF;--c2:#E6D0FF"><i></i><div><b>Grupo Multi</b><span>Coord. de dados</span></div></li>
-        <li class="est" style="--c:#2F55FF;--c2:#C2CCFF"><i></i><div><b>Samsung</b><span>Big Data</span></div></li>
-        <li class="est agora" style="--c:var(--cyan);--c2:#B0DCFF"><i></i><div><b>Neon Scripts</b><span>Seu negócio</span></div></li>
+        <li class="est" style="--c:var(--pink)"><i></i><div><b>Magazine Luiza</b><span>Estágio → BI</span></div></li>
+        <li class="est" style="--c:var(--purple)"><i></i><div><b>St Marche</b><span>Coord. de dados</span></div></li>
+        <li class="est" style="--c:#7A6BFF"><i></i><div><b>Grupo Multi</b><span>Coord. de dados</span></div></li>
+        <li class="est" style="--c:var(--blue)"><i></i><div><b>Samsung</b><span>Big Data</span></div></li>
+        <li class="est agora" style="--c:var(--cyan)"><i></i><div><b>Neon Scripts</b><span>Seu negócio</span></div></li>
       </ol>
       <div class="pessoas reveal" style="transition-delay:260ms">
         <a class="pessoa" href="https://www.linkedin.com/in/brenno-rovea/" target="_blank" rel="noopener">
