@@ -533,6 +533,12 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 /* Quem somos: legenda digitada */
 .quem-foto .cur{display:inline-block;width:7px;height:14px;margin-left:2px;vertical-align:-2px;background:var(--cyan);animation:cursor 1s steps(1) infinite;transition:opacity 200ms var(--ease)}
 @keyframes cursor{50%{opacity:0}}
+/* Palavras que acendem como neon, uma vez: "placa acesa" no hero e "a gente se ajuda." em Quem somos */
+.acende{color:#FFB8DC;text-shadow:0 0 8px var(--pink),0 0 22px var(--pink),0 0 48px var(--purple)}
+@keyframes acende{0%{opacity:1;color:inherit;text-shadow:none}1%{opacity:.08}10%{opacity:1}14%{opacity:.2}22%{opacity:1}27%{opacity:.35}36%,100%{opacity:1}}
+.hero h1 .acende{animation:acende 1100ms linear 1050ms both}
+.manifesto.in .acende{animation:acende 1100ms linear 950ms both}
+@media (prefers-reduced-motion:reduce){.hero h1 .acende,.manifesto.in .acende{animation:none}}
 /* Contato: aurora lenta atrás da placa, só quando a seção está na tela */
 .aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .aurora i{position:absolute;left:50%;top:26%;width:420px;height:260px;margin:-130px 0 0 -210px;border-radius:50%;filter:blur(60px);opacity:.38;mix-blend-mode:screen;will-change:transform;animation:var(--orb) linear infinite paused}
@@ -582,7 +588,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   </nav>
   <div class="copy">
     <span class="eyebrow rv" style="color:#FF8CC6;animation-delay:200ms">Feito pra quem faz o bairro girar</span>
-    <h1 class="rv" style="animation-delay:270ms">Todo negócio merece uma placa acesa.</h1>
+    <h1 class="rv" style="animation-delay:270ms">Todo negócio merece uma <span class="acende">placa acesa</span>.</h1>
     <p class="lead rv" style="animation-delay:340ms">Marca, site, inteligência e sistemas para pequenos negócios. A gente entende a sua rotina primeiro e depois acende a sua placa.</p>
     <div class="ctas rv" style="animation-delay:410ms">
       <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Bora conversar?</a>
@@ -751,7 +757,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
           <i aria-hidden="true">↗</i>
         </a>
       </div>
-      <p class="manifesto reveal" style="transition-delay:320ms">Nascemos na zona leste de São Paulo. Somos classe trabalhadora e sabemos que ninguém cresce sozinho: <strong>a gente se ajuda.</strong></p>
+      <p class="manifesto reveal" style="transition-delay:320ms">Nascemos na zona leste de São Paulo. Somos classe trabalhadora e sabemos que ninguém cresce sozinho: <strong class="acende">a gente se ajuda.</strong></p>
       <div class="quem-ctas reveal" style="transition-delay:380ms">
         <a class="btn btn-p" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Conversar com a gente</a>
         <a class="btn btn-g" href="#projetos">Ver clientes</a>
@@ -979,6 +985,15 @@ io.observe(hero);window.addEventListener('pagehide',function(){io.disconnect()})
       if (!done) timers.push(setTimeout(step, 40));
     })();
   }
+
+  // Botões de WhatsApp: no clique, além de afundar, o brilho estoura e volta (260ms)
+  document.querySelectorAll('a.btn[href*="wa.me"], a.wa').forEach(function (b) {
+    b.addEventListener('pointerdown', function () {
+      var cor = b.classList.contains('wa') ? '37,211,102' : '255,46,154';
+      var base = getComputedStyle(b).boxShadow;
+      b.animate([{ boxShadow: base }, { boxShadow: '0 0 46px 10px rgba(' + cor + ',.95)', offset: .35 }, { boxShadow: base }], { duration: 260, easing: 'ease-out' });
+    });
+  });
 
   if (!('IntersectionObserver' in window)) return;
 
