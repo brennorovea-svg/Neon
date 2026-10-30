@@ -601,6 +601,24 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .menu-cel::before,.mlist a,.menu-cel.open .mlist a,.mbtn{transition:none}
   .card::before,.card.in::before{animation:none;transform:none}
 }
+/* Computador: sem área vazia em Projetos, Como funciona e Quem somos */
+@media (min-width:1024px){
+  .cli{padding:8vh clamp(20px,5vw,72px) 6vh}
+  .cli-head{margin-bottom:28px}
+  .cli-screen{height:min(46vh,470px)}
+  .cli-screen img{min-height:100%;object-fit:cover;object-position:top center}
+  .how{display:grid;grid-template-columns:minmax(300px,30%) minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:clamp(40px,4vw,72px);row-gap:28px;align-items:start;padding:8vh clamp(20px,5vw,72px)}
+  .how-head{grid-column:1;grid-row:1;margin-bottom:0}
+  .how-foot{grid-column:1;grid-row:2;margin-top:0;flex-direction:column;align-items:flex-start;gap:22px}
+  .how-steps{grid-column:2;grid-row:1 / span 2;align-self:stretch}
+  .how-step{padding:24px 22px 26px}
+  .quem{padding:8vh clamp(20px,5vw,72px)}
+  .quem-in{max-width:1480px;align-items:stretch}
+  .quem-foto{aspect-ratio:auto;max-height:none;height:100%;min-height:420px}
+  .quem-txt{justify-content:center}
+  .quem-txt h2,.quem-txt p{max-width:700px}
+}
+@media (min-width:1024px) and (max-width:1499px){.how-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>

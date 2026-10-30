@@ -42,6 +42,7 @@ Placa parafusada (sem cabo): 4 parafusos de metal nos cantos (`.parafusos`), som
 - Foco: `outline 2px #fff`, `offset 3px`.
 - Títulos `h2`: só o de Serviços encolhe (até 30px) para a primeira tela caber em 100vh; os outros seguem o tamanho padrão. O do Contato é maior (`clamp(34px,4.6vw,62px)`), é o fechamento da página.
 - Etapas de Como funciona usam o mesmo card dos serviços no computador; no celular viram linha do tempo.
+- Computador (>= 1024px), sem área vazia: telas dos clientes com `min(46vh,470px)` e print curto preenchendo com `object-fit: cover`; Como funciona em duas colunas (título, nota e botão à esquerda, etapas à direita, 2 por linha até 1499px e 4 a partir de 1500px); em Quem somos a foto acompanha a altura do texto e o conteúdo vai até 1480px. Respiro das seções: 8vh.
 - Rodapé (`.rodape`): sobre, links do site e contato, em 3 colunas (2 no celular).
 
 ## Movimento
