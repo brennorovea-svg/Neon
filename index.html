@@ -562,6 +562,45 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .aurora i{animation:none}
   .quem-foto .cur{display:none}
 }
+/* Projetos no celular: tracinhos mostram em qual cliente você está; o rosa anda até o da vez */
+.cli-dots{display:none}
+@media (max-width:1023px){
+  .cli-dots.on{position:relative;display:flex;justify-content:center;gap:8px;margin-top:16px;height:4px}
+  .cli-dots i{width:16px;height:4px;border-radius:2px;background:rgba(244,239,255,.22)}
+  .cli-dots .ind{position:absolute;left:0;top:0;width:16px;height:4px;border-radius:2px;background:var(--pink);box-shadow:0 0 8px var(--pink);transform-origin:left center}
+}
+/* ===== Movimento no celular (out/2026) ===== */
+.mbtn{display:none}
+.menu-cel{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top)) 20px 24px;overflow-y:auto}
+.menu-cel[hidden]{display:none}
+.menu-cel::before{content:"";position:fixed;inset:0;background:rgba(5,3,15,.94);opacity:0;transition:opacity 250ms var(--ease)}
+.menu-cel.open::before{opacity:1}
+.mtop{position:relative;display:flex;justify-content:flex-end;align-items:center;gap:8px}
+.mlist{position:relative;display:flex;flex-direction:column;margin-top:32px}
+.mlist a{display:flex;align-items:baseline;gap:14px;padding:16px 2px;border-bottom:1px solid rgba(162,75,255,.3);font-size:26px;font-weight:800;color:var(--ink);text-decoration:none;opacity:0;transform:translateY(-16px);transition:opacity 240ms ease-in,transform 240ms ease-in;transition-delay:calc((4 - var(--i)) * 40ms)}
+.mlist a span{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--c);text-shadow:0 0 8px var(--c),0 0 20px var(--c)}
+.menu-cel.open .mlist a{opacity:1;transform:none;transition:opacity 420ms var(--ease),transform 420ms var(--ease);transition-delay:calc(120ms + var(--i) * 70ms)}
+@media (min-width:821px){.menu-cel{display:none!important}}
+@media (max-width:820px){
+  .links{gap:8px}
+  .mbtn{display:inline-flex;align-items:center;font:700 13px 'Sora',sans-serif;color:var(--ink);background:rgba(5,3,15,.55);border:2px solid rgba(244,239,255,.6);border-radius:999px;padding:7px 14px;cursor:pointer;transition:transform 180ms var(--ease)}
+  .mbtn:active{transform:scale(.97);transition-duration:100ms}
+  .mbtn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  /* Botão verde: desce e some no hero e no Contato, onde já tem o botão grande */
+  .wa{transform:translateY(calc(100% + 24px))}
+  /* Serviços: a borda de cada card se desenha e o número liga quando ela termina, como em Como funciona */
+  .card{border-left-color:transparent}
+  .card::before{content:"";position:absolute;left:-2px;top:0;bottom:0;width:2px;background:var(--c);transform:scaleY(0);transform-origin:top;transition:box-shadow 300ms var(--ease)}
+  .card.in::before{animation:desenha 420ms var(--ease) 300ms forwards}
+  .grid .card.in .line,.grid .card:nth-child(n).in .line{animation:turnOn 1100ms linear 660ms backwards}
+  /* O serviço que passa pelo meio da tela acende: sublinhado e borda brilhando (no lugar do hover) */
+  .card.foco strong::after{transform:scaleX(1);transform-origin:left}
+  .card.foco::before{box-shadow:0 0 10px var(--c),0 0 22px var(--c)}
+}
+@media (prefers-reduced-motion:reduce){
+  .menu-cel::before,.mlist a,.menu-cel.open .mlist a,.mbtn{transition:none}
+  .card::before,.card.in::before{animation:none;transform:none}
+}
 </style>
 </head>
 <body>
@@ -583,6 +622,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
       <a class="nl" href="#projetos">Projetos</a>
       <a class="nl" href="#como">Como funciona</a>
       <a class="nl" href="#quem">Quem somos</a>
+      <button class="mbtn" type="button" aria-expanded="false" aria-controls="menu-cel">Menu</button>
       <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Fale com a gente</a>
     </div>
   </nav>
@@ -696,6 +736,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     </article>
   </div>
   <div class="cli-swipe" aria-hidden="true">← ARRASTE PARA VER OS OUTROS CLIENTES →</div>
+  <div class="cli-dots" aria-hidden="true"></div>
 </section>
 <section class="how" id="como" aria-labelledby="como-titulo">
   <div class="how-head reveal">
@@ -795,6 +836,19 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     <div class="fim">© 2026 NEON SCRIPTS · FEITO PRA QUEM FAZ O BAIRRO GIRAR</div>
   </footer>
 </section>
+<div class="menu-cel" id="menu-cel" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="mtop">
+    <button class="mbtn" type="button" data-fecha>Fechar</button>
+    <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Fale com a gente</a>
+  </div>
+  <div class="mlist">
+    <a href="#servicos" style="--i:0;--c:var(--pink)"><span>01</span>Serviços</a>
+    <a href="#projetos" style="--i:1;--c:var(--purple)"><span>02</span>Projetos</a>
+    <a href="#como" style="--i:2;--c:var(--blue)"><span>03</span>Como funciona</a>
+    <a href="#quem" style="--i:3;--c:var(--cyan)"><span>04</span>Quem somos</a>
+    <a href="#contato" style="--i:4;--c:var(--yellow)"><span>05</span>Contato</a>
+  </div>
+</div>
 <a class="wa" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>Chamar no WhatsApp</a>
 </div>
 
@@ -898,10 +952,14 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 </script>
 
 <script>
-(function(){var wa=document.querySelector('.wa'),hero=document.getElementById('hero');
+// Botão verde fixo: aparece depois do hero e sai de cena no Contato, onde já tem o botão de WhatsApp grande
+(function(){var wa=document.querySelector('.wa'),hero=document.getElementById('hero'),ct=document.getElementById('contato');
 if(!('IntersectionObserver' in window))return;
-var io=new IntersectionObserver(function(e){wa.classList.toggle('show',!e[0].isIntersecting)},{threshold:0.05});
-io.observe(hero);window.addEventListener('pagehide',function(){io.disconnect()});})();
+var noHero=true,noContato=false;
+function upd(){wa.classList.toggle('show',!noHero&&!noContato)}
+var io=new IntersectionObserver(function(e){noHero=e[0].isIntersecting;upd()},{threshold:0.05});
+var io2=new IntersectionObserver(function(e){noContato=e[0].isIntersecting;upd()},{rootMargin:'0px 0px -25% 0px'});
+io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){io.disconnect();io2.disconnect()});})();
 </script>
 
 <script>
@@ -957,6 +1015,40 @@ io.observe(hero);window.addEventListener('pagehide',function(){io.disconnect()})
     io.observe(row);
     window.addEventListener('pagehide', function () { io.disconnect(); });
   } else { light(); }
+
+  // Tracinhos: um por cliente; o rosa estica no caminho e para no cliente da vez
+  var dots = document.querySelector('#projetos .cli-dots');
+  var rowD = document.querySelector('#projetos .cli-row');
+  var itensD = [].slice.call(document.querySelectorAll('#projetos .cli-item'));
+  if (dots && itensD.length > 1) {
+    dots.innerHTML = itensD.map(function () { return '<i></i>'; }).join('') + '<span class="ind"></span>';
+    var tr = dots.querySelectorAll('i'), ind = dots.querySelector('.ind'), atual = 0;
+    var reduzD = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var px = function (i) { return tr[i].offsetLeft; };
+    var liga = function () {
+      var on = rowD.scrollWidth > rowD.clientWidth + 2;
+      dots.classList.toggle('on', on);
+      // com os tracinhos, a linha "arraste para ver" sai: a dica já está no texto de cima
+      var sw = document.querySelector('#projetos .cli-swipe');
+      if (sw) sw.style.display = on ? 'none' : '';
+      ind.style.transform = 'translateX(' + px(atual) + 'px)';
+    };
+    var vai = function (i) {
+      if (i === atual) return;
+      var a = px(atual), b = px(i);
+      ind.animate([{ transform: 'translateX(' + a + 'px)' }, { transform: 'translateX(' + Math.min(a, b) + 'px) scaleX(' + (1 + Math.abs(b - a) / 16) + ')', offset: .5 }, { transform: 'translateX(' + b + 'px)' }],
+        { duration: reduzD ? 1 : 420, easing: 'cubic-bezier(.22,1,.36,1)' });
+      ind.style.transform = 'translateX(' + b + 'px)';
+      atual = i;
+    };
+    rowD.addEventListener('scroll', function () {
+      var base = itensD[0].offsetLeft, melhor = 0, d = 1e9;
+      itensD.forEach(function (it, i) { var x = Math.abs(it.offsetLeft - base - rowD.scrollLeft); if (x < d) { d = x; melhor = i; } });
+      vai(melhor);
+    }, { passive: true });
+    window.addEventListener('resize', liga);
+    liga();
+  }
   window.addEventListener('pagehide', function () { timers.forEach(clearTimeout); });
 })();
 </script>
@@ -1024,6 +1116,137 @@ io.observe(hero);window.addEventListener('pagehide',function(){io.disconnect()})
     var io2 = new IntersectionObserver(function (en) { ct.classList.toggle('viva', en[0].isIntersecting); });
     io2.observe(ct); ios.push(io2);
   }
+})();
+</script>
+<script>
+// Menu no celular: a tela escurece e as seções descem em cascata; fecha na ordem inversa
+(function () {
+  var menu = document.getElementById('menu-cel');
+  var abre = document.querySelector('nav .mbtn');
+  var fecha = menu.querySelector('[data-fecha]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timer;
+  function abrir() {
+    clearTimeout(timer);
+    menu.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    abre.setAttribute('aria-expanded', 'true');
+    void menu.offsetWidth;
+    menu.classList.add('open');
+    fecha.focus();
+  }
+  function fechar(volta) {
+    if (menu.hidden) return;
+    menu.classList.remove('open');
+    abre.setAttribute('aria-expanded', 'false');
+    document.documentElement.style.overflow = '';
+    timer = setTimeout(function () { menu.hidden = true; }, reduce ? 0 : 420);
+    if (volta) abre.focus();
+  }
+  abre.addEventListener('click', abrir);
+  fecha.addEventListener('click', function () { fechar(true); });
+  menu.querySelectorAll('.mlist a, .mtop a').forEach(function (a) { a.addEventListener('click', function () { fechar(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(true); });
+  window.addEventListener('pagehide', function () { clearTimeout(timer); });
+})();
+
+// Movimento no celular (sem mouse): olho segue o toque e a rolagem, serviço do meio acende, clientes espiam e o print rola sozinho
+(function () {
+  var mq = window.matchMedia;
+  if (!mq || mq('(prefers-reduced-motion: reduce)').matches || !mq('(hover: none)').matches) return;
+  var timers = [], ios = [];
+  window.addEventListener('pagehide', function () { timers.forEach(clearTimeout); ios.forEach(function (o) { o.disconnect(); }); });
+
+  // Olho: ao tocar, a íris olha para o ponto do toque e volta ao centro; ao rolar, olha para baixo
+  var olhos = [].slice.call(document.querySelectorAll('.o-olho')).map(function (el) {
+    return { el: el, g: el.querySelector('.olhar'), x: 0, y: 0, tx: 0, ty: 0 };
+  });
+  var raf = 0, volta = 0;
+  function frame() {
+    raf = 0;
+    var parado = true;
+    olhos.forEach(function (o) {
+      o.x += (o.tx - o.x) * 0.18; o.y += (o.ty - o.y) * 0.18;
+      if (Math.abs(o.tx - o.x) > 0.05 || Math.abs(o.ty - o.y) > 0.05) parado = false;
+      o.g.setAttribute('transform', 'translate(' + o.x.toFixed(2) + ' ' + o.y.toFixed(2) + ')');
+    });
+    if (!parado) raf = requestAnimationFrame(frame);
+  }
+  function pede(ms) {
+    if (!raf) raf = requestAnimationFrame(frame);
+    clearTimeout(volta);
+    volta = setTimeout(function () { olhos.forEach(function (o) { o.tx = 0; o.ty = 0; }); if (!raf) raf = requestAnimationFrame(frame); }, ms);
+  }
+  function visivel(o) { var r = o.el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; }
+  window.addEventListener('pointerdown', function (e) {
+    olhos.forEach(function (o) {
+      if (!visivel(o)) return;
+      var r = o.el.getBoundingClientRect();
+      var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+      var d = Math.sqrt(dx * dx + dy * dy) || 1, k = Math.min(1, d / 160);
+      o.tx = dx / d * 11 * k; o.ty = dy / d * 6 * k;
+    });
+    pede(1100);
+  }, { passive: true });
+  var ultimoY = scrollY;
+  window.addEventListener('scroll', function () {
+    var desce = scrollY > ultimoY; ultimoY = scrollY;
+    olhos.forEach(function (o) { if (visivel(o)) { o.tx = 0; o.ty = desce ? 6 : -6; } });
+    pede(600);
+  }, { passive: true });
+
+  if (!('IntersectionObserver' in window) || !mq('(max-width: 820px)').matches) return;
+
+  // Serviços: o card que passa pela faixa do meio da tela ganha o sublinhado e a borda acesa
+  var cards = document.querySelectorAll('.grid .card');
+  var naFaixa = [];
+  var io1 = new IntersectionObserver(function (en) {
+    en.forEach(function (e) {
+      var i = naFaixa.indexOf(e.target);
+      if (e.isIntersecting && i < 0) naFaixa.push(e.target);
+      if (!e.isIntersecting && i >= 0) naFaixa.splice(i, 1);
+    });
+    // só um aceso por vez: o mais perto do meio da tela
+    var meio = innerHeight / 2, melhor = null, dist = 1e9;
+    naFaixa.forEach(function (c) { var r = c.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - meio); if (d < dist) { dist = d; melhor = c; } });
+    cards.forEach(function (c) { c.classList.toggle('foco', c === melhor); });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  cards.forEach(function (c) { io1.observe(c); }); ios.push(io1);
+
+  // Projetos: na primeira vez, a fileira anda um pouco para o lado e volta, devagar
+  var SUAVE = 'cubic-bezier(.65,0,.35,1)';
+  var row = document.querySelector('#projetos .cli-row');
+  var io2 = new IntersectionObserver(function (en) {
+    if (!en[0].isIntersecting) return;
+    io2.disconnect();
+    // só começa a vigiar os prints quando a fileira já está na tela
+    document.querySelectorAll('#projetos .cli-item').forEach(function (it) { io3.observe(it); });
+    if (row.scrollWidth <= row.clientWidth + 2) return;
+    timers.push(setTimeout(function () {
+      if (row.scrollLeft > 4) return;
+      row.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-40px)', offset: .45 }, { transform: 'translateX(0)' }], { duration: 1800, easing: SUAVE });
+    }, 1400));
+  }, { threshold: 0.6 });
+  io2.observe(row); ios.push(io2);
+
+  // Projetos: quando um cliente para inteiro na tela, o print desce devagar e volta, uma vez por cliente
+  var io3 = new IntersectionObserver(function (en) {
+    en.forEach(function (e) {
+      var it = e.target;
+      if (!e.isIntersecting || it.dataset.rolou) return;
+      timers.push(setTimeout(function () {
+        var r = it.getBoundingClientRect(), rr = row.getBoundingClientRect();
+        if (it.dataset.rolou || r.left < rr.left - 2 || r.right > rr.right + 2) return;
+        var sh = parseFloat(getComputedStyle(it).getPropertyValue('--shift')) || 0;
+        if (!sh) return;
+        it.dataset.rolou = '1';
+        it.querySelector('.cli-screen img').animate(
+          [{ transform: 'translateY(0)' }, { transform: 'translateY(' + (sh * 0.75) + 'px)', offset: .45 }, { transform: 'translateY(' + (sh * 0.75) + 'px)', offset: .6 }, { transform: 'translateY(0)' }],
+          { duration: 5200, easing: SUAVE });
+      }, 700));
+    });
+  }, { root: row, threshold: 0.95 });
+  ios.push(io3);
 })();
 </script>
 </body>
