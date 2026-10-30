@@ -562,6 +562,13 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
   .aurora i{animation:none}
   .quem-foto .cur{display:none}
 }
+/* Projetos no celular: tracinhos mostram em qual cliente você está; o rosa anda até o da vez */
+.cli-dots{display:none}
+@media (max-width:1023px){
+  .cli-dots.on{position:relative;display:flex;justify-content:center;gap:8px;margin-top:16px;height:4px}
+  .cli-dots i{width:16px;height:4px;border-radius:2px;background:rgba(244,239,255,.22)}
+  .cli-dots .ind{position:absolute;left:0;top:0;width:16px;height:4px;border-radius:2px;background:var(--pink);box-shadow:0 0 8px var(--pink);transform-origin:left center}
+}
 /* ===== Movimento no celular (out/2026) ===== */
 .mbtn{display:none}
 .menu-cel{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top)) 20px 24px;overflow-y:auto}
@@ -729,6 +736,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
     </article>
   </div>
   <div class="cli-swipe" aria-hidden="true">← ARRASTE PARA VER OS OUTROS CLIENTES →</div>
+  <div class="cli-dots" aria-hidden="true"></div>
 </section>
 <section class="how" id="como" aria-labelledby="como-titulo">
   <div class="how-head reveal">
@@ -1007,6 +1015,40 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
     io.observe(row);
     window.addEventListener('pagehide', function () { io.disconnect(); });
   } else { light(); }
+
+  // Tracinhos: um por cliente; o rosa estica no caminho e para no cliente da vez
+  var dots = document.querySelector('#projetos .cli-dots');
+  var rowD = document.querySelector('#projetos .cli-row');
+  var itensD = [].slice.call(document.querySelectorAll('#projetos .cli-item'));
+  if (dots && itensD.length > 1) {
+    dots.innerHTML = itensD.map(function () { return '<i></i>'; }).join('') + '<span class="ind"></span>';
+    var tr = dots.querySelectorAll('i'), ind = dots.querySelector('.ind'), atual = 0;
+    var reduzD = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var px = function (i) { return tr[i].offsetLeft; };
+    var liga = function () {
+      var on = rowD.scrollWidth > rowD.clientWidth + 2;
+      dots.classList.toggle('on', on);
+      // com os tracinhos, a linha "arraste para ver" sai: a dica já está no texto de cima
+      var sw = document.querySelector('#projetos .cli-swipe');
+      if (sw) sw.style.display = on ? 'none' : '';
+      ind.style.transform = 'translateX(' + px(atual) + 'px)';
+    };
+    var vai = function (i) {
+      if (i === atual) return;
+      var a = px(atual), b = px(i);
+      ind.animate([{ transform: 'translateX(' + a + 'px)' }, { transform: 'translateX(' + Math.min(a, b) + 'px) scaleX(' + (1 + Math.abs(b - a) / 16) + ')', offset: .5 }, { transform: 'translateX(' + b + 'px)' }],
+        { duration: reduzD ? 1 : 420, easing: 'cubic-bezier(.22,1,.36,1)' });
+      ind.style.transform = 'translateX(' + b + 'px)';
+      atual = i;
+    };
+    rowD.addEventListener('scroll', function () {
+      var base = itensD[0].offsetLeft, melhor = 0, d = 1e9;
+      itensD.forEach(function (it, i) { var x = Math.abs(it.offsetLeft - base - rowD.scrollLeft); if (x < d) { d = x; melhor = i; } });
+      vai(melhor);
+    }, { passive: true });
+    window.addEventListener('resize', liga);
+    liga();
+  }
   window.addEventListener('pagehide', function () { timers.forEach(clearTimeout); });
 })();
 </script>
