@@ -1276,8 +1276,7 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
 })();
 </script>
 <script>
-/* Filme do hero: só no computador e sem "reduzir movimento". No celular nem baixa.
-   Prévia das 3 versões: ?hero=anime (padrão), ?hero=keynote, ?hero=holo */
+/* Filme do hero (rua do bairro acendendo): só no computador e sem "reduzir movimento". No celular nem baixa. */
 (function(){
   var v = document.querySelector('.ph-video');
   if (!v || !window.matchMedia) return;
@@ -1285,7 +1284,7 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var c = navigator.connection;
   if (c && (c.saveData || /2g/.test(c.effectiveType || ''))) return;
-  var q = (location.search.match(/[?&]hero=(anime|keynote|holo)/) || [])[1] || 'anime';
+  var q = 'anime';
   v.poster = 'assets/hero/' + q + '.jpg';
   [['webm','video/webm'],['mp4','video/mp4']].forEach(function(f){
     var s = document.createElement('source'); s.src = 'assets/hero/' + q + '.' + f[0]; s.type = f[1]; v.appendChild(s);
