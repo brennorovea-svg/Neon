@@ -97,7 +97,7 @@ a{color:inherit}
 .hero{position:relative;height:min(100vh,820px);min-height:640px;overflow:hidden;background:var(--night)}
 .ph{position:absolute;inset:0;background:url("assets/hero-metro.jpg") center 55%/cover no-repeat}
 /* Vídeo do hero (computador): entra por cima da foto só quando já está tocando */
-.ph-video{position:absolute;top:0;right:0;width:74%;height:100%;object-fit:cover;object-position:center 40%;opacity:0;transition:opacity 700ms var(--ease);pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%);mask-image:linear-gradient(90deg,transparent 0,#000 28%)}
+.ph-video{position:absolute;top:0;right:0;width:74%;height:100%;object-fit:cover;object-position:center 40%;opacity:0;transition:opacity 700ms var(--ease);pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28%),linear-gradient(180deg,rgba(0,0,0,.28) 0,rgba(0,0,0,.4) 22%,#000 42%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 28%),linear-gradient(180deg,rgba(0,0,0,.28) 0,rgba(0,0,0,.4) 22%,#000 42%);mask-composite:intersect}
 .ph-video.on{opacity:1}
 /* Com o vídeo tocando, a foto some por baixo para não misturar as duas cenas */
 .settle .ph{transition:opacity 700ms var(--ease)}
