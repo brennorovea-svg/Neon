@@ -634,7 +634,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 <div class="screen">
 <header class="hero" id="hero">
   <div class="par par-photo" data-depth="10" aria-hidden="true">
-    <div class="settle"><div class="ph" style="filter:saturate(1.25) contrast(1.08) brightness(.88)"></div><video class="ph-video" muted loop playsinline preload="none" poster="assets/hero/tunel.jpg" aria-hidden="true" tabindex="-1" style="filter:saturate(1.15) contrast(1.05) brightness(.9)"></video></div>
+    <div class="settle"><div class="ph" style="filter:saturate(1.25) contrast(1.08) brightness(.88)"></div><video class="ph-video" muted loop playsinline preload="none" poster="assets/hero/chegada.jpg" aria-hidden="true" tabindex="-1" style="filter:saturate(1.15) contrast(1.05) brightness(.9)"></video></div>
     <div class="spill"></div>
   </div>
   <svg class="grain" aria-hidden="true"><filter id="grao"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grao)"/></svg>
@@ -1284,12 +1284,7 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var c = navigator.connection;
   if (c && (c.saveData || /2g/.test(c.effectiveType || ''))) return;
-  /* Prévia: ?video=tunel|chegada|fumaca|vazio|montagem escolhe o trecho. Antes de publicar, fica só o escolhido. */
-  var op = ['tunel','chegada','fumaca','vazio','montagem'];
-  var m = /[?&]video=([a-z]+)/.exec(location.search);
-  var n = (m && op.indexOf(m[1]) > -1) ? m[1] : 'tunel';
-  v.poster = 'assets/hero/' + n + '.jpg';
-  [['assets/hero/' + n + '.webm','video/webm'],['assets/hero/' + n + '.mp4','video/mp4']].forEach(function(f){
+  [['assets/hero/chegada.webm','video/webm'],['assets/hero/chegada.mp4','video/mp4']].forEach(function(f){
     var s = document.createElement('source'); s.src = f[0]; s.type = f[1]; v.appendChild(s);
   });
   v.addEventListener('playing', function(){ v.classList.add('on'); }, {once:true});
