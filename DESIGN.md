@@ -19,7 +19,7 @@ Tecnologia de rua à noite: letreiro neon, synthwave, street art, cyberpunk. Fot
 | `--cyan` | `#40E6DC` | brilho do letreiro azul, detalhes de terminal |
 | `--yellow` | `#F2D75A` | destaque pontual |
 
-Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backdrop-filter: blur(8px)`, borda `rgba(162,75,255,.35)` e topo de 3px rosa.
+Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backdrop-filter: blur(8px)`, borda `rgba(162,75,255,.35)` e topo de 3px na cor do serviço (`--c`).
 
 ## Tipografia (Google Fonts)
 - **Bungee Inline**: só o letreiro (só tem maiúsculas).
@@ -50,8 +50,10 @@ Regras da skill `emil-kowalski-motion`: poucos momentos de movimento, só `trans
 - Easing único: `--ease: cubic-bezier(.22,1,.36,1)`.
 - Controles: 180ms. Hover sobe 2px, clique `scale(.97)` em 100ms.
 - Entrada: 720ms, stagger de 70ms, só em grupos pequenos. Revelar ao rolar: 600ms.
-- Letreiro: liga uma vez na entrada (1.1s). Depois, a cada 2.6 a 6s, pisca uma letra, o olho pisca (pálpebra fecha em ~110ms e abre em 140ms), ou a placa toda pisca e rosa/azul trocam (transição de 700ms). Pausa com a aba oculta, desligado em reduced-motion. É a única exceção à regra de "sem loop decorativo".
+- Letreiro: liga uma vez na entrada (1.1s). Depois, a cada 2.6 a 6s, pisca uma letra, o olho pisca (pálpebra fecha em ~110ms e abre em 140ms), ou a placa toda pisca e rosa/azul trocam (transição de 700ms). Pausa com a aba oculta, desligado em reduced-motion. É uma das duas exceções à regra de "sem loop decorativo"; a outra é a aurora do Contato.
 - Momentos da skill `neon-motion` aprovados em 2026-10-30: sobretítulo do hero decodifica uma vez (letras travam a cada 28ms); números 01-04 dos Serviços ligam com `turnOn` quando o card aparece; hover dos cards na cor do serviço (`--c`) com sublinhado no nome; em Como funciona a linha de cada etapa se desenha (420ms, 300ms entre etapas) e o número liga ao fim; legenda da foto de Quem somos é digitada uma vez; "placa acesa" (hero) e "a gente se ajuda." (Quem somos) acendem em rosa com a piscada do letreiro, uma vez; nos botões de WhatsApp o clique afunda (.97) e o brilho estoura e volta em 260ms.
+- Olho: com mouse, a íris segue o ponteiro. No celular (`hover:none`), olha para onde a pessoa toca e volta ao centro em 1,1s; ao rolar, olha para a direção da rolagem e volta em 0,6s. Desligado em reduced-motion.
+- Filme do hero (`assets/hero/anime`, desde 2026-11-04): só no computador (a partir de 821px), sem reduced-motion e sem economia de dados. Roda uma vez e para no último quadro. No celular e se o filme falhar, fica a foto.
 - Aurora do Contato: três manchas (rosa, roxo, azul) derivam atrás da placa, 30 a 44s por volta, só enquanto a seção está na tela e parada com movimento reduzido. É a segunda exceção ao "sem loop decorativo", aprovada pelo Brenno.
 - Proibido: cursor customizado, partículas, loops infinitos fora do letreiro e da aurora do Contato. Limpar observers e timers.
 

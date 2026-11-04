@@ -20,7 +20,7 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 - Não repetir "Neon Scripts" em texto no menu: o letreiro já é a marca.
 - Letreiro: NEON em cima e SCRIPTS embaixo dentro da mesma placa, sempre em cores opostas (rosa/azul) que invertem juntas, com piscadas de vez em quando.
 - Logo v3 (2026-10-28): em NEON o E é espelhado e o O é um olho amendoado. Nunca usar o NEON antigo em peça nova. Histórico e regra de versão em `marca/VERSOES.md`.
-- **Sem metrô.** Nada de estação, linha, plataforma, baldeação, embarque, piso tátil. O Brenno vetou em 2026-10-27. Exceção: a foto do hero continua a da entrada do metrô (`assets/hero-metro.jpg`), por escolha do Brenno em 2026-10-27. Não trocar sem ele pedir. A faixa sob o hero é um tubo de neon (`.tubo`) e os números dos cards são "01-04" acesos.
+- **Sem metrô.** Nada de estação, linha, plataforma, baldeação, embarque, piso tátil. O Brenno vetou em 2026-10-27. Exceção: a foto do hero continua a da entrada do metrô (`assets/hero-metro.jpg`), por escolha do Brenno em 2026-10-27. Desde 2026-11-04 o computador toca o filme `assets/hero/anime` no hero; a foto fica no celular e como reserva. Não trocar sem ele pedir. A faixa sob o hero é um tubo de neon (`.tubo`) e os números dos cards são "01-04" acesos.
 - Serviços sempre nesta lista: Marca, Site, Inteligência, Sistemas.
 
 ## Dados fixos
