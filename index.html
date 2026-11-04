@@ -634,7 +634,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 <div class="screen">
 <header class="hero" id="hero">
   <div class="par par-photo" data-depth="10" aria-hidden="true">
-    <div class="settle"><div class="ph" style="filter:saturate(1.25) contrast(1.08) brightness(.88)"></div><video class="ph-video" muted loop playsinline preload="none" poster="assets/hero/portal.jpg" aria-hidden="true" tabindex="-1" style="filter:saturate(1.15) contrast(1.05) brightness(.9)"></video></div>
+    <div class="settle"><div class="ph" style="filter:saturate(1.25) contrast(1.08) brightness(.88)"></div><video class="ph-video" muted playsinline preload="none" poster="assets/hero/portal.jpg" aria-hidden="true" tabindex="-1" style="filter:saturate(1.15) contrast(1.05) brightness(.9)"></video></div>
     <div class="spill"></div>
   </div>
   <svg class="grain" aria-hidden="true"><filter id="grao"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grao)"/></svg>
@@ -1290,7 +1290,7 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
   v.addEventListener('playing', function(){ v.classList.add('on'); }, {once:true});
   v.load();
   var p = v.play(); if (p && p.catch) p.catch(function(){});
-  document.addEventListener('visibilitychange', function(){ if (document.hidden) v.pause(); else v.play().catch(function(){}); });
+  document.addEventListener('visibilitychange', function(){ if (document.hidden) v.pause(); else if (!v.ended) v.play().catch(function(){}); });
 })();
 </script>
 </body>
