@@ -15,6 +15,13 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 - Ordem das seções: Hero › Serviços (`#servicos`) › Projetos (`#projetos`) › Como funciona (`#como`) › Quem somos (`#quem`) › Contato (`#contato`). Todo link do menu precisa apontar para uma âncora que existe.
 - Clientes: a fileira mostra 4; a partir do quinto rola para o lado com setas.
 
+## Loja de skills (`/loja/`)
+- Página única em `loja/index.html`, com CSS e JS embutidos. As 7 skills ficam na lista `SKILLS` e cada uma abre a sua página por âncora (`/loja/#neon-cores`).
+- Preço único: R$ 20 por skill, sem combos (Brenno, 2026-11-10). Sem promessa de "12 meses de atualização" nem de "uso em clientes".
+- Links de pagamento no objeto `PAGAMENTO`, no começo do script. Link vazio = o botão abre o WhatsApp com o pedido pronto.
+- Cores extras só da loja: laranja `#FF7A3D` e verde `#6BFF9E`. Cada skill tem uma cor, sem repetir.
+- Os pacotes `.zip` das skills não ficam no repo: a entrega é pela plataforma de venda.
+
 ## Marca
 - Nome: **Neon Scripts** (com espaço). Instagram @neon.scripts. Nunca só "Neon": conflita com o banco Neon e com o Neon Postgres.
 - Não repetir "Neon Scripts" em texto no menu: o letreiro já é a marca.
