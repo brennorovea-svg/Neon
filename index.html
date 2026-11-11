@@ -582,7 +582,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .cr-hint{font-size:15px;color:var(--muted);max-width:380px;margin:14px 0 0}
 .cr-hint .h-touch{display:none}
 @media (hover:none){.cr-hint .h-desk{display:none}.cr-hint .h-touch{display:inline}}
-.cr-palco{position:relative;padding:24px 0 0}
+.cr-dir{min-width:0}
+.cr-palco{position:relative;padding:clamp(56px,8vh,80px) 0 0}
 .cr-pilha{position:relative;height:clamp(260px,50vh,560px);margin-right:78px}
 .cr-jan{position:absolute;inset:0;display:block;border-radius:14px;overflow:hidden;background:#0E0A22;border:1px solid rgba(244,239,255,.16);box-shadow:0 40px 90px -30px #000,0 0 80px -30px var(--c);text-decoration:none;color:inherit;
   transform:translate(calc(var(--o) * 26px),calc(var(--o) * -22px)) scale(calc(1 - var(--o) * .06));opacity:calc(1 - var(--o) * .36);z-index:calc(10 - var(--o));transition:transform 760ms var(--ease),opacity 760ms var(--ease);pointer-events:none}
@@ -610,7 +611,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .cr-ig{font-family:'Space Mono',monospace;font-size:12.5px;color:var(--muted);text-decoration:none}.cr-ig:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .cr-ver:focus-visible,.cr-ig:focus-visible{outline:2px solid #fff;outline-offset:3px}
 /* carrossel */
-.cr-car{position:relative;display:flex;align-items:center;gap:12px;max-width:1560px;margin:clamp(22px,4vh,40px) auto 0}
+.cr-car{position:relative;display:flex;align-items:center;gap:12px;width:100%}
 .cr-trilho{flex:1;min-width:0;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px calc(50% - clamp(230px,16vw,290px) / 2);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .cr-trilho::-webkit-scrollbar{display:none}
 .cr-it{position:relative;flex:0 0 clamp(230px,16vw,290px);scroll-snap-align:center;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-align:left;padding:14px 18px 16px;border-radius:14px;border:1px solid rgba(244,239,255,.12);background:rgba(10,6,26,.6);color:var(--muted);cursor:pointer;overflow:hidden;transition:border-color 300ms var(--ease),color 300ms var(--ease),box-shadow 300ms var(--ease),opacity 300ms var(--ease);opacity:.55}
@@ -633,21 +634,19 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 @media (min-width:1024px) and (max-height:820px){
   .cli.crs{padding-top:4vh;padding-bottom:4vh}
   .cr-head h2{font-size:clamp(28px,4.6vh,40px)}
-  .cr-pilha{height:44vh}.cr-palco{padding-top:20px}
+  .cr-pilha{height:44vh}.cr-palco{padding-top:52px}
   .cr-ficha{margin-top:-60px;padding:12px 16px 14px}.cr-f{gap:6px}.cr-f h3{font-size:20px}.cr-f p{font-size:13px;line-height:1.42}.cr-lk{padding-top:8px}.cr-ver{padding:5px 12px;font-size:13px}
-  .cr-car{margin-top:2.6vh}.cr-it{padding:10px 16px 12px}.cr-n{font-size:22px}.cr-nm{font-size:17px}
+  .cr-it{padding:10px 16px 12px}.cr-n{font-size:22px}.cr-nm{font-size:17px}
 }
 @media (min-width:1024px) and (min-height:821px) and (max-height:960px){.cr-pilha{height:45vh}.cli.crs{padding-top:5vh;padding-bottom:5vh}}
 @media (max-width:1023px){
-  .crs{display:flex;flex-direction:column}
-  .cr-in{display:contents}
-  .cr-head{order:1}.cr-car{order:2}.cr-palco{order:3}
+  .cr-in{grid-template-columns:1fr;gap:22px}
   .cr-giga{display:none}
   .cr-pilha{height:min(72vw,440px);margin-right:30px}
   .cr-jan{transform:translate(calc(var(--o) * 10px),calc(var(--o) * -9px)) scale(calc(1 - var(--o) * .05))}
-  .cr-palco{padding-top:16px}
+  .cr-palco{padding-top:36px}
   .cr-ficha{width:auto;margin:16px 0 0}
-  .cr-car{margin:18px 0 6px}
+  .cr-car{margin:0 -4px}
   .cr-seta{display:none}
   .cr-trilho{padding:6px calc(50% - 120px);gap:10px}
   .cr-it{flex-basis:240px}
@@ -836,7 +835,13 @@ html.pre #pre,#pre.sai{display:grid}
       <h2 id="cli-titulo">Antes da promessa, o que a gente já fez.</h2>
       <p class="cr-hint"><span class="h-desk">Passe o mouse na tela pra ver o site rolando. Clique pra abrir.</span><span class="h-touch">Arraste os nomes pro lado e toque num negócio pra trocar.</span></p>
     </div>
-    <div class="cr-palco reveal" style="transition-delay:120ms">
+    <div class="cr-dir reveal" style="transition-delay:120ms">
+      <div class="cr-car">
+        <button type="button" class="cr-seta" data-d="-1" aria-label="Cliente anterior">←</button>
+        <div class="cr-trilho" role="tablist" aria-label="Clientes"><button type="button" class="cr-it" role="tab" id="cr-t0" aria-controls="cr-p0" aria-selected="true" tabindex="0" style="--c:#FF8A1F;--c2:#FFD08A" data-g="NARUÁ"><span class="cr-n">01</span><span class="cr-nm">Naruá</span><span class="cr-r">Food truck</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t1" aria-controls="cr-p1" aria-selected="false" tabindex="-1" style="--c:#FF4F8B;--c2:#FFC2D6" data-g="MAKIOLKI"><span class="cr-n">02</span><span class="cr-nm">Makiolki</span><span class="cr-r">Doceria e café</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t2" aria-controls="cr-p2" aria-selected="false" tabindex="-1" style="--c:#4DA3FF;--c2:#BFE0FF" data-g="GRANOLA"><span class="cr-n">03</span><span class="cr-nm">Granola Pura</span><span class="cr-r">Granola artesanal</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t3" aria-controls="cr-p3" aria-selected="false" tabindex="-1" style="--c:#3FBF9A;--c2:#B6F0DC" data-g="CONTORNO"><span class="cr-n">04</span><span class="cr-nm">Contorno</span><span class="cr-r">Arquitetura e obras</span><span class="cr-pg" aria-hidden="true"></span></button></div>
+        <button type="button" class="cr-seta" data-d="1" aria-label="Próximo cliente">→</button>
+      </div>
+    <div class="cr-palco">
       <div class="cr-pilha">
         <a class="cr-jan" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener" tabindex="0" aria-hidden="false" style="--c:#FF8A1F;--o:0"><span class="cr-bar" aria-hidden="true"><i></i><i></i><i></i><span>naruafoodtruck.com.br</span></span><span class="cr-scr"><img src="assets/clientes/narua.jpg" alt="Site do Naruá: cardápio, onde estamos, Instagram e WhatsApp" loading="lazy"></span></a>
         <a class="cr-jan" href="https://www.makiolki.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#FF4F8B;--o:1"><span class="cr-bar" aria-hidden="true"><i></i><i></i><i></i><span>makiolki.com.br</span></span><span class="cr-scr"><img src="assets/clientes/makiolki.jpg" alt="Site da Makiolki Doces com cardápio e sacola de pedidos" loading="lazy"></span></a>
@@ -874,11 +879,7 @@ html.pre #pre,#pre.sai{display:grid}
         </article>
       </div>
     </div>
-  </div>
-  <div class="cr-car">
-    <button type="button" class="cr-seta" data-d="-1" aria-label="Cliente anterior">←</button>
-    <div class="cr-trilho" role="tablist" aria-label="Clientes"><button type="button" class="cr-it" role="tab" id="cr-t0" aria-controls="cr-p0" aria-selected="true" tabindex="0" style="--c:#FF8A1F;--c2:#FFD08A" data-g="NARUÁ"><span class="cr-n">01</span><span class="cr-nm">Naruá</span><span class="cr-r">Food truck</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t1" aria-controls="cr-p1" aria-selected="false" tabindex="-1" style="--c:#FF4F8B;--c2:#FFC2D6" data-g="MAKIOLKI"><span class="cr-n">02</span><span class="cr-nm">Makiolki</span><span class="cr-r">Doceria e café</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t2" aria-controls="cr-p2" aria-selected="false" tabindex="-1" style="--c:#4DA3FF;--c2:#BFE0FF" data-g="GRANOLA"><span class="cr-n">03</span><span class="cr-nm">Granola Pura</span><span class="cr-r">Granola artesanal</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t3" aria-controls="cr-p3" aria-selected="false" tabindex="-1" style="--c:#3FBF9A;--c2:#B6F0DC" data-g="CONTORNO"><span class="cr-n">04</span><span class="cr-nm">Contorno</span><span class="cr-r">Arquitetura e obras</span><span class="cr-pg" aria-hidden="true"></span></button></div>
-    <button type="button" class="cr-seta" data-d="1" aria-label="Próximo cliente">→</button>
+    </div>
   </div>
 </section>
 <section class="how" id="como" aria-labelledby="como-titulo">
