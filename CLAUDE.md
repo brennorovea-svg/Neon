@@ -13,6 +13,7 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 - Texto mais longo nos cards de serviço aperta o hero e a placa encosta no sobretítulo. Em telas baixas (<= 740px) o sobretítulo some de propósito.
 - Celular (<= 820px): versão C, com letreiro na largura toda, serviços em linha do tempo e botão verde fixo de WhatsApp depois do hero. Rascunhos A/B/C em `mobile/` (com `noindex`).
 - Ordem das seções: Hero › Serviços (`#servicos`) › Projetos (`#projetos`) › Como funciona (`#como`) › Quem somos (`#quem`) › Contato (`#contato`). Todo link do menu precisa apontar para uma âncora que existe.
+- Entrada com tecla (`#pre`, Brenno aprovou em 2026-11-11): tela escura por cima do site com a tecla de luz; o clique acende e mostra o site. Só aparece com `html.pre` (posto por script no `<head>`), então sem JS o site abre direto. Link com âncora pula a entrada. Enquanto ela está na tela, as animações do site ficam pausadas e o filme do hero espera o evento `ns:acesa`. Detalhes em `DESIGN.md` › Movimento.
 - Clientes: a fileira mostra 4; a partir do quinto rola para o lado com setas.
 
 ## Loja de skills (`/loja/`)
