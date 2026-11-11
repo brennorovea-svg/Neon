@@ -18,4 +18,5 @@ Easing único `cubic-bezier(.22,1,.36,1)`, controles em 180ms, entrada em 720ms 
 - `robots.txt` libera o site todo e aponta o `sitemap.xml`. Ao criar uma página nova, acrescente o endereço dela no `sitemap.xml`.
 - `favicon.ico`, `favicon.svg`, `apple-touch-icon.png` e `site.webmanifest`: ícone da aba e do resultado de busca.
 - `assets/og-neon-scripts.jpg` (1200×630): imagem que aparece quando o link é compartilhado.
+- `servicos/` e `clientes/`: uma página por serviço e por cliente, com estilo em `assets/paginas.css` e `assets/paginas.js`. Todas estão no `sitemap.xml` e no `llms.txt`.
 - `mobile/`: rascunhos com `noindex`, para não competirem com a página principal.

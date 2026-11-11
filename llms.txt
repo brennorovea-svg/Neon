@@ -27,6 +27,24 @@ Brenno Rovea, fundador. Cientista de dados com MBA em BI e Analytics na USP. Qua
 
 ## Páginas
 - [Site](https://neonscripts.com.br/): serviços, clientes, como funciona, quem somos e contato.
+
+### Serviços
+- [Todos os serviços](https://neonscripts.com.br/servicos/)
+- [Site para pequeno negócio](https://neonscripts.com.br/servicos/site-para-pequeno-negocio/): site próprio que aparece no Google, feito para o celular e com botão do WhatsApp; muitas vezes pronto na mesma semana.
+- [Site para restaurante e food truck](https://neonscripts.com.br/servicos/site-para-restaurante-e-food-truck/): cardápio digital, onde o truck está hoje e pedido pelo WhatsApp. Caso real: Naruá.
+- [Cardápio digital com pedido no WhatsApp](https://neonscripts.com.br/servicos/cardapio-digital-com-pedido-no-whatsapp/): sacolinha que soma o pedido e manda pronto para o WhatsApp, sem aplicativo e sem plataforma no meio. Casos reais: Makiolki e Granola Pura.
+- [Marca e identidade visual](https://neonscripts.com.br/servicos/marca-e-identidade-visual/): logo, cores, letras e manual de marca para pequeno negócio.
+- [Relatório de vendas e inteligência](https://neonscripts.com.br/servicos/relatorio-de-vendas/): faturamento do dia, produtos mais vendidos e onde dá para ganhar mais.
+- [Sistema de comandas](https://neonscripts.com.br/servicos/sistema-de-comandas/): comanda, estoque e caixa sob medida para food truck e restaurante; no Naruá um app lê as comandas com IA.
+
+### Clientes (antes e depois de cada um)
+- [Todos os clientes](https://neonscripts.com.br/clientes/)
+- [Naruá](https://neonscripts.com.br/clientes/narua/): food truck de comida asiática.
+- [Makiolki](https://neonscripts.com.br/clientes/makiolki/): doceria e café em Caieiras.
+- [Granola Pura](https://neonscripts.com.br/clientes/granola-pura/): granola artesanal.
+- [Contorno](https://neonscripts.com.br/clientes/contorno/): estúdio de arquitetura e obras.
+
+### Loja
 - [Loja de skills para o Claude](https://neonscripts.com.br/loja/): sete skills feitas e usadas pela Neon Scripts (Neon Cores, Neon Motion, Branding, Vídeos curtos em código, Leitor de comandas, Relatórios e B.I., Documente seu projeto), R$ 20 cada, pagamento único, com 7 dias para pedir o dinheiro de volta. Também tem quatro skills grátis adaptadas de projetos abertos.
 
 ## Contato
