@@ -1,0 +1,21 @@
+# Avisa o Bing (e quem usa o IndexNow) que o site mudou, logo depois de cada publicação no main.
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  avisar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Espera o GitHub Pages publicar
+        run: sleep 90
+      - name: Avisa o IndexNow com as páginas do sitemap
+        run: |
+          URLS=$(curl -fsS https://neonscripts.com.br/sitemap.xml | grep -o '<loc>[^<]*</loc>' | sed 's#</\?loc>##g' | sed 's/.*/"&"/' | paste -sd, -)
+          URLS="$URLS,\"https://neonscripts.com.br/llms.txt\""
+          echo "Enviando: $URLS"
+          curl -fsS -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d "{\"host\":\"neonscripts.com.br\",\"key\":\"fefb7c4099b5f6e09ea754b463755b25\",\"keyLocation\":\"https://neonscripts.com.br/fefb7c4099b5f6e09ea754b463755b25.txt\",\"urlList\":[$URLS]}" \
+            -w '\nHTTP %{http_code}\n'
