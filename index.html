@@ -68,10 +68,10 @@
         "@type": "OfferCatalog",
         "name": "Serviços",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marca e identidade visual" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de site e cardápio digital" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inteligência de dados para pequenos negócios" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas sob medida" } }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marca e identidade visual", "url": "https://neonscripts.com.br/servicos/marca-e-identidade-visual/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de site e cardápio digital", "url": "https://neonscripts.com.br/servicos/site-para-pequeno-negocio/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inteligência de dados para pequenos negócios", "url": "https://neonscripts.com.br/servicos/relatorio-de-vendas/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistemas sob medida", "url": "https://neonscripts.com.br/servicos/sistema-de-comandas/" } }
         ]
       }
     },
@@ -438,7 +438,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .placa .word.sub{font-size:.355em;letter-spacing:.06em;margin-top:.12em;color:var(--tubeB);text-shadow:0 0 6px var(--glowB),0 0 18px var(--glowB),0 0 44px var(--glowB)}
 .wrap-c.in .placa{opacity:1;animation:turnOn 1100ms linear 200ms backwards}
 /* Rodapé */
-.rodape{position:relative;z-index:1;margin-top:14vh;padding:36px 0 40px;border-top:1px solid rgba(162,75,255,.3);display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px 40px;text-align:left}
+.rodape{position:relative;z-index:1;margin-top:14vh;padding:36px 0 40px;border-top:1px solid rgba(162,75,255,.3);display:grid;grid-template-columns:1.3fr 1fr 1.3fr 1fr 1fr;gap:28px 40px;text-align:left}
 .rodape h3{margin:0 0 12px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .rodape ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .rodape a{font-size:15px;font-weight:600;color:var(--soft);text-decoration:none;transition:color 180ms var(--ease)}
@@ -815,22 +815,22 @@ html.pre #pre,#pre.sai{display:grid}
       </a>
     </div>
     <div class="grid">
-      <a class="card reveal" href="#contato" style="transition-delay:0ms;--c:var(--pink)">
+      <a class="card reveal" href="/servicos/marca-e-identidade-visual/" style="transition-delay:0ms;--c:var(--pink)">
         <span class="line">01</span>
         <strong>Marca</strong>
         <p>Logo, cores e uma cara só sua, pra quem passa na frente lembrar de você.</p>
       </a>
-      <a class="card reveal" href="#contato" style="transition-delay:70ms;--c:var(--purple)">
+      <a class="card reveal" href="/servicos/site-para-pequeno-negocio/" style="transition-delay:70ms;--c:var(--purple)">
         <span class="line">02</span>
         <strong>Site</strong>
         <p>Aparece no Google e leva o cliente direto pro seu WhatsApp, com cardápio ou catálogo se precisar.</p>
       </a>
-      <a class="card reveal" href="#contato" style="transition-delay:140ms;--c:var(--blue)">
+      <a class="card reveal" href="/servicos/relatorio-de-vendas/" style="transition-delay:140ms;--c:var(--blue)">
         <span class="line">03</span>
         <strong>Inteligência</strong>
         <p>Os números do seu negócio viram decisão: quanto entrou no dia, o que mais vende e onde dá pra ganhar mais.</p>
       </a>
-      <a class="card reveal" href="#contato" style="transition-delay:210ms;--c:var(--cyan)">
+      <a class="card reveal" href="/servicos/sistema-de-comandas/" style="transition-delay:210ms;--c:var(--cyan)">
         <span class="line">04</span>
         <strong>Sistemas</strong>
         <p>Comanda, estoque e caixa organizados do jeitinho que a sua rotina pede. Foi assim no Naruá.</p>
@@ -988,6 +988,14 @@ html.pre #pre,#pre.sai{display:grid}
     <div role="navigation" aria-label="Rodapé">
       <h3>Site</h3>
       <ul><li><a href="#servicos">Serviços</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#como">Como funciona</a></li><li><a href="#quem">Quem somos</a></li><li><a href="/loja/">Loja</a></li></ul>
+    </div>
+    <div role="navigation" aria-label="Serviços">
+      <h3>Serviços</h3>
+      <ul><li><a href="/servicos/site-para-pequeno-negocio/">Site para pequeno negócio</a></li><li><a href="/servicos/site-para-restaurante-e-food-truck/">Site para restaurante e food truck</a></li><li><a href="/servicos/cardapio-digital-com-pedido-no-whatsapp/">Cardápio digital com pedido no WhatsApp</a></li><li><a href="/servicos/marca-e-identidade-visual/">Marca e identidade visual</a></li><li><a href="/servicos/relatorio-de-vendas/">Relatório de vendas</a></li><li><a href="/servicos/sistema-de-comandas/">Sistema de comandas</a></li></ul>
+    </div>
+    <div role="navigation" aria-label="Clientes">
+      <h3>Clientes</h3>
+      <ul><li><a href="/clientes/narua/">Naruá</a></li><li><a href="/clientes/makiolki/">Makiolki</a></li><li><a href="/clientes/granola-pura/">Granola Pura</a></li><li><a href="/clientes/contorno/">Contorno</a></li></ul>
     </div>
     <div>
       <h3>Fale com a gente</h3>

@@ -16,6 +16,12 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 - Entrada com tecla (`#pre`, Brenno aprovou em 2026-11-11): tela escura por cima do site com a tecla de luz; o clique acende e mostra o site. Só no computador (>= 821px): no celular o site abre direto, para o Google não contar como tela intrusiva (Brenno, 2026-11-11). Só aparece com `html.pre` (posto por script no `<head>`), então sem JS o site abre direto. Link com âncora pula a entrada. Enquanto ela está na tela, as animações do site ficam pausadas e o filme do hero espera o evento `ns:acesa`. Detalhes em `DESIGN.md` › Movimento.
 - Clientes (`#projetos`, desde 2026-11-11, base no modelo 09): o site de um cliente por vez em janelas de navegador empilhadas, ficha do cliente por cima, nome gigante em contorno no fundo e, no topo da seção, uma faixa na largura toda e centralizada com nome e ramo de cada cliente (setas, teclado, arrastar no celular). Troca sozinha a cada 5,6s quando visível, pausa com mouse ou foco e para depois de um clique. A cor do cliente pinta a seção. Cores: Naruá laranja `#FF8A1F`, Makiolki rosa `#FF4F8B`, Granola Pura azul `#4DA3FF`, Contorno verde `#3FBF9A` (sem duas parecidas). Cliente novo = um item a mais no carrossel.
 
+## Páginas de serviço e de cliente (`/servicos/`, `/clientes/`)
+- Uma página por serviço (`/servicos/<slug>/`) e uma por cliente (`/clientes/<slug>/`), mais as listas `/servicos/` e `/clientes/`. Servem para o site aparecer em buscas genéricas e em buscas com IA.
+- HTML estático, sem build. CSS e JS compartilhados em `assets/paginas.css` e `assets/paginas.js` (mesmos tokens do `index.html`).
+- Cada página tem canonical, Open Graph e dados estruturados (`Service` + `FAQPage` nos serviços, `Article` nos clientes, `BreadcrumbList` em todas). Página nova entra no `sitemap.xml`, no `llms.txt` e no rodapé (home e páginas).
+- Cliente novo = um item a mais no carrossel da home e uma página em `/clientes/`. Nada de número ou depoimento inventado.
+
 ## Loja de skills (`/loja/`)
 - Página única em `loja/index.html`, com CSS e JS embutidos. As 7 skills ficam na lista `SKILLS` e cada uma abre a sua página por âncora (`/loja/#neon-cores`).
 - Preço único: R$ 20 por skill, sem combos (Brenno, 2026-11-10). Sem promessa de "12 meses de atualização" nem de "uso em clientes".
