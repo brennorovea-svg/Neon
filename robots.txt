@@ -1,5 +1,19 @@
-# Todo o site pode ser lido pelo Google e outros buscadores
+# Todo o site pode ser lido pelo Google, pelo Bing e pelas buscas com IA
 User-agent: *
+Allow: /
+
+# Buscas com IA (ChatGPT, Claude, Perplexity, Gemini): liberadas de propósito,
+# para a Neon Scripts aparecer quando alguém pergunta por site para pequeno negócio.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://neonscripts.com.br/sitemap.xml
