@@ -55,7 +55,8 @@ Regras da skill `emil-kowalski-motion`: poucos momentos de movimento, só `trans
 - Olho: com mouse, a íris segue o ponteiro. No celular (`hover:none`), olha para onde a pessoa toca e volta ao centro em 1,1s; ao rolar, olha para a direção da rolagem e volta em 0,6s. Desligado em reduced-motion.
 - Filme do hero (`assets/hero/anime`, desde 2026-11-04): só no computador (a partir de 821px), sem reduced-motion e sem economia de dados. Roda uma vez e para no último quadro. No celular e se o filme falhar, fica a foto.
 - Aurora do Contato: três manchas (rosa, roxo, azul) derivam atrás da placa, 30 a 44s por volta, só enquanto a seção está na tela e parada com movimento reduzido. É a segunda exceção ao "sem loop decorativo", aprovada pelo Brenno.
-- Proibido: cursor customizado, partículas, loops infinitos fora do letreiro e da aurora do Contato. Limpar observers e timers.
+- Entrada com tecla (`#pre`, desde 2026-11-11): o site abre escuro, só com a tecla de luz (gangorra em duas metades, moldura de tubo, olho do logo) e "Acende aí.". No clique a tecla tomba (300ms), o tubo pisca e firma (680ms), o olho abre, e 1,05s depois a tela some (800ms) e o site liga: letreiro acende e o filme do hero começa (evento `ns:acesa`). Enquanto está apagada, um aro pulsa em volta da placa chamando o clique (2,4s por volta): terceira exceção ao "sem loop decorativo". Com movimento reduzido tudo troca na hora. "Entrar sem acender" e Esc pulam; link com âncora (`/#contato`) não mostra a entrada; sem JS ela não existe.
+- Proibido: cursor customizado, partículas, loops infinitos fora do letreiro, da aurora do Contato e do aro da entrada. Limpar observers e timers.
 
 ## Formatos de redes
 Post 1080x1350, story 1080x1920, perfil 1080x1080. Peças de story precisam de gancho de dor do cliente e chamada ("Chama no direct"), não só frase de marca.

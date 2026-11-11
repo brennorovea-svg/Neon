@@ -635,8 +635,95 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 (function(){try{var m=window.matchMedia,c=navigator.connection;
 if(m&&m('(min-width: 821px)').matches&&!m('(prefers-reduced-motion: reduce)').matches&&!(c&&(c.saveData||/2g/.test(c.effectiveType||''))))document.documentElement.classList.add('hero-film');}catch(e){}})();
 </script>
+<script>
+/* Entrada com tecla: decide antes da primeira pintura. Pula se o link já veio com âncora (#contato etc.). */
+(function(){try{if(!location.hash)document.documentElement.classList.add('pre');}catch(e){}})();
+</script>
+<style>
+/* ENTRADA COM TECLA. Tela escura por cima do site: a tecla (gangorra + moldura de tubo + olho do logo) acende a placa e o site aparece. Sem JS a tela nem existe (só aparece com html.pre). */
+#pre{display:none}
+html.pre{overflow:hidden}
+html.pre :not(#pre):not(#pre *){animation-play-state:paused!important}
+html.pre #pre,#pre.sai{display:grid}
+#pre{--e:cubic-bezier(.22,1,.36,1);--c:#FF2E9A;--b:#2E8CFF;position:fixed;inset:0;z-index:9999;background:#04030A;color:#F4EFFF;grid-template-rows:1fr auto 1fr;justify-items:center;align-items:center;padding:24px 16px;box-sizing:border-box;font-family:'Sora',sans-serif;transition:opacity 800ms var(--e)}
+#pre::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 50%,rgba(255,46,154,.36),transparent 70%);opacity:0;transition:opacity 700ms var(--e);pointer-events:none}
+#pre.on::before{opacity:1}
+#pre.sai{opacity:0;pointer-events:none}
+#pre .pre-mid{grid-row:2;position:relative;display:grid;justify-items:center;gap:clamp(16px,3.4vh,28px);transition:transform 900ms var(--e)}
+#pre.sai .pre-mid{transform:scale(1.12)}
+#pre .pre-pl{position:relative;width:clamp(150px,27vh,214px);aspect-ratio:5/7;border-radius:26px;background:#07050E;box-shadow:0 30px 60px -20px #000;display:grid;place-items:center}
+#pre .pre-pl::before{content:"";position:absolute;inset:0;border-radius:26px;border:5px solid #2B2548;transition:border-color 300ms var(--e),box-shadow 300ms var(--e);pointer-events:none}
+#pre .pre-pl::after{content:"";position:absolute;inset:-14px;border-radius:38px;border:1px solid rgba(255,46,154,.5);opacity:0;animation:preCh 2.4s var(--e) infinite;pointer-events:none}
+@keyframes preCh{0%{opacity:.7;transform:scale(.94)}70%,100%{opacity:0;transform:scale(1.1)}}
+#pre.on .pre-pl::after{animation:none;opacity:0}
+#pre.on .pre-pl::before{border-color:#FFE3F1;box-shadow:0 0 10px var(--c),0 0 34px var(--c),0 0 70px rgba(255,46,154,.5),inset 0 0 14px var(--c);animation:preTb 680ms steps(1) 1}
+@keyframes preTb{0%{opacity:1}10%{opacity:.15}20%{opacity:1}32%{opacity:.25}44%{opacity:1}58%{opacity:.6}66%{opacity:1}}
+#pre .pre-well{position:relative;width:66%;height:70%;border-radius:18px;background:#020106;box-shadow:inset 0 8px 16px #000,inset 0 -2px 6px #000,inset 0 0 0 1px #1a1630,0 1px 0 rgba(255,255,255,.07);perspective:400px}
+#pre .pre-key{position:absolute;inset:8px;border:0;padding:0;margin:0;background:none;cursor:pointer;transform-style:preserve-3d;transition:transform 160ms var(--e);-webkit-tap-highlight-color:transparent;touch-action:manipulation;color:inherit;z-index:1}
+#pre .pre-key:focus-visible{outline:2px solid #fff;outline-offset:14px;border-radius:12px}
+#pre .pre-key:active{transform:scale(.97)}
+#pre .pre-h{position:absolute;left:0;right:0;height:50%;display:block;transition:transform 300ms var(--e),box-shadow 300ms var(--e)}
+#pre .pre-h::before{content:"";position:absolute;inset:0;border-radius:inherit;background:#07050E;opacity:0;transition:opacity 300ms var(--e)}
+#pre .pre-h::after{content:"";position:absolute;left:0;right:0;height:14px;opacity:0;transition:opacity 220ms var(--e)}
+#pre .pre-t{top:0;transform-origin:50% 100%;border-radius:13px 13px 2px 2px;background:linear-gradient(#8079b4,#57518a 30%,#443e70);transform:rotateX(13deg)}
+#pre .pre-t::before{opacity:.62}
+#pre .pre-t::after{top:-11px;border-radius:12px 12px 0 0;background:linear-gradient(#b9b2e6,#6b659c 35%,#1d1934)}
+#pre .pre-b{bottom:0;transform-origin:50% 0;border-radius:2px 2px 13px 13px;background:linear-gradient(#4a4478,#57518a 70%,#6f68a2);transform:rotateX(25deg);box-shadow:0 22px 22px -6px #000,inset 0 -2px 0 rgba(255,255,255,.28),inset 0 0 0 1px rgba(255,255,255,.08)}
+#pre .pre-b::after{bottom:-11px;border-radius:0 0 12px 12px;background:linear-gradient(#2c2748,#17132a 60%,#08060f);opacity:1}
+#pre.on .pre-t{transform:rotateX(-25deg);box-shadow:0 -20px 22px -8px #000,inset 0 2px 0 rgba(255,255,255,.5),inset 0 0 0 1px rgba(255,200,230,.22),0 0 34px -8px var(--c)}
+#pre.on .pre-t::before{opacity:0}#pre.on .pre-t::after{opacity:1}
+#pre.on .pre-b{transform:rotateX(-13deg);box-shadow:none}#pre.on .pre-b::before{opacity:.62}#pre.on .pre-b::after{opacity:0}
+#pre .pre-hg{position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;background:linear-gradient(#000,#2a2546);z-index:2}
+#pre .pre-fl{position:absolute;left:50%;top:50%;width:30%;height:4px;margin:-2px 0 0 -15%;border-radius:2px;background:#15111f;transition:background 260ms var(--e),box-shadow 260ms var(--e);z-index:1}
+#pre.on .pre-fl{background:#fff;box-shadow:0 0 8px var(--c),0 0 22px var(--c)}
+#pre .pre-ey{position:absolute;left:50%;top:50%;width:64%;transform:translate(-50%,-50%);display:block;z-index:1}
+#pre .pre-ey svg{display:block;width:100%;overflow:visible}
+#pre .pre-pp{transform-box:fill-box;transform-origin:center;transform:scaleY(.07);transition:transform 420ms var(--e) 120ms}
+#pre .pre-tu{fill:rgba(7,5,14,.55);stroke:#15111f;stroke-width:7;stroke-linejoin:round;transition:stroke 300ms var(--e) 120ms,filter 300ms var(--e) 120ms}
+#pre .pre-lk{opacity:0;transition:opacity 220ms var(--e) 260ms}
+#pre .pre-ir{fill:none;stroke:var(--b);stroke-width:5;filter:drop-shadow(0 0 3px var(--b)) drop-shadow(0 0 9px var(--b))}#pre .pre-pu{fill:#DCEBFF}
+#pre.on .pre-pp{transform:none}#pre.on .pre-tu{stroke:#FFE3F1;filter:drop-shadow(0 0 3px var(--c)) drop-shadow(0 0 10px var(--c))}#pre.on .pre-lk{opacity:1}
+#pre .pre-cap{margin:0;text-align:center;font:700 12px 'Space Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6c6590}
+#pre .pre-cap b{display:block;font:800 clamp(24px,3.6vh,36px)/1.1 'Sora',sans-serif;letter-spacing:-.03em;text-transform:none;color:#F4EFFF;margin-bottom:8px}
+#pre .pre-skip{grid-row:3;align-self:end;background:none;border:0;padding:12px 16px;font:700 11px 'Space Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#6c6590;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+#pre .pre-skip:hover,#pre .pre-skip:focus-visible{color:#F4EFFF}
+#pre.on .pre-skip{opacity:0}
+@media (prefers-reduced-motion:reduce){#pre,#pre *,#pre *::before,#pre *::after{transition-duration:1ms!important;animation:none!important}}
+</style>
 </head>
 <body>
+<!-- Entrada com tecla: o visitante acende a placa e o site aparece -->
+<div id="pre" role="dialog" aria-label="Acenda a placa para entrar no site">
+  <div class="pre-mid">
+    <div class="pre-pl"><div class="pre-well">
+      <button class="pre-key" id="preKey" type="button" aria-label="Acender a placa e entrar no site">
+        <span class="pre-h pre-t"><span class="pre-ey"><svg viewBox="0 12 100 76" aria-hidden="true"><g class="pre-pp"><path class="pre-tu" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><g class="pre-lk"><circle class="pre-ir" cx="50" cy="50" r="15"/><circle class="pre-pu" cx="50" cy="50" r="6.5"/></g></g></svg></span></span>
+        <span class="pre-h pre-b"><span class="pre-fl"></span></span>
+        <span class="pre-hg"></span>
+      </button>
+    </div></div>
+    <p class="pre-cap"><b>Acende aí.</b>a placa tá apagada</p>
+  </div>
+  <button class="pre-skip" id="preSkip" type="button">Entrar sem acender</button>
+</div>
+<script>
+/* Entrada com tecla: clique acende (tecla tomba, tubo pisca, olho abre) e depois a tela some e o site liga. */
+(function(){
+  var root=document.documentElement,pre=document.getElementById('pre');
+  if(!pre||!root.classList.contains('pre')){if(pre)pre.remove();return;}
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,done=false;
+  function entra(wait){ if(done)return; done=true;
+    setTimeout(function(){
+      pre.classList.add('sai'); root.classList.remove('pre');
+      try{document.dispatchEvent(new Event('ns:acesa'));}catch(e){}
+      setTimeout(function(){pre.remove();},rm?0:900);
+    },wait);
+  }
+  document.getElementById('preKey').addEventListener('click',function(){pre.classList.add('on');entra(rm?0:1050);});
+  document.getElementById('preSkip').addEventListener('click',function(){entra(0);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')entra(0);});
+})();
+</script>
 <div class="page">
 <div class="screen">
 <header class="hero" id="hero">
@@ -1299,11 +1386,12 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
   });
   /* Se o filme não tocar (erro ou demora), a foto volta */
   var root = document.documentElement;
-  var fallback = setTimeout(function(){ root.classList.remove('hero-film'); }, 3000);
+  var fallback;
   v.addEventListener('error', function(){ clearTimeout(fallback); root.classList.remove('hero-film'); }, true);
   v.addEventListener('playing', function(){ clearTimeout(fallback); root.classList.add('hero-film'); v.classList.add('on'); }, {once:true});
-  v.load();
-  var p = v.play(); if (p && p.catch) p.catch(function(){});
+  function toca(){ fallback = setTimeout(function(){ root.classList.remove('hero-film'); }, 3000); v.load(); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+  /* Com a entrada da tecla, o filme só começa quando a placa acende */
+  if (root.classList.contains('pre')) document.addEventListener('ns:acesa', toca, {once:true}); else toca();
   document.addEventListener('visibilitychange', function(){ if (document.hidden) v.pause(); else if (!v.ended) v.play().catch(function(){}); });
 })();
 </script>
