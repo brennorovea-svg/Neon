@@ -677,8 +677,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 if(m&&m('(min-width: 821px)').matches&&!m('(prefers-reduced-motion: reduce)').matches&&!(c&&(c.saveData||/2g/.test(c.effectiveType||''))))document.documentElement.classList.add('hero-film');}catch(e){}})();
 </script>
 <script>
-/* Entrada com tecla: decide antes da primeira pintura. Pula se o link já veio com âncora (#contato etc.). */
-(function(){try{if(!location.hash)document.documentElement.classList.add('pre');}catch(e){}})();
+/* Entrada com tecla: decide antes da primeira pintura. Só no computador (no celular o Google conta tela por cima como intrusiva). Pula se o link já veio com âncora (#contato etc.). */
+(function(){try{if(!location.hash&&window.matchMedia&&matchMedia('(min-width: 821px)').matches)document.documentElement.classList.add('pre');}catch(e){}})();
 </script>
 <style>
 /* ENTRADA COM TECLA. Tela escura por cima do site: a tecla (gangorra + moldura de tubo + olho do logo) acende a placa e o site aparece. Sem JS a tela nem existe (só aparece com html.pre). */
