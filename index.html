@@ -568,71 +568,94 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 }
 @media (min-width:1024px) and (max-width:1499px){.how-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* ===== Projetos: TV de canais (11/2026). Um canal por cliente; a cor do cliente acende a TV e a ficha ===== */
-.tvs{--c:#FF8A1F;--c2:#FFD08A}
-.tv-head{margin-bottom:clamp(24px,4vh,40px)}
-.tv-head h2{margin-top:10px;max-width:640px}
-.tv-hint{font-size:15px;color:var(--muted);margin:12px 0 0}
-.tv-hint .h-touch{display:none}
-@media (hover:none){.tv-hint .h-desk{display:none}.tv-hint .h-touch{display:inline}}
-.tv-gr{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:clamp(28px,4vw,72px);align-items:center;max-width:1560px;margin:0 auto}
-.tv{position:relative;padding:clamp(10px,1.2vw,18px);border-radius:clamp(20px,2vw,30px);background:linear-gradient(160deg,#211A3E,#0C0920);border:1px solid #362E5E;box-shadow:0 40px 80px -30px #000,inset 0 1px 0 rgba(255,255,255,.08)}
-.tv-tela{position:relative;height:clamp(260px,54vh,600px);border-radius:clamp(12px,1.2vw,18px);overflow:hidden;background:#000;box-shadow:inset 0 0 40px #000,0 0 70px -20px var(--c);transition:box-shadow 500ms var(--ease)}
-.tv-ch{position:absolute;inset:0;display:block;opacity:0;visibility:hidden;transition:opacity 200ms var(--ease),visibility 0s 200ms}
-.tv-ch.on{opacity:1;visibility:visible;transition:opacity 200ms var(--ease),visibility 0s}
-.tv-ch img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
-.tv-tela::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55))}
-.tv-chu{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:220px}
-.tv-chu.on{animation:tvChu 420ms steps(6) 1}
-@keyframes tvChu{0%{opacity:1;transform:translate(0,0)}50%{opacity:.9;transform:translate(-3%,2%)}100%{opacity:0;transform:translate(2%,-3%)}}
-.tv-osd{position:absolute;z-index:3;left:14px;top:12px;padding:6px 10px;border-radius:6px;background:rgba(0,0,0,.6);font:700 clamp(17px,1.7vw,24px) 'Space Mono',monospace;color:#6BFF9E;text-shadow:0 0 8px #6BFF9E;letter-spacing:.06em;pointer-events:none}
-.tv-osd small{display:block;font-size:.55em;letter-spacing:.2em}
-.tv-ctl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:clamp(10px,1.4vh,14px);padding:0 4px}
-.tv-bs{display:flex;gap:8px;flex-wrap:wrap}
-.tv-b,.tv-ar button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:10px;border:1px solid #3A3260;background:linear-gradient(#2A2448,#15112A);color:var(--muted);font:600 13px 'Sora',sans-serif;cursor:pointer;box-shadow:0 4px 0 #07050E;transition:transform 100ms var(--ease),box-shadow 100ms var(--ease),color 200ms var(--ease),border-color 200ms var(--ease)}
-.tv-b b{font:700 13px 'Space Mono',monospace;color:inherit}
-.tv-b:hover,.tv-ar button:hover{color:var(--ink)}
-.tv-b:active,.tv-ar button:active{transform:translateY(3px);box-shadow:0 1px 0 #07050E}
-.tv-b[aria-selected="true"]{color:#fff;border-color:var(--c);box-shadow:0 4px 0 #07050E,0 0 16px -2px var(--c)}
-.tv-b[aria-selected="true"] b{color:var(--c2)}
-.tv-b:focus-visible,.tv-ar button:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.tv-ar{display:flex;gap:8px}.tv-ar button{width:46px;justify-content:center;padding:0}
-.tv-led{width:8px;height:8px;border-radius:50%;background:#FF2E2E;box-shadow:0 0 8px #FF2E2E;flex:none}
-.tv-info{display:grid}
-.tv-f{grid-area:1/1;display:flex;flex-direction:column;gap:10px}
-.tv-f[hidden]{display:none}
-.tv-f.on{animation:rise 520ms var(--ease)}
-.tv-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.tv-n{font-family:'Bungee Inline',sans-serif;font-size:28px;line-height:1;color:var(--c2);text-shadow:0 0 8px var(--c),0 0 22px var(--c)}
-.tv-f.on .tv-n{animation:turnOn 900ms linear}
-.tv-kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c2)}
-.tv-f h3{margin:0;font-size:clamp(28px,2.8vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
-.tv-f p{margin:0;font-size:clamp(15px,1.1vw,17px);line-height:1.55;color:var(--soft);max-width:44ch;text-wrap:pretty}
-.tv-tags{display:flex;flex-wrap:wrap;gap:6px}
-.tv-tags span{padding:4px 11px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 70%,transparent);color:var(--c2);font-size:12.5px;font-weight:600}
-.tv-lk{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:6px;padding-top:14px;border-top:1px solid rgba(244,239,255,.1)}
-.tv-ver{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--c);color:var(--c2);font-size:15px;font-weight:800;text-decoration:none;transition:background 180ms var(--ease),color 180ms var(--ease),transform 100ms var(--ease)}
-.tv-ver i{font-style:normal;transition:transform 180ms var(--ease)}
-.tv-ver:hover{background:var(--c);color:#0A0618}.tv-ver:hover i{transform:translate(2px,-2px)}.tv-ver:active{transform:scale(.97)}
-.tv-ig{font-family:'Space Mono',monospace;font-size:13px;color:var(--muted);text-decoration:none}.tv-ig:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.tv-ver:focus-visible,.tv-ig:focus-visible{outline:2px solid #fff;outline-offset:3px}
-@media (min-width:1024px){.tvs{min-height:100vh;display:flex;flex-direction:column;justify-content:center}}
+/* ===== Projetos em palco com carrossel (11/2026, base no modelo 09): janelas empilhadas, ficha do cliente, nome gigante em contorno e carrossel com nome e ramo ===== */
+.crs{--c:#FF8A1F;--c2:#FFD08A}
+.cr-amb{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cr-amb i{position:absolute;right:-12%;top:-28%;width:min(70vw,1100px);aspect-ratio:1;border-radius:50%;filter:blur(110px);opacity:0;transition:opacity 900ms var(--ease)}
+.cr-amb i.on{opacity:.3}
+.cr-giga{position:absolute;left:0;right:0;top:46%;font-weight:800;font-size:clamp(90px,19vw,380px);letter-spacing:-.06em;line-height:.8;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(244,239,255,.09);overflow:hidden;pointer-events:none;padding-left:clamp(20px,5vw,72px)}
+.cr-giga span{display:inline-block;transition:transform 700ms var(--ease),opacity 400ms var(--ease)}
+.cr-giga span.o{transform:translateY(40%);opacity:0}
+.cr-in{position:relative;display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(28px,4vw,72px);align-items:center;max-width:1560px;margin:0 auto}
+.cr-eye{color:var(--c2);transition:color 500ms var(--ease)}
+.cr-head h2{margin-top:10px;max-width:520px}
+.cr-hint{font-size:15px;color:var(--muted);max-width:380px;margin:14px 0 0}
+.cr-hint .h-touch{display:none}
+@media (hover:none){.cr-hint .h-desk{display:none}.cr-hint .h-touch{display:inline}}
+.cr-palco{position:relative;padding:24px 0 0}
+.cr-pilha{position:relative;height:clamp(260px,50vh,560px);margin-right:78px}
+.cr-jan{position:absolute;inset:0;display:block;border-radius:14px;overflow:hidden;background:#0E0A22;border:1px solid rgba(244,239,255,.16);box-shadow:0 40px 90px -30px #000,0 0 80px -30px var(--c);text-decoration:none;color:inherit;
+  transform:translate(calc(var(--o) * 26px),calc(var(--o) * -22px)) scale(calc(1 - var(--o) * .06));opacity:calc(1 - var(--o) * .36);z-index:calc(10 - var(--o));transition:transform 760ms var(--ease),opacity 760ms var(--ease);pointer-events:none}
+.cr-jan.on{pointer-events:auto}
+.cr-jan.sai{transform:translate(-40px,60px) scale(1.03);opacity:0;transition-duration:420ms}
+.cr-jan:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.cr-bar{display:flex;align-items:center;gap:6px;height:34px;padding:0 14px;background:#150F30;font:400 12px 'Space Mono',monospace;color:var(--muted)}
+.cr-bar i{width:9px;height:9px;border-radius:50%;background:#3A3260}.cr-bar i:first-child{background:var(--c)}
+.cr-bar span{margin-left:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr-scr{position:absolute;inset:34px 0 0;overflow:hidden;background:#000}
+.cr-scr img{display:block;width:100%;height:auto;min-height:100%;object-fit:cover;object-position:top center;transition:transform 1400ms var(--ease)}
+@media (hover:hover){.cr-jan.on:hover .cr-scr img{transform:translateY(var(--shift,0px));transition:transform 6s linear}}
+.cr-ficha{position:relative;z-index:20;display:grid;width:min(420px,88%);margin:-70px 0 0 -26px;background:rgba(10,6,26,.92);border:1px solid var(--c);border-radius:16px;padding:16px 20px 18px;box-shadow:0 0 30px -10px var(--c),0 24px 40px -24px #000;transition:border-color 500ms var(--ease),box-shadow 500ms var(--ease)}
+.cr-f{grid-area:1/1;display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity 200ms var(--ease),transform 200ms var(--ease),visibility 0s 200ms}
+.cr-f.on{opacity:1;visibility:visible;transform:none;transition:opacity 260ms var(--ease) 200ms,transform 260ms var(--ease) 200ms,visibility 0s 200ms}
+.cr-kind{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--c2)}
+.cr-f h3{margin:0;font-size:24px;font-weight:800;letter-spacing:-.01em;line-height:1.1}
+.cr-f p{margin:0;font-size:14.5px;line-height:1.5;color:var(--soft);text-wrap:pretty}
+.cr-tags{display:flex;flex-wrap:wrap;gap:6px}
+.cr-tags span{padding:3px 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 70%,transparent);color:var(--c2);font-size:12px;font-weight:600}
+.cr-lk{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:4px;padding-top:10px;border-top:1px solid rgba(244,239,255,.1)}
+.cr-ver{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:999px;border:1.5px solid var(--c);color:var(--c2);font-size:14px;font-weight:800;text-decoration:none;transition:background 180ms var(--ease),color 180ms var(--ease),transform 100ms var(--ease)}
+.cr-ver i{font-style:normal;transition:transform 180ms var(--ease)}
+.cr-ver:hover{background:var(--c);color:#0A0618}.cr-ver:hover i{transform:translate(2px,-2px)}.cr-ver:active{transform:scale(.97)}
+.cr-ig{font-family:'Space Mono',monospace;font-size:12.5px;color:var(--muted);text-decoration:none}.cr-ig:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.cr-ver:focus-visible,.cr-ig:focus-visible{outline:2px solid #fff;outline-offset:3px}
+/* carrossel */
+.cr-car{position:relative;display:flex;align-items:center;gap:12px;max-width:1560px;margin:clamp(22px,4vh,40px) auto 0}
+.cr-trilho{flex:1;min-width:0;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px calc(50% - clamp(230px,16vw,290px) / 2);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.cr-trilho::-webkit-scrollbar{display:none}
+.cr-it{position:relative;flex:0 0 clamp(230px,16vw,290px);scroll-snap-align:center;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-align:left;padding:14px 18px 16px;border-radius:14px;border:1px solid rgba(244,239,255,.12);background:rgba(10,6,26,.6);color:var(--muted);cursor:pointer;overflow:hidden;transition:border-color 300ms var(--ease),color 300ms var(--ease),box-shadow 300ms var(--ease),opacity 300ms var(--ease);opacity:.55}
+.cr-n{grid-row:1/3;font-family:'Bungee Inline',sans-serif;font-size:26px;line-height:1;color:rgba(244,239,255,.25);transition:color 300ms var(--ease),text-shadow 300ms var(--ease)}
+.cr-nm{font:800 19px 'Sora',sans-serif;color:inherit;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr-r{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cr-pg{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--c);box-shadow:0 0 10px var(--c);transform:scaleX(0);transform-origin:left}
+.cr-it:hover{opacity:.85;color:var(--ink)}
+.cr-it[aria-selected="true"]{opacity:1;color:var(--ink);border-color:var(--c);box-shadow:0 0 26px -8px var(--c)}
+.cr-it[aria-selected="true"] .cr-n{color:var(--c2);text-shadow:0 0 8px var(--c),0 0 20px var(--c)}
+.cr-it[aria-selected="true"] .cr-r{color:var(--c2)}
+.cr-it[aria-selected="true"] .cr-pg{transform:scaleX(1)}
+.cr-it.roda .cr-pg{animation:crProg 5600ms linear both}
+@keyframes crProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.cr-it:focus-visible,.cr-seta:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.cr-seta{flex:none;width:46px;height:46px;border-radius:50%;border:2px solid rgba(244,239,255,.5);background:rgba(5,3,15,.5);color:var(--ink);font:700 18px 'Sora',sans-serif;cursor:pointer;transition:transform 180ms var(--ease),background-color 180ms var(--ease),border-color 180ms var(--ease)}
+.cr-seta:hover{background-color:rgba(244,239,255,.12);border-color:var(--c)}
+.cr-seta:active{transform:scale(.97)}
+@media (min-width:1024px){.crs{min-height:100vh;display:flex;flex-direction:column;justify-content:center}}
 @media (min-width:1024px) and (max-height:820px){
-  .cli.tvs{padding-top:4.5vh;padding-bottom:4.5vh}
-  .tv-head{margin-bottom:3vh}.tv-head h2{font-size:clamp(28px,4.6vh,40px)}.tv-hint{margin-top:6px}
-  .tv-tela{height:52vh}.tv-b,.tv-ar button{height:36px}
+  .cli.crs{padding-top:4vh;padding-bottom:4vh}
+  .cr-head h2{font-size:clamp(28px,4.6vh,40px)}
+  .cr-pilha{height:44vh}.cr-palco{padding-top:20px}
+  .cr-ficha{margin-top:-60px;padding:12px 16px 14px}.cr-f{gap:6px}.cr-f h3{font-size:20px}.cr-f p{font-size:13px;line-height:1.42}.cr-lk{padding-top:8px}.cr-ver{padding:5px 12px;font-size:13px}
+  .cr-car{margin-top:2.6vh}.cr-it{padding:10px 16px 12px}.cr-n{font-size:22px}.cr-nm{font-size:17px}
 }
-@media (min-width:1024px) and (max-width:1499px){.tv-ar{display:none}.tv-bs{flex-wrap:nowrap}.tv-b{padding:0 11px}}
+@media (min-width:1024px) and (min-height:821px) and (max-height:960px){.cr-pilha{height:45vh}.cli.crs{padding-top:5vh;padding-bottom:5vh}}
 @media (max-width:1023px){
-  .tv-gr{grid-template-columns:1fr;gap:22px}
-  .tv-tela{height:min(62vw,420px)}
-  .tv-ar{display:none}
-  .tv-bs{gap:6px}.tv-b{height:38px;padding:0 10px;font-size:12px;gap:6px}
+  .crs{display:flex;flex-direction:column}
+  .cr-in{display:contents}
+  .cr-head{order:1}.cr-car{order:2}.cr-palco{order:3}
+  .cr-giga{display:none}
+  .cr-pilha{height:min(72vw,440px);margin-right:30px}
+  .cr-jan{transform:translate(calc(var(--o) * 10px),calc(var(--o) * -9px)) scale(calc(1 - var(--o) * .05))}
+  .cr-palco{padding-top:16px}
+  .cr-ficha{width:auto;margin:16px 0 0}
+  .cr-car{margin:18px 0 6px}
+  .cr-seta{display:none}
+  .cr-trilho{padding:6px calc(50% - 120px);gap:10px}
+  .cr-it{flex-basis:240px}
 }
-@media (max-width:520px){.tv-b span{display:none}.tv-b{width:46px;justify-content:center}.tv-tela{height:78vw}}
 @media (prefers-reduced-motion:reduce){
-  .tv-ch,.tv-tela,.tv-b,.tv-ar button,.tv-ver,.tv-ver i{transition:none}
-  .tv-chu.on,.tv-f.on,.tv-f.on .tv-n{animation:none}
+  .cr-amb i,.cr-giga span,.cr-jan,.cr-scr img,.cr-f,.cr-f.on,.cr-ficha,.cr-eye,.cr-it,.cr-n,.cr-ver,.cr-ver i,.cr-seta{transition:none}
+  .cr-it.roda .cr-pg{animation:none}
+  .cr-jan.on:hover .cr-scr img{transform:none}
 }
 </style>
 <script>
@@ -804,58 +827,58 @@ html.pre #pre,#pre.sai{display:grid}
 </section>
 </main>
 </div>
-<section class="cli tvs" id="projetos" aria-labelledby="cli-titulo" style="--c:#FF8A1F;--c2:#FFD08A">
-  <div class="tv-head reveal">
-    <span class="eyebrow" style="color:var(--yellow)">Clientes</span>
-    <h2 id="cli-titulo">Quem já acendeu a placa com a gente.</h2>
-    <p class="tv-hint"><span class="h-desk">Troque de canal pra ver cada site. Clique na tela pra abrir.</span><span class="h-touch">Toque num canal ou arraste a tela pro lado. Toque na tela pra abrir o site.</span></p>
+<section class="cli crs" id="projetos" aria-labelledby="cli-titulo" style="--c:#FF8A1F;--c2:#FFD08A">
+  <div class="cr-amb" aria-hidden="true"><i style="background:#FF8A1F"></i><i style="background:#FF4F8B"></i><i style="background:#4DA3FF"></i><i style="background:#3FBF9A"></i></div>
+  <div class="cr-giga" aria-hidden="true"><span>NARUÁ</span></div>
+  <div class="cr-in">
+    <div class="cr-head reveal">
+      <span class="eyebrow cr-eye">4 negócios com a placa acesa</span>
+      <h2 id="cli-titulo">Antes da promessa, o que a gente já fez.</h2>
+      <p class="cr-hint"><span class="h-desk">Passe o mouse na tela pra ver o site rolando. Clique pra abrir.</span><span class="h-touch">Arraste os nomes pro lado e toque num negócio pra trocar.</span></p>
+    </div>
+    <div class="cr-palco reveal" style="transition-delay:120ms">
+      <div class="cr-pilha">
+        <a class="cr-jan" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener" tabindex="0" aria-hidden="false" style="--c:#FF8A1F;--o:0"><span class="cr-bar" aria-hidden="true"><i></i><i></i><i></i><span>naruafoodtruck.com.br</span></span><span class="cr-scr"><img src="assets/clientes/narua.jpg" alt="Site do Naruá: cardápio, onde estamos, Instagram e WhatsApp" loading="lazy"></span></a>
+        <a class="cr-jan" href="https://www.makiolki.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#FF4F8B;--o:1"><span class="cr-bar" aria-hidden="true"><i></i><i></i><i></i><span>makiolki.com.br</span></span><span class="cr-scr"><img src="assets/clientes/makiolki.jpg" alt="Site da Makiolki Doces com cardápio e sacola de pedidos" loading="lazy"></span></a>
+        <a class="cr-jan" href="https://www.granolapura.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#4DA3FF;--o:2"><span class="cr-bar" aria-hidden="true"><i></i><i></i><i></i><span>granolapura.com.br</span></span><span class="cr-scr"><img src="assets/clientes/granola.jpg" alt="Site da Granola Pura com pedido pelo WhatsApp" loading="lazy"></span></a>
+        <a class="cr-jan" href="https://estudiocontorno.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#3FBF9A;--o:3"><span class="cr-bar" aria-hidden="true"><i></i><i></i><i></i><span>estudiocontorno.com.br</span></span><span class="cr-scr"><img src="assets/clientes/contorno.jpg" alt="Site do Estúdio Contorno: planeje antes de quebrar" loading="lazy"></span></a>
+      </div>
+      <div class="cr-ficha">
+        <article class="cr-f on" id="cr-p0" role="tabpanel" aria-labelledby="cr-t0" style="--c:#FF8A1F;--c2:#FFD08A">
+          <span class="cr-kind">Food truck · comida asiática</span>
+          <h3>Naruá</h3>
+          <p>Antes era tudo no caderno e o cardápio era de papel. Hoje o Naruá sabe quanto vendeu no dia e quais pratos saem mais. E ainda mostra que, além de comida boa, tem tecnologia de ponta.</p>
+          <div class="cr-tags"><span>Marca</span><span>Site</span><span>Sistemas</span></div>
+          <div class="cr-lk"><a class="cr-ver" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="cr-ig" href="https://www.instagram.com/narua.foodtruck" target="_blank" rel="noopener">@narua.foodtruck</a></div>
+        </article>
+        <article class="cr-f" id="cr-p1" role="tabpanel" aria-labelledby="cr-t1" style="--c:#FF4F8B;--c2:#FFC2D6">
+          <span class="cr-kind">Doceria e café · Caieiras</span>
+          <h3>Makiolki</h3>
+          <p>Cardápio com preço e uma sacolinha que manda o pedido prontinho pro WhatsApp da doceria.</p>
+          <div class="cr-tags"><span>Site</span><span>Cardápio digital</span></div>
+          <div class="cr-lk"><a class="cr-ver" href="https://www.makiolki.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="cr-ig" href="https://www.instagram.com/makiolki_doces" target="_blank" rel="noopener">@makiolki_doces</a></div>
+        </article>
+        <article class="cr-f" id="cr-p2" role="tabpanel" aria-labelledby="cr-t2" style="--c:#4DA3FF;--c2:#BFE0FF">
+          <span class="cr-kind">Granola artesanal</span>
+          <h3>Granola Pura</h3>
+          <p>Era tudo no Instagram e no papo do WhatsApp. Agora tem site próprio, e o cliente já chega com o pedido montado: quantidade, CEP e nome.</p>
+          <div class="cr-tags"><span>Site</span><span>Pedido no WhatsApp</span></div>
+          <div class="cr-lk"><a class="cr-ver" href="https://www.granolapura.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="cr-ig" href="https://www.instagram.com/granola.pura" target="_blank" rel="noopener">@granola.pura</a></div>
+        </article>
+        <article class="cr-f" id="cr-p3" role="tabpanel" aria-labelledby="cr-t3" style="--c:#3FBF9A;--c2:#B6F0DC">
+          <span class="cr-kind">Estúdio de arquitetura · obras</span>
+          <h3>Contorno</h3>
+          <p>Um site que explica em poucos segundos como a Malu trabalha e leva quem vai reformar direto pra uma conversa com ela.</p>
+          <div class="cr-tags"><span>Site</span><span>Animações</span></div>
+          <div class="cr-lk"><a class="cr-ver" href="https://estudiocontorno.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="cr-ig" href="https://www.instagram.com/estudiocontorno" target="_blank" rel="noopener">@estudiocontorno</a></div>
+        </article>
+      </div>
+    </div>
   </div>
-  <div class="tv-gr">
-    <div class="tv">
-      <div class="tv-tela">
-      <a class="tv-ch on" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="false" style="--c:#FF8A1F"><img src="assets/clientes/narua.jpg" alt="Site do Naruá: cardápio, onde estamos, Instagram e WhatsApp"></a>
-      <a class="tv-ch" href="https://www.makiolki.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#FF4F8B"><img src="assets/clientes/makiolki.jpg" alt="Site da Makiolki Doces com cardápio e sacola de pedidos" loading="lazy"></a>
-      <a class="tv-ch" href="https://www.granolapura.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#4DA3FF"><img src="assets/clientes/granola.jpg" alt="Site da Granola Pura com pedido pelo WhatsApp" loading="lazy"></a>
-      <a class="tv-ch" href="https://estudiocontorno.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#3FBF9A"><img src="assets/clientes/contorno.jpg" alt="Site do Estúdio Contorno: planeje antes de quebrar" loading="lazy"></a>
-        <div class="tv-chu" aria-hidden="true"></div>
-        <div class="tv-osd" aria-hidden="true">CH 01<small>NARUÁ</small></div>
-      </div>
-      <div class="tv-ctl">
-        <div class="tv-bs" role="tablist" aria-label="Canais dos clientes"><button type="button" class="tv-b" role="tab" id="tv-t0" aria-controls="tv-p0" aria-selected="true" tabindex="0" style="--c:#FF8A1F;--c2:#FFD08A" data-g="NARUÁ"><b>01</b><span>Naruá</span></button><button type="button" class="tv-b" role="tab" id="tv-t1" aria-controls="tv-p1" aria-selected="false" tabindex="-1" style="--c:#FF4F8B;--c2:#FFC2D6" data-g="MAKIOLKI"><b>02</b><span>Makiolki</span></button><button type="button" class="tv-b" role="tab" id="tv-t2" aria-controls="tv-p2" aria-selected="false" tabindex="-1" style="--c:#4DA3FF;--c2:#BFE0FF" data-g="GRANOLA"><b>03</b><span>Granola Pura</span></button><button type="button" class="tv-b" role="tab" id="tv-t3" aria-controls="tv-p3" aria-selected="false" tabindex="-1" style="--c:#3FBF9A;--c2:#B6F0DC" data-g="CONTORNO"><b>04</b><span>Contorno</span></button></div>
-        <span class="tv-led" aria-hidden="true"></span>
-        <div class="tv-ar"><button type="button" data-d="-1" aria-label="Canal anterior">◀</button><button type="button" data-d="1" aria-label="Próximo canal">▶</button></div>
-      </div>
-    </div>
-    <div class="tv-info">
-      <article class="tv-f on" id="tv-p0" role="tabpanel" aria-labelledby="tv-t0" style="--c:#FF8A1F;--c2:#FFD08A">
-        <div class="tv-top"><span class="tv-n">01</span><span class="tv-kind">Food truck · comida asiática</span></div>
-        <h3>Naruá</h3>
-        <p>Antes era tudo no caderno e o cardápio era de papel. Hoje o Naruá sabe quanto vendeu no dia e quais pratos saem mais. E ainda mostra que, além de comida boa, tem tecnologia de ponta.</p>
-        <div class="tv-tags"><span>Marca</span><span>Site</span><span>Sistemas</span></div>
-        <div class="tv-lk"><a class="tv-ver" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/narua.foodtruck" target="_blank" rel="noopener">@narua.foodtruck</a></div>
-      </article>
-      <article class="tv-f" id="tv-p1" role="tabpanel" aria-labelledby="tv-t1" style="--c:#FF4F8B;--c2:#FFC2D6" hidden>
-        <div class="tv-top"><span class="tv-n">02</span><span class="tv-kind">Doceria e café · Caieiras</span></div>
-        <h3>Makiolki</h3>
-        <p>Cardápio com preço e uma sacolinha que manda o pedido prontinho pro WhatsApp da doceria.</p>
-        <div class="tv-tags"><span>Site</span><span>Cardápio digital</span></div>
-        <div class="tv-lk"><a class="tv-ver" href="https://www.makiolki.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/makiolki_doces" target="_blank" rel="noopener">@makiolki_doces</a></div>
-      </article>
-      <article class="tv-f" id="tv-p2" role="tabpanel" aria-labelledby="tv-t2" style="--c:#4DA3FF;--c2:#BFE0FF" hidden>
-        <div class="tv-top"><span class="tv-n">03</span><span class="tv-kind">Granola artesanal</span></div>
-        <h3>Granola Pura</h3>
-        <p>Era tudo no Instagram e no papo do WhatsApp. Agora tem site próprio, e o cliente já chega com o pedido montado: quantidade, CEP e nome.</p>
-        <div class="tv-tags"><span>Site</span><span>Pedido no WhatsApp</span></div>
-        <div class="tv-lk"><a class="tv-ver" href="https://www.granolapura.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/granola.pura" target="_blank" rel="noopener">@granola.pura</a></div>
-      </article>
-      <article class="tv-f" id="tv-p3" role="tabpanel" aria-labelledby="tv-t3" style="--c:#3FBF9A;--c2:#B6F0DC" hidden>
-        <div class="tv-top"><span class="tv-n">04</span><span class="tv-kind">Estúdio de arquitetura · obras</span></div>
-        <h3>Contorno</h3>
-        <p>Um site que explica em poucos segundos como a Malu trabalha e leva quem vai reformar direto pra uma conversa com ela.</p>
-        <div class="tv-tags"><span>Site</span><span>Animações</span></div>
-        <div class="tv-lk"><a class="tv-ver" href="https://estudiocontorno.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/estudiocontorno" target="_blank" rel="noopener">@estudiocontorno</a></div>
-      </article>
-    </div>
+  <div class="cr-car">
+    <button type="button" class="cr-seta" data-d="-1" aria-label="Cliente anterior">←</button>
+    <div class="cr-trilho" role="tablist" aria-label="Clientes"><button type="button" class="cr-it" role="tab" id="cr-t0" aria-controls="cr-p0" aria-selected="true" tabindex="0" style="--c:#FF8A1F;--c2:#FFD08A" data-g="NARUÁ"><span class="cr-n">01</span><span class="cr-nm">Naruá</span><span class="cr-r">Food truck</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t1" aria-controls="cr-p1" aria-selected="false" tabindex="-1" style="--c:#FF4F8B;--c2:#FFC2D6" data-g="MAKIOLKI"><span class="cr-n">02</span><span class="cr-nm">Makiolki</span><span class="cr-r">Doceria e café</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t2" aria-controls="cr-p2" aria-selected="false" tabindex="-1" style="--c:#4DA3FF;--c2:#BFE0FF" data-g="GRANOLA"><span class="cr-n">03</span><span class="cr-nm">Granola Pura</span><span class="cr-r">Granola artesanal</span><span class="cr-pg" aria-hidden="true"></span></button><button type="button" class="cr-it" role="tab" id="cr-t3" aria-controls="cr-p3" aria-selected="false" tabindex="-1" style="--c:#3FBF9A;--c2:#B6F0DC" data-g="CONTORNO"><span class="cr-n">04</span><span class="cr-nm">Contorno</span><span class="cr-r">Arquitetura e obras</span><span class="cr-pg" aria-hidden="true"></span></button></div>
+    <button type="button" class="cr-seta" data-d="1" aria-label="Próximo cliente">→</button>
   </div>
 </section>
 <section class="how" id="como" aria-labelledby="como-titulo">
@@ -1084,31 +1107,54 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
 </script>
 
 <script>
-// Projetos: uma TV de neon com um canal por cliente. Troca no botão, nas setas ou arrastando; chiado curto entre um canal e outro.
+// Projetos: um negócio por vez no palco (janelas empilhadas). Embaixo, um carrossel com nome e ramo de cada cliente; a cor do cliente pinta a seção.
 (function () {
   var sec = document.getElementById('projetos'); if (!sec) return;
-  var chs = [].slice.call(sec.querySelectorAll('.tv-ch')), bs = [].slice.call(sec.querySelectorAll('.tv-b')), fs = [].slice.call(sec.querySelectorAll('.tv-f')),
-      chu = sec.querySelector('.tv-chu'), osd = sec.querySelector('.tv-osd'), tela = sec.querySelector('.tv-tela'), N = chs.length, cur = 0, tm = 0;
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function go(n, foco) { n = (n + N) % N; if (n === cur) return; cur = n; var b = bs[n];
-    sec.style.setProperty('--c', b.style.getPropertyValue('--c')); sec.style.setProperty('--c2', b.style.getPropertyValue('--c2'));
-    bs.forEach(function (x, i) { x.setAttribute('aria-selected', i === n ? 'true' : 'false'); x.tabIndex = i === n ? 0 : -1; });
-    fs.forEach(function (f, i) { f.hidden = i !== n; f.classList.toggle('on', i === n); });
-    if (!reduce) { chu.classList.remove('on'); void chu.offsetWidth; chu.classList.add('on'); }
-    clearTimeout(tm);
-    tm = setTimeout(function () { chs.forEach(function (c, i) { c.classList.toggle('on', i === n); c.setAttribute('aria-hidden', i === n ? 'false' : 'true'); });
-      osd.innerHTML = 'CH 0' + (n + 1) + '<small>' + b.dataset.g + '</small>'; }, reduce ? 0 : 140);
-    if (foco) b.focus(); }
-  bs.forEach(function (b, i) { b.addEventListener('click', function () { go(i); });
-    b.addEventListener('keydown', function (e) { var d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0; if (d) { e.preventDefault(); go(cur + d, true); } }); });
-  [].slice.call(sec.querySelectorAll('.tv-ar button')).forEach(function (b) { b.addEventListener('click', function () { go(cur + (+b.dataset.d)); }); });
+  var its = [].slice.call(sec.querySelectorAll('.cr-it')), jans = [].slice.call(sec.querySelectorAll('.cr-jan')), fs = [].slice.call(sec.querySelectorAll('.cr-f')),
+      amb = [].slice.call(sec.querySelectorAll('.cr-amb i')), giga = sec.querySelector('.cr-giga span'), tri = sec.querySelector('.cr-trilho'),
+      palco = sec.querySelector('.cr-palco'), car = sec.querySelector('.cr-car'), N = its.length, cur = -1, tm = 0, visto = false, pausa = false, hold = false, timers = [];
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, ESPERA = 5600;
+  function mede() { jans.forEach(function (j) { var sc = j.querySelector('.cr-scr'), img = j.querySelector('img'); j.style.setProperty('--shift', Math.min(0, sc.clientHeight - img.offsetHeight) + 'px'); }); }
+  function centra(n, suave) { var it = its[n]; tri.scrollTo({ left: it.offsetLeft - (tri.clientWidth - it.offsetWidth) / 2, behavior: suave && !reduce ? 'smooth' : 'auto' }); }
+  function agenda() { clearTimeout(tm); var roda = visto && !pausa && !hold && !reduce;
+    its.forEach(function (it, i) { it.classList.toggle('roda', roda && i === cur); });
+    if (roda) tm = setTimeout(function () { if (document.hidden) { agenda(); return; } vai(cur + 1); }, ESPERA); }
+  function vai(n, foco) { n = (n + N) % N; if (n === cur) return; var prev = cur; cur = n; var it = its[n];
+    jans.forEach(function (j, i) { var o = (i - n + N) % N; j.classList.toggle('on', o === 0); j.tabIndex = o === 0 ? 0 : -1; j.setAttribute('aria-hidden', o === 0 ? 'false' : 'true');
+      if (i === prev && !reduce) { j.classList.add('sai'); timers.push(setTimeout(function () { j.style.setProperty('--o', o); j.classList.remove('sai'); }, 430)); } else j.style.setProperty('--o', o); });
+    its.forEach(function (x, i) { x.setAttribute('aria-selected', i === n ? 'true' : 'false'); x.tabIndex = i === n ? 0 : -1; x.classList.remove('roda'); });
+    fs.forEach(function (f, i) { f.classList.toggle('on', i === n); });
+    amb.forEach(function (a, i) { a.classList.toggle('on', i === n); });
+    sec.style.setProperty('--c', it.style.getPropertyValue('--c')); sec.style.setProperty('--c2', it.style.getPropertyValue('--c2'));
+    if (giga) { giga.classList.add('o'); timers.push(setTimeout(function () { giga.textContent = it.dataset.g; giga.classList.remove('o'); }, reduce ? 0 : 220)); }
+    if (prev >= 0) centra(n, true);
+    if (foco) it.focus({ preventScroll: true });
+    void sec.offsetWidth; agenda(); }
+  its.forEach(function (it, i) {
+    it.addEventListener('click', function () { hold = true; vai(i); agenda(); });
+    it.addEventListener('keydown', function (e) { var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); hold = true; vai(cur + d, true); agenda(); });
+  });
+  [].slice.call(sec.querySelectorAll('.cr-seta')).forEach(function (b) { b.addEventListener('click', function () { hold = true; vai(cur + (+b.dataset.d)); agenda(); }); });
+  [palco, car].forEach(function (el) {
+    el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { pausa = true; agenda(); } });
+    el.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { pausa = false; agenda(); } });
+    el.addEventListener('focusin', function () { pausa = true; agenda(); });
+    el.addEventListener('focusout', function () { pausa = false; agenda(); });
+  });
+  // celular: arrastar o palco pro lado troca o cliente
   var x0 = null, y0 = 0, arrastou = 0;
-  tela.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
-  tela.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
-    if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) { arrastou = Date.now(); go(cur + (dx < 0 ? 1 : -1)); } }, { passive: true });
-  // depois de arrastar, o toque não abre o site
-  tela.addEventListener('click', function (e) { if (Date.now() - arrastou < 400) e.preventDefault(); }, true);
-  window.addEventListener('pagehide', function () { clearTimeout(tm); });
+  palco.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  palco.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) { arrastou = Date.now(); hold = true; vai(cur + (dx < 0 ? 1 : -1)); agenda(); } }, { passive: true });
+  palco.addEventListener('click', function (e) { if (Date.now() - arrastou < 400) e.preventDefault(); }, true);
+  jans.forEach(function (j) { var img = j.querySelector('img'); if (!img.complete) img.addEventListener('load', mede); });
+  window.addEventListener('resize', function () { mede(); centra(cur, false); });
+  vai(0); mede(); centra(0, false);
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (en) { visto = en[0].isIntersecting; if (visto) { mede(); centra(cur, false); } agenda(); }, { threshold: 0.35 });
+    io.observe(sec);
+    window.addEventListener('pagehide', function () { io.disconnect(); clearTimeout(tm); timers.forEach(clearTimeout); });
+  }
 })();
 </script>
 <script>
