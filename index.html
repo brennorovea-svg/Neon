@@ -37,8 +37,11 @@
       "url": "https://neonscripts.com.br/",
       "logo": "https://neonscripts.com.br/assets/icon-512.png",
       "image": "https://neonscripts.com.br/assets/og-neon-scripts.jpg",
-      "description": "Marca, site, inteligência e sistemas para pequenos negócios de São Paulo.",
+      "description": "Marca, site, inteligência e sistemas para pequenos negócios de São Paulo. A gente entende a rotina do negócio primeiro e depois cria a marca, o site com cardápio ou catálogo ligado ao WhatsApp, os relatórios de vendas e os sistemas de comanda, estoque e caixa.",
+      "slogan": "Todo negócio merece uma placa acesa.",
       "telephone": "+55 11 99939-2800",
+      "email": "contato@neonscripts.com.br",
+      "knowsAbout": ["Criação de sites para pequenos negócios", "Cardápio digital", "Pedido pelo WhatsApp", "Identidade visual", "Business intelligence", "Sistema de comandas para restaurante e food truck"],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "São Paulo",
@@ -46,7 +49,13 @@
         "addressCountry": "BR"
       },
       "areaServed": { "@type": "City", "name": "São Paulo" },
-      "founder": { "@type": "Person", "name": "Brenno Rovea" },
+      "founder": {
+        "@type": "Person",
+        "name": "Brenno Rovea",
+        "jobTitle": "Fundador, cientista de dados",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidade de São Paulo (USP)" },
+        "sameAs": ["https://www.linkedin.com/in/brenno-rovea/"]
+      },
       "sameAs": ["https://www.instagram.com/neon.scripts"],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -668,8 +677,8 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 if(m&&m('(min-width: 821px)').matches&&!m('(prefers-reduced-motion: reduce)').matches&&!(c&&(c.saveData||/2g/.test(c.effectiveType||''))))document.documentElement.classList.add('hero-film');}catch(e){}})();
 </script>
 <script>
-/* Entrada com tecla: decide antes da primeira pintura. Pula se o link já veio com âncora (#contato etc.). */
-(function(){try{if(!location.hash)document.documentElement.classList.add('pre');}catch(e){}})();
+/* Entrada com tecla: decide antes da primeira pintura. Só no computador (no celular o Google conta tela por cima como intrusiva). Pula se o link já veio com âncora (#contato etc.). */
+(function(){try{if(!location.hash&&window.matchMedia&&matchMedia('(min-width: 821px)').matches)document.documentElement.classList.add('pre');}catch(e){}})();
 </script>
 <style>
 /* ENTRADA COM TECLA. Tela escura por cima do site: a tecla (gangorra + moldura de tubo + olho do logo) acende a placa e o site aparece. Sem JS a tela nem existe (só aparece com html.pre). */

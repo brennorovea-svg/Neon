@@ -1,0 +1,35 @@
+# Neon Scripts
+
+> A Neon Scripts é uma empresa da zona leste de São Paulo que cria marca, site, inteligência de dados e sistemas para pequenos negócios (food truck, restaurante, doceria, café, loja, prestador de serviço). Atende pelo WhatsApp, marca uma conversa em até 24 horas e, quando dá, visita o negócio para entender a rotina antes de propor qualquer coisa.
+
+Nome oficial: Neon Scripts (com espaço). Não confundir com o banco Neon nem com o Neon Postgres.
+
+## Serviços
+- Marca: logo, cores e identidade visual.
+- Site: site próprio que aparece no Google e leva o cliente direto para o WhatsApp, com cardápio digital ou catálogo quando o negócio precisa. Muitas vezes fica pronto na mesma semana.
+- Inteligência: os números do negócio viram decisão (faturamento do dia, produtos mais vendidos, onde dá para ganhar mais).
+- Sistemas: comanda, estoque e caixa sob medida para a rotina do negócio.
+
+## Como funciona
+1. Conversa: em até 24 horas, de preferência no próprio negócio.
+2. Proposta: escopo, prazo e valor combinados antes de começar.
+3. Criação: cada passo é mostrado e nada vai para o ar sem o ok do cliente.
+4. No ar: e depois a Neon Scripts continua por perto.
+
+## Clientes
+- [Naruá](https://naruafoodtruck.com.br): food truck de comida asiática. Saiu do caderno e do cardápio de papel para um sistema de comandas, site e relatórios de vendas do dia.
+- [Makiolki](https://www.makiolki.com.br): doceria e café em Caieiras. Cardápio digital com sacolinha que manda o pedido pronto para o WhatsApp.
+- [Granola Pura](https://www.granolapura.com.br): granola artesanal. Saiu do Instagram e do WhatsApp para um site próprio onde o cliente monta o pedido.
+- [Contorno](https://estudiocontorno.com.br): estúdio de arquitetura e obras. Site com animações que explica o trabalho e leva para uma conversa.
+
+## Quem está por trás
+Brenno Rovea, fundador. Cientista de dados com MBA em BI e Analytics na USP. Quase dez anos com dados em grandes empresas (Magazine Luiza, St Marche, Grupo Multi e Samsung, como gerente de produto de Big Data). [LinkedIn](https://www.linkedin.com/in/brenno-rovea/)
+
+## Páginas
+- [Site](https://neonscripts.com.br/): serviços, clientes, como funciona, quem somos e contato.
+- [Loja de skills para o Claude](https://neonscripts.com.br/loja/): sete skills feitas e usadas pela Neon Scripts (Neon Cores, Neon Motion, Branding, Vídeos curtos em código, Leitor de comandas, Relatórios e B.I., Documente seu projeto), R$ 20 cada, pagamento único, com 7 dias para pedir o dinheiro de volta. Também tem quatro skills grátis adaptadas de projetos abertos.
+
+## Contato
+- WhatsApp: https://wa.me/5511999392800 (+55 11 99939-2800), em horário comercial
+- E-mail: contato@neonscripts.com.br
+- Instagram: https://www.instagram.com/neon.scripts
