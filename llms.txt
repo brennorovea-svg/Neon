@@ -30,7 +30,6 @@ Brenno Rovea, fundador. Cientista de dados com MBA em BI e Analytics na USP. Qua
 - [Projetos](https://neonscripts.com.br/projetos/): o site de cada cliente, um por vez, com o que mudou no negócio.
 - [Como funciona](https://neonscripts.com.br/como-funciona/): conversa, proposta, criação e no ar.
 - [Quem somos](https://neonscripts.com.br/quem-somos/): a história do Brenno Rovea e da Neon Scripts, na zona leste de São Paulo.
-- [Contato](https://neonscripts.com.br/contato/): WhatsApp, e-mail contato@neonscripts.com.br e Instagram @neon.scripts.
 
 ### Serviços
 - [Todos os serviços](https://neonscripts.com.br/servicos/)
