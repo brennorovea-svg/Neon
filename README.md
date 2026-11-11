@@ -2,7 +2,9 @@
 
 Site estático da Neon, softwarehouse para pequenos negócios de São Paulo.
 
-- `index.html`: página única (hero com o letreiro + serviços, projetos, como funciona, quem somos e contato), com CSS e JS embutidos, sem build.
+- `index.html`: home (hero com o letreiro + serviços e contato), sem build.
+- `projetos/`, `como-funciona/`, `quem-somos/`, `contato/`: uma página por seção, com o mesmo visual da home.
+- `assets/site.css` e `assets/site.js`: estilos e scripts da home e dessas páginas.
 - `assets/hero-metro.jpg`: foto do hero (entrada do metrô à noite).
 
 Para ver localmente, abra `index.html` no navegador.
