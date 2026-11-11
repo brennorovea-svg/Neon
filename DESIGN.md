@@ -26,6 +26,9 @@ Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backd
 - **Sora** 400/600/800: todo o resto. Título `h1` 800, `clamp(38px,5.2vw,70px)`, entrelinha 1.02, `letter-spacing -.02em`. `h2` 800, `clamp(30px,3.6vw,46px)`. Corpo 16-19px, entrelinha 1.5.
 - **Space Mono** 400/700: sobretítulos em caixa alta com `letter-spacing .2em`, marca no menu, toques de terminal (`$ ./orcamento`).
 
+## Marca (regra fixa)
+Em qualquer peça (letreiro, logo, deck, post, story, assinatura), **SCRIPTS é sempre bem menor que NEON**: cerca de um terço da altura (`.355em` do NEON), embaixo dele, dentro do mesmo retângulo e na cor oposta (NEON rosa com SCRIPTS azul, ou o contrário). Nunca escrever NEON e SCRIPTS no mesmo tamanho nem lado a lado. Em texto corrido o nome é "Neon Scripts", com espaço.
+
 ## Letreiro
 Logo v3 (2026-10-28): **E ao contrário** e o **O vira um olho amendoado** (tubo na cor de NEON, íris e pupila na cor de SCRIPTS). Histórico em `marca/VERSOES.md`.
 
