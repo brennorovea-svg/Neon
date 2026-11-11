@@ -568,75 +568,71 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 }
 @media (min-width:1024px) and (max-width:1499px){.how-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* ===== Projetos: olho no meio (11/2026). Os 4 clientes em volta do olho do logo; o que ele olha acende na cor do cliente ===== */
-.pe-head{margin-bottom:clamp(24px,4vh,40px)}
-.pe-head h2{margin-top:10px;max-width:640px}
-.pe-hint{font-size:15px;color:var(--muted);margin:12px 0 0}
-.pe-hint .h-touch{display:none}
-@media (hover:none){.pe-hint .h-desk{display:none}.pe-hint .h-touch{display:inline}}
-.pe-gr{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.72fr) minmax(0,1fr);gap:clamp(16px,2.2vw,32px);align-items:center;max-width:1560px;margin:0 auto}
-.pe-cd:nth-child(1){grid-area:1/1}.pe-cd:nth-child(2){grid-area:1/3}.pe-cd:nth-child(3){grid-area:2/1}.pe-cd:nth-child(4){grid-area:2/3}
-.pe-eye{grid-area:1/2/3/3;align-self:center;justify-self:center;width:100%;max-width:300px;--c:#FF2E9A;--c2:#FFB8DC}
-.pe-eye svg{display:block;width:100%;overflow:visible}
-.pe-tb{fill:rgba(5,3,15,.6);stroke:var(--c2);stroke-width:4.5;stroke-linejoin:round;filter:drop-shadow(0 0 4px var(--c)) drop-shadow(0 0 14px var(--c));transition:stroke 500ms var(--ease),filter 500ms var(--ease)}
-.pe-ir{fill:none;stroke:#B0DCFF;stroke-width:4;filter:drop-shadow(0 0 4px #2E8CFF) drop-shadow(0 0 10px #2E8CFF)}
-.pe-pu{fill:#DCEBFF}
-.pe-ol{transition:transform 500ms var(--ease)}
-.pe-palp{transform-box:fill-box;transform-origin:center;transition:transform 110ms var(--ease)}
-.pe-palp.f{transform:scaleY(.08)}
-.pe-cd{--c:#FF2E9A;--c2:#FFB8DC;position:relative;align-self:center;display:grid;grid-template-columns:clamp(116px,9.4vw,156px) minmax(0,1fr);gap:clamp(14px,1.4vw,20px);align-items:start;padding:clamp(14px,1.3vw,18px);border-radius:18px;border:1px solid rgba(244,239,255,.09);
-  background:linear-gradient(180deg,rgba(26,18,56,.72),rgba(10,6,26,.82));box-shadow:inset 0 1px 0 rgba(255,255,255,.05);overflow:hidden;transition:border-color 300ms var(--ease),box-shadow 300ms var(--ease),transform 300ms var(--ease)}
-.pe-cd::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:var(--c);box-shadow:0 0 12px var(--c),0 0 26px var(--c);transform:scaleY(0);transition:transform 420ms var(--ease)}
-.pe-cd::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 0% 0%,var(--c),transparent 55%);opacity:0;transition:opacity 500ms var(--ease)}
-.pe-shot{position:relative;z-index:1;display:block;height:clamp(150px,20vh,210px);border-radius:10px;overflow:hidden;border:1px solid rgba(244,239,255,.12);background:#000;box-shadow:0 14px 28px -14px #000}
-.pe-bar{position:absolute;left:0;right:0;top:0;z-index:1;display:flex;gap:4px;align-items:center;height:16px;padding:0 7px;background:#150F30}
-.pe-bar i{width:5px;height:5px;border-radius:50%;background:rgba(244,239,255,.25)}.pe-bar i:first-child{background:var(--c)}
-.pe-shot img{position:absolute;inset:16px 0 0;width:100%;height:calc(100% - 16px);object-fit:cover;object-position:top center;filter:brightness(.38) saturate(.25);transition:filter 500ms var(--ease),transform 700ms var(--ease)}
-.pe-tx{position:relative;z-index:1;display:flex;flex-direction:column;gap:8px;min-width:0;height:100%}
-.pe-top{position:relative;padding-right:40px;min-height:16px}
-.pe-n{position:absolute;right:0;top:-2px;font-family:'Bungee Inline',sans-serif;font-size:20px;line-height:1;color:rgba(244,239,255,.22);transition:color 300ms var(--ease),text-shadow 300ms var(--ease)}
-.pe-kind{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color 300ms var(--ease)}
-.pe-cd h3{margin:0;font-size:clamp(20px,1.6vw,24px);font-weight:800;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
-.pe-cd p{margin:0;font-size:14.5px;line-height:1.5;color:var(--soft);opacity:.62;transition:opacity 300ms var(--ease);text-wrap:pretty}
-.pe-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
-.pe-tags span{padding:3px 10px;border-radius:999px;border:1px solid rgba(244,239,255,.18);color:var(--muted);font-size:12px;font-weight:600;transition:border-color 300ms var(--ease),color 300ms var(--ease)}
-.pe-lk{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:auto;padding-top:10px;border-top:1px solid rgba(244,239,255,.08)}
-.pe-ver{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;border:1.5px solid var(--c);color:var(--c2);font-size:13.5px;font-weight:800;text-decoration:none;transition:background 180ms var(--ease),color 180ms var(--ease),transform 100ms var(--ease)}
-.pe-ver i{font-style:normal;transition:transform 180ms var(--ease)}
-.pe-ver:hover{background:var(--c);color:#0A0618}.pe-ver:hover i{transform:translate(2px,-2px)}.pe-ver:active{transform:scale(.97)}
-.pe-ig{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);text-decoration:none}.pe-ig:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.pe-cd.on{border-color:color-mix(in srgb,var(--c) 70%,transparent);box-shadow:0 0 40px -14px var(--c),inset 0 1px 0 rgba(255,255,255,.08);transform:translateY(-3px)}
-.pe-cd.on::before{transform:scaleY(1)}.pe-cd.on::after{opacity:.12}
-.pe-cd.on .pe-shot img{filter:none}
-.pe-cd.on .pe-n{color:var(--c2);text-shadow:0 0 8px var(--c),0 0 20px var(--c);animation:turnOn 900ms linear}
-.pe-cd.on .pe-kind{color:var(--c2)}
-.pe-cd.on p{opacity:1}
-.pe-cd.on .pe-tags span{border-color:color-mix(in srgb,var(--c) 70%,transparent);color:var(--c2)}
-.pe-shot:hover img{transform:scale(1.03)}
-.pe-cd a:focus-visible{outline:2px solid #fff;outline-offset:3px}
-@media (min-width:1024px){.pe{min-height:100vh;display:flex;flex-direction:column;justify-content:center}}
-@media (min-width:1024px) and (max-height:960px){
-  .cli.pe{padding-top:4.5vh;padding-bottom:4.5vh}
-  .pe-head{margin-bottom:2.6vh}.pe-head h2{font-size:clamp(28px,4.4vh,40px)}.pe-hint{margin-top:6px}
-  .pe-gr{gap:14px 28px}
-  .pe-cd{padding:11px;gap:14px}.pe-shot{height:clamp(110px,18vh,150px)}
-  .pe-tx{gap:5px}.pe-n{font-size:16px}
-  .pe-cd h3{font-size:18px}.pe-cd p{font-size:12.5px;line-height:1.4}
-  .pe-tags span{font-size:11px;padding:2px 8px}.pe-lk{padding-top:7px}.pe-ver{padding:5px 11px;font-size:12.5px}.pe-ig{font-size:11px}
-  .pe-eye{max-width:240px}
+/* ===== Projetos: TV de canais (11/2026). Um canal por cliente; a cor do cliente acende a TV e a ficha ===== */
+.tvs{--c:#FF8A1F;--c2:#FFD08A}
+.tv-head{margin-bottom:clamp(24px,4vh,40px)}
+.tv-head h2{margin-top:10px;max-width:640px}
+.tv-hint{font-size:15px;color:var(--muted);margin:12px 0 0}
+.tv-hint .h-touch{display:none}
+@media (hover:none){.tv-hint .h-desk{display:none}.tv-hint .h-touch{display:inline}}
+.tv-gr{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:clamp(28px,4vw,72px);align-items:center;max-width:1560px;margin:0 auto}
+.tv{position:relative;padding:clamp(10px,1.2vw,18px);border-radius:clamp(20px,2vw,30px);background:linear-gradient(160deg,#211A3E,#0C0920);border:1px solid #362E5E;box-shadow:0 40px 80px -30px #000,inset 0 1px 0 rgba(255,255,255,.08)}
+.tv-tela{position:relative;height:clamp(260px,54vh,600px);border-radius:clamp(12px,1.2vw,18px);overflow:hidden;background:#000;box-shadow:inset 0 0 40px #000,0 0 70px -20px var(--c);transition:box-shadow 500ms var(--ease)}
+.tv-ch{position:absolute;inset:0;display:block;opacity:0;visibility:hidden;transition:opacity 200ms var(--ease),visibility 0s 200ms}
+.tv-ch.on{opacity:1;visibility:visible;transition:opacity 200ms var(--ease),visibility 0s}
+.tv-ch img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.tv-tela::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 2px,transparent 2px 4px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55))}
+.tv-chu{position:absolute;inset:0;z-index:2;opacity:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:220px}
+.tv-chu.on{animation:tvChu 420ms steps(6) 1}
+@keyframes tvChu{0%{opacity:1;transform:translate(0,0)}50%{opacity:.9;transform:translate(-3%,2%)}100%{opacity:0;transform:translate(2%,-3%)}}
+.tv-osd{position:absolute;z-index:3;left:14px;top:12px;padding:6px 10px;border-radius:6px;background:rgba(0,0,0,.6);font:700 clamp(17px,1.7vw,24px) 'Space Mono',monospace;color:#6BFF9E;text-shadow:0 0 8px #6BFF9E;letter-spacing:.06em;pointer-events:none}
+.tv-osd small{display:block;font-size:.55em;letter-spacing:.2em}
+.tv-ctl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:clamp(10px,1.4vh,14px);padding:0 4px}
+.tv-bs{display:flex;gap:8px;flex-wrap:wrap}
+.tv-b,.tv-ar button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px;border-radius:10px;border:1px solid #3A3260;background:linear-gradient(#2A2448,#15112A);color:var(--muted);font:600 13px 'Sora',sans-serif;cursor:pointer;box-shadow:0 4px 0 #07050E;transition:transform 100ms var(--ease),box-shadow 100ms var(--ease),color 200ms var(--ease),border-color 200ms var(--ease)}
+.tv-b b{font:700 13px 'Space Mono',monospace;color:inherit}
+.tv-b:hover,.tv-ar button:hover{color:var(--ink)}
+.tv-b:active,.tv-ar button:active{transform:translateY(3px);box-shadow:0 1px 0 #07050E}
+.tv-b[aria-selected="true"]{color:#fff;border-color:var(--c);box-shadow:0 4px 0 #07050E,0 0 16px -2px var(--c)}
+.tv-b[aria-selected="true"] b{color:var(--c2)}
+.tv-b:focus-visible,.tv-ar button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.tv-ar{display:flex;gap:8px}.tv-ar button{width:46px;justify-content:center;padding:0}
+.tv-led{width:8px;height:8px;border-radius:50%;background:#FF2E2E;box-shadow:0 0 8px #FF2E2E;flex:none}
+.tv-info{display:grid}
+.tv-f{grid-area:1/1;display:flex;flex-direction:column;gap:10px}
+.tv-f[hidden]{display:none}
+.tv-f.on{animation:rise 520ms var(--ease)}
+.tv-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tv-n{font-family:'Bungee Inline',sans-serif;font-size:28px;line-height:1;color:var(--c2);text-shadow:0 0 8px var(--c),0 0 22px var(--c)}
+.tv-f.on .tv-n{animation:turnOn 900ms linear}
+.tv-kind{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--c2)}
+.tv-f h3{margin:0;font-size:clamp(28px,2.8vw,42px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.tv-f p{margin:0;font-size:clamp(15px,1.1vw,17px);line-height:1.55;color:var(--soft);max-width:44ch;text-wrap:pretty}
+.tv-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tv-tags span{padding:4px 11px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 70%,transparent);color:var(--c2);font-size:12.5px;font-weight:600}
+.tv-lk{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:6px;padding-top:14px;border-top:1px solid rgba(244,239,255,.1)}
+.tv-ver{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--c);color:var(--c2);font-size:15px;font-weight:800;text-decoration:none;transition:background 180ms var(--ease),color 180ms var(--ease),transform 100ms var(--ease)}
+.tv-ver i{font-style:normal;transition:transform 180ms var(--ease)}
+.tv-ver:hover{background:var(--c);color:#0A0618}.tv-ver:hover i{transform:translate(2px,-2px)}.tv-ver:active{transform:scale(.97)}
+.tv-ig{font-family:'Space Mono',monospace;font-size:13px;color:var(--muted);text-decoration:none}.tv-ig:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.tv-ver:focus-visible,.tv-ig:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media (min-width:1024px){.tvs{min-height:100vh;display:flex;flex-direction:column;justify-content:center}}
+@media (min-width:1024px) and (max-height:820px){
+  .cli.tvs{padding-top:4.5vh;padding-bottom:4.5vh}
+  .tv-head{margin-bottom:3vh}.tv-head h2{font-size:clamp(28px,4.6vh,40px)}.tv-hint{margin-top:6px}
+  .tv-tela{height:52vh}.tv-b,.tv-ar button{height:36px}
 }
+@media (min-width:1024px) and (max-width:1499px){.tv-ar{display:none}.tv-bs{flex-wrap:nowrap}.tv-b{padding:0 11px}}
 @media (max-width:1023px){
-  .pe-gr{grid-template-columns:1fr;gap:16px}
-  .pe-cd:nth-child(n){grid-area:auto}
-  .pe-eye{grid-area:auto;order:-1;max-width:170px;padding:4px 0 8px}
-  .pe-cd{grid-template-columns:96px minmax(0,1fr)}
-  .pe-shot{height:150px}
-  .pe-cd p{font-size:14px}
+  .tv-gr{grid-template-columns:1fr;gap:22px}
+  .tv-tela{height:min(62vw,420px)}
+  .tv-ar{display:none}
+  .tv-bs{gap:6px}.tv-b{height:38px;padding:0 10px;font-size:12px;gap:6px}
 }
+@media (max-width:520px){.tv-b span{display:none}.tv-b{width:46px;justify-content:center}.tv-tela{height:78vw}}
 @media (prefers-reduced-motion:reduce){
-  .pe-tb,.pe-ol,.pe-palp,.pe-cd,.pe-cd::before,.pe-cd::after,.pe-shot img,.pe-n,.pe-kind,.pe-cd p,.pe-tags span,.pe-ver,.pe-ver i{transition:none}
-  .pe-cd.on .pe-n{animation:none}
-  .pe-cd.on{transform:none}
+  .tv-ch,.tv-tela,.tv-b,.tv-ar button,.tv-ver,.tv-ver i{transition:none}
+  .tv-chu.on,.tv-f.on,.tv-f.on .tv-n{animation:none}
 }
 </style>
 <script>
@@ -808,54 +804,58 @@ html.pre #pre,#pre.sai{display:grid}
 </section>
 </main>
 </div>
-<section class="cli pe" id="projetos" aria-labelledby="cli-titulo">
-  <div class="pe-head reveal">
+<section class="cli tvs" id="projetos" aria-labelledby="cli-titulo" style="--c:#FF8A1F;--c2:#FFD08A">
+  <div class="tv-head reveal">
     <span class="eyebrow" style="color:var(--yellow)">Clientes</span>
     <h2 id="cli-titulo">Quem já acendeu a placa com a gente.</h2>
-    <p class="pe-hint"><span class="h-desk">O olho segue o seu mouse. O negócio que ele olha acende.</span><span class="h-touch">Role a tela. O negócio que o olho olha acende.</span></p>
+    <p class="tv-hint"><span class="h-desk">Troque de canal pra ver cada site. Clique na tela pra abrir.</span><span class="h-touch">Toque num canal ou arraste a tela pro lado. Toque na tela pra abrir o site.</span></p>
   </div>
-  <div class="pe-gr">
-    <article class="pe-cd" style="--c:#FF8A1F;--c2:#FFD08A">
-      <a class="pe-shot" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="pe-bar"><i></i><i></i><i></i></span><img src="assets/clientes/narua.jpg" alt="" loading="lazy"></a>
-      <div class="pe-tx">
-        <div class="pe-top"><span class="pe-n">01</span><span class="pe-kind">Food truck · comida asiática</span></div>
+  <div class="tv-gr">
+    <div class="tv">
+      <div class="tv-tela">
+      <a class="tv-ch on" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="false" style="--c:#FF8A1F"><img src="assets/clientes/narua.jpg" alt="Site do Naruá: cardápio, onde estamos, Instagram e WhatsApp"></a>
+      <a class="tv-ch" href="https://www.makiolki.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#FF4F8B"><img src="assets/clientes/makiolki.jpg" alt="Site da Makiolki Doces com cardápio e sacola de pedidos" loading="lazy"></a>
+      <a class="tv-ch" href="https://www.granolapura.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#4DA3FF"><img src="assets/clientes/granola.jpg" alt="Site da Granola Pura com pedido pelo WhatsApp" loading="lazy"></a>
+      <a class="tv-ch" href="https://estudiocontorno.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true" style="--c:#3FBF9A"><img src="assets/clientes/contorno.jpg" alt="Site do Estúdio Contorno: planeje antes de quebrar" loading="lazy"></a>
+        <div class="tv-chu" aria-hidden="true"></div>
+        <div class="tv-osd" aria-hidden="true">CH 01<small>NARUÁ</small></div>
+      </div>
+      <div class="tv-ctl">
+        <div class="tv-bs" role="tablist" aria-label="Canais dos clientes"><button type="button" class="tv-b" role="tab" id="tv-t0" aria-controls="tv-p0" aria-selected="true" tabindex="0" style="--c:#FF8A1F;--c2:#FFD08A" data-g="NARUÁ"><b>01</b><span>Naruá</span></button><button type="button" class="tv-b" role="tab" id="tv-t1" aria-controls="tv-p1" aria-selected="false" tabindex="-1" style="--c:#FF4F8B;--c2:#FFC2D6" data-g="MAKIOLKI"><b>02</b><span>Makiolki</span></button><button type="button" class="tv-b" role="tab" id="tv-t2" aria-controls="tv-p2" aria-selected="false" tabindex="-1" style="--c:#4DA3FF;--c2:#BFE0FF" data-g="GRANOLA"><b>03</b><span>Granola Pura</span></button><button type="button" class="tv-b" role="tab" id="tv-t3" aria-controls="tv-p3" aria-selected="false" tabindex="-1" style="--c:#3FBF9A;--c2:#B6F0DC" data-g="CONTORNO"><b>04</b><span>Contorno</span></button></div>
+        <span class="tv-led" aria-hidden="true"></span>
+        <div class="tv-ar"><button type="button" data-d="-1" aria-label="Canal anterior">◀</button><button type="button" data-d="1" aria-label="Próximo canal">▶</button></div>
+      </div>
+    </div>
+    <div class="tv-info">
+      <article class="tv-f on" id="tv-p0" role="tabpanel" aria-labelledby="tv-t0" style="--c:#FF8A1F;--c2:#FFD08A">
+        <div class="tv-top"><span class="tv-n">01</span><span class="tv-kind">Food truck · comida asiática</span></div>
         <h3>Naruá</h3>
         <p>Antes era tudo no caderno e o cardápio era de papel. Hoje o Naruá sabe quanto vendeu no dia e quais pratos saem mais. E ainda mostra que, além de comida boa, tem tecnologia de ponta.</p>
-        <div class="pe-tags"><span>Marca</span><span>Site</span><span>Sistemas</span></div>
-        <div class="pe-lk"><a class="pe-ver" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener" aria-label="Ver o site: Naruá">Ver site <i>↗</i></a><a class="pe-ig" href="https://www.instagram.com/narua.foodtruck" target="_blank" rel="noopener">@narua.foodtruck</a></div>
-      </div>
-    </article>
-    <article class="pe-cd" style="--c:#FF4F8B;--c2:#FFC2D6">
-      <a class="pe-shot" href="https://www.makiolki.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="pe-bar"><i></i><i></i><i></i></span><img src="assets/clientes/makiolki.jpg" alt="" loading="lazy"></a>
-      <div class="pe-tx">
-        <div class="pe-top"><span class="pe-n">02</span><span class="pe-kind">Doceria e café · Caieiras</span></div>
+        <div class="tv-tags"><span>Marca</span><span>Site</span><span>Sistemas</span></div>
+        <div class="tv-lk"><a class="tv-ver" href="https://naruafoodtruck.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/narua.foodtruck" target="_blank" rel="noopener">@narua.foodtruck</a></div>
+      </article>
+      <article class="tv-f" id="tv-p1" role="tabpanel" aria-labelledby="tv-t1" style="--c:#FF4F8B;--c2:#FFC2D6" hidden>
+        <div class="tv-top"><span class="tv-n">02</span><span class="tv-kind">Doceria e café · Caieiras</span></div>
         <h3>Makiolki</h3>
         <p>Cardápio com preço e uma sacolinha que manda o pedido prontinho pro WhatsApp da doceria.</p>
-        <div class="pe-tags"><span>Site</span><span>Cardápio digital</span></div>
-        <div class="pe-lk"><a class="pe-ver" href="https://www.makiolki.com.br" target="_blank" rel="noopener" aria-label="Ver o site: Makiolki">Ver site <i>↗</i></a><a class="pe-ig" href="https://www.instagram.com/makiolki_doces" target="_blank" rel="noopener">@makiolki_doces</a></div>
-      </div>
-    </article>
-    <article class="pe-cd" style="--c:#4DA3FF;--c2:#BFE0FF">
-      <a class="pe-shot" href="https://www.granolapura.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="pe-bar"><i></i><i></i><i></i></span><img src="assets/clientes/granola.jpg" alt="" loading="lazy"></a>
-      <div class="pe-tx">
-        <div class="pe-top"><span class="pe-n">03</span><span class="pe-kind">Granola artesanal</span></div>
+        <div class="tv-tags"><span>Site</span><span>Cardápio digital</span></div>
+        <div class="tv-lk"><a class="tv-ver" href="https://www.makiolki.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/makiolki_doces" target="_blank" rel="noopener">@makiolki_doces</a></div>
+      </article>
+      <article class="tv-f" id="tv-p2" role="tabpanel" aria-labelledby="tv-t2" style="--c:#4DA3FF;--c2:#BFE0FF" hidden>
+        <div class="tv-top"><span class="tv-n">03</span><span class="tv-kind">Granola artesanal</span></div>
         <h3>Granola Pura</h3>
         <p>Era tudo no Instagram e no papo do WhatsApp. Agora tem site próprio, e o cliente já chega com o pedido montado: quantidade, CEP e nome.</p>
-        <div class="pe-tags"><span>Site</span><span>Pedido no WhatsApp</span></div>
-        <div class="pe-lk"><a class="pe-ver" href="https://www.granolapura.com.br" target="_blank" rel="noopener" aria-label="Ver o site: Granola Pura">Ver site <i>↗</i></a><a class="pe-ig" href="https://www.instagram.com/granola.pura" target="_blank" rel="noopener">@granola.pura</a></div>
-      </div>
-    </article>
-    <article class="pe-cd" style="--c:#3FBF9A;--c2:#B6F0DC">
-      <a class="pe-shot" href="https://estudiocontorno.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="pe-bar"><i></i><i></i><i></i></span><img src="assets/clientes/contorno.jpg" alt="" loading="lazy"></a>
-      <div class="pe-tx">
-        <div class="pe-top"><span class="pe-n">04</span><span class="pe-kind">Estúdio de arquitetura · obras</span></div>
+        <div class="tv-tags"><span>Site</span><span>Pedido no WhatsApp</span></div>
+        <div class="tv-lk"><a class="tv-ver" href="https://www.granolapura.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/granola.pura" target="_blank" rel="noopener">@granola.pura</a></div>
+      </article>
+      <article class="tv-f" id="tv-p3" role="tabpanel" aria-labelledby="tv-t3" style="--c:#3FBF9A;--c2:#B6F0DC" hidden>
+        <div class="tv-top"><span class="tv-n">04</span><span class="tv-kind">Estúdio de arquitetura · obras</span></div>
         <h3>Contorno</h3>
         <p>Um site que explica em poucos segundos como a Malu trabalha e leva quem vai reformar direto pra uma conversa com ela.</p>
-        <div class="pe-tags"><span>Site</span><span>Animações</span></div>
-        <div class="pe-lk"><a class="pe-ver" href="https://estudiocontorno.com.br" target="_blank" rel="noopener" aria-label="Ver o site: Contorno">Ver site <i>↗</i></a><a class="pe-ig" href="https://www.instagram.com/estudiocontorno" target="_blank" rel="noopener">@estudiocontorno</a></div>
-      </div>
-    </article>
-    <div class="pe-eye" aria-hidden="true"><svg viewBox="-4 14 108 72"><g class="pe-palp"><path class="pe-tb" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><g class="pe-ol"><circle class="pe-ir" cx="50" cy="50" r="15"/><circle class="pe-pu" cx="50" cy="50" r="6.5"/></g></g></svg></div>
+        <div class="tv-tags"><span>Site</span><span>Animações</span></div>
+        <div class="tv-lk"><a class="tv-ver" href="https://estudiocontorno.com.br" target="_blank" rel="noopener">Ver site <i>↗</i></a><a class="tv-ig" href="https://www.instagram.com/estudiocontorno" target="_blank" rel="noopener">@estudiocontorno</a></div>
+      </article>
+    </div>
   </div>
 </section>
 <section class="how" id="como" aria-labelledby="como-titulo">
@@ -1084,30 +1084,31 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
 </script>
 
 <script>
-// Projetos: o olho do logo no meio, os clientes em volta. O negócio que o olho olha acende.
+// Projetos: uma TV de neon com um canal por cliente. Troca no botão, nas setas ou arrastando; chiado curto entre um canal e outro.
 (function () {
   var sec = document.getElementById('projetos'); if (!sec) return;
-  var gr = sec.querySelector('.pe-gr'), cds = [].slice.call(sec.querySelectorAll('.pe-cd')), eye = sec.querySelector('.pe-eye'),
-      ol = sec.querySelector('.pe-ol'), pa = sec.querySelector('.pe-palp'), tb = sec.querySelector('.pe-tb');
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, cur = null, raf = 0;
-  function look(x, y) { if (reduce) return; var r = eye.getBoundingClientRect(), dx = x - (r.left + r.width / 2), dy = y - (r.top + r.height / 2), d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 220);
-    ol.style.transform = 'translate(' + (dx / d * k * 16) + 'px,' + (dy / d * k * 9) + 'px)'; }
-  function pick(cd) { if (!cd || cd === cur) return; cur = cd; cds.forEach(function (c) { c.classList.toggle('on', c === cd); });
-    eye.style.setProperty('--c', cd.style.getPropertyValue('--c')); eye.style.setProperty('--c2', cd.style.getPropertyValue('--c2'));
-    if (!reduce) { pa.classList.add('f'); setTimeout(function () { pa.classList.remove('f'); }, 130); } }
-  function perto(x, y) { var best = null, bd = 1e9; cds.forEach(function (c) { var b = c.getBoundingClientRect(), d = Math.hypot(x - (b.left + b.width / 2), y - (b.top + b.height / 2)); if (d < bd) { bd = d; best = c; } }); return best; }
-  var fino = window.matchMedia && matchMedia('(hover:hover) and (min-width:1024px)').matches;
-  if (fino) {
-    sec.addEventListener('pointermove', function (e) { look(e.clientX, e.clientY); var r = gr.getBoundingClientRect(); if (e.clientY < r.top - 40 || e.clientY > r.bottom + 40) return; pick(perto(e.clientX, e.clientY)); });
-    cds.forEach(function (c) { c.addEventListener('focusin', function () { pick(c); var b = c.getBoundingClientRect(); look(b.left + b.width / 2, b.top + b.height / 2); }); });
-    pick(cds[0]);
-  } else {
-    var upd = function () { raf = 0; var r = sec.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; var m = innerHeight * .6, best = null, bd = 1e9;
-      cds.forEach(function (c) { var b = c.getBoundingClientRect(), d = Math.abs(b.top + b.height / 2 - m); if (d < bd) { bd = d; best = c; } });
-      pick(best); if (best) { var b = best.getBoundingClientRect(); look(b.left + b.width / 2, b.top + b.height / 2); } };
-    window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(upd); }, { passive: true });
-    upd();
-  }
+  var chs = [].slice.call(sec.querySelectorAll('.tv-ch')), bs = [].slice.call(sec.querySelectorAll('.tv-b')), fs = [].slice.call(sec.querySelectorAll('.tv-f')),
+      chu = sec.querySelector('.tv-chu'), osd = sec.querySelector('.tv-osd'), tela = sec.querySelector('.tv-tela'), N = chs.length, cur = 0, tm = 0;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n, foco) { n = (n + N) % N; if (n === cur) return; cur = n; var b = bs[n];
+    sec.style.setProperty('--c', b.style.getPropertyValue('--c')); sec.style.setProperty('--c2', b.style.getPropertyValue('--c2'));
+    bs.forEach(function (x, i) { x.setAttribute('aria-selected', i === n ? 'true' : 'false'); x.tabIndex = i === n ? 0 : -1; });
+    fs.forEach(function (f, i) { f.hidden = i !== n; f.classList.toggle('on', i === n); });
+    if (!reduce) { chu.classList.remove('on'); void chu.offsetWidth; chu.classList.add('on'); }
+    clearTimeout(tm);
+    tm = setTimeout(function () { chs.forEach(function (c, i) { c.classList.toggle('on', i === n); c.setAttribute('aria-hidden', i === n ? 'false' : 'true'); });
+      osd.innerHTML = 'CH 0' + (n + 1) + '<small>' + b.dataset.g + '</small>'; }, reduce ? 0 : 140);
+    if (foco) b.focus(); }
+  bs.forEach(function (b, i) { b.addEventListener('click', function () { go(i); });
+    b.addEventListener('keydown', function (e) { var d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0; if (d) { e.preventDefault(); go(cur + d, true); } }); });
+  [].slice.call(sec.querySelectorAll('.tv-ar button')).forEach(function (b) { b.addEventListener('click', function () { go(cur + (+b.dataset.d)); }); });
+  var x0 = null, y0 = 0, arrastou = 0;
+  tela.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  tela.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) { arrastou = Date.now(); go(cur + (dx < 0 ? 1 : -1)); } }, { passive: true });
+  // depois de arrastar, o toque não abre o site
+  tela.addEventListener('click', function (e) { if (Date.now() - arrastou < 400) e.preventDefault(); }, true);
+  window.addEventListener('pagehide', function () { clearTimeout(tm); });
 })();
 </script>
 <script>
