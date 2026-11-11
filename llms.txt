@@ -26,7 +26,10 @@ Nome oficial: Neon Scripts (com espaço). Não confundir com o banco Neon nem co
 Brenno Rovea, fundador. Cientista de dados com MBA em BI e Analytics na USP. Quase dez anos com dados em grandes empresas (Magazine Luiza, St Marche, Grupo Multi e Samsung, como gerente de produto de Big Data). [LinkedIn](https://www.linkedin.com/in/brenno-rovea/)
 
 ## Páginas
-- [Site](https://neonscripts.com.br/): serviços, clientes, como funciona, quem somos e contato.
+- [Página inicial](https://neonscripts.com.br/): o que a Neon Scripts faz, os quatro serviços e o contato.
+- [Projetos](https://neonscripts.com.br/projetos/): o site de cada cliente, um por vez, com o que mudou no negócio.
+- [Como funciona](https://neonscripts.com.br/como-funciona/): conversa, proposta, criação e no ar.
+- [Quem somos](https://neonscripts.com.br/quem-somos/): a história do Brenno Rovea e da Neon Scripts, na zona leste de São Paulo.
 
 ### Serviços
 - [Todos os serviços](https://neonscripts.com.br/servicos/)
