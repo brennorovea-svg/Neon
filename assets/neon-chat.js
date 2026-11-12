@@ -21,7 +21,6 @@ const SERVICOS = {
   consultoria: {rot: 'Consultoria', oQue: 'uma consultoria', fala: 'Consultoria é a gente sentar do seu lado, entender a rotina e mostrar onde a tecnologia ajuda de verdade.',
     q2: ['Onde o calo aperta mais?', ['Vender mais', 'Organizar a rotina', 'Atender melhor']]}
 };
-const RAMOS = ['Restaurante ou food truck', 'Loja', 'Serviço (salão, clínica, estúdio)', 'Outro'];
 const PRAZOS = ['Este mês', 'Nos próximos meses', 'Só pesquisando por enquanto'];
 
 const DUVIDAS = {
@@ -153,7 +152,7 @@ function opcoes(lista) {
   log.appendChild(box); rola();
 }
 const passo = fn => async (...a) => { ocupado = true; try { await fn(...a); } finally { ocupado = false; } };
-const recomeca = () => { log.innerHTML = ''; inicio(); };
+const recomeca = () => { log.innerHTML = ''; inp.placeholder = 'Ou escreva sua pergunta'; inicio(); };
 const wa = (rot, txt) => ({rot, href: linkWa(txt), wa: true});
 
 const inicio = passo(async () => {
@@ -163,12 +162,18 @@ const inicio = passo(async () => {
 });
 const servico = passo(async k => {
   pedido.servico = k;
-  await ela([SERVICOS[k].fala, 'Qual é o seu negócio?'], 'curioso');
-  opcoes(RAMOS.map(r => ({rot: r, ir: () => ramo(r)})));
+  /* o @ ou o nome da marca vai na mensagem, para o Brenno já chegar olhando o negócio (Brenno, 2026-11-12) */
+  pedido.esperaMarca = true;
+  await ela([SERVICOS[k].fala, 'Me passa o @ do Instagram do seu negócio ou o nome da marca. Assim o Brenno já dá uma olhada antes de te responder.'], 'curioso');
+  opcoes([{rot: 'Ainda não tenho marca', ir: () => marca(null)}]);
+  inp.placeholder = 'Ex.: @seunegocio ou Nome da marca';
+  inp.focus({preventScroll: true});
 });
-const ramo = passo(async r => {
-  if (r === 'Outro') { pedido.esperaRamo = true; await ela(['Me conta em poucas palavras o que você faz. Pode escrever aqui embaixo.'], 'curioso'); inp.focus({preventScroll: true}); return; }
-  pedido.ramo = r; await pergunta2();
+const marca = passo(async m => {
+  pedido.esperaMarca = false; pedido.marca = m;
+  inp.placeholder = 'Ou escreva sua pergunta';
+  if (m) await ela(['Anotado!'], 'carinho');
+  await pergunta2();
 });
 async function pergunta2() {
   const [q, ops] = SERVICOS[pedido.servico].q2;
@@ -181,8 +186,8 @@ const situacao = passo(async o => {
   opcoes(PRAZOS.map(p => ({rot: p, ir: () => prazo(p)})));
 });
 const prazo = passo(async p => {
-  const ramoTxt = pedido.ramo.replace(/ \(.*\)/, '').toLowerCase();
-  const msg = INICIO_MSG + ' Quero ' + SERVICOS[pedido.servico].oQue + ' para o meu negócio (' + ramoTxt + '). Hoje: ' + pedido.hoje.toLowerCase() + '. Prazo: ' + p.toLowerCase() + '.';
+  const neg = pedido.marca ? ' Meu negócio: ' + pedido.marca + '.' : ' Ainda não tenho marca.';
+  const msg = INICIO_MSG + ' Quero ' + SERVICOS[pedido.servico].oQue + '.' + neg + ' Hoje: ' + pedido.hoje.toLowerCase() + '. Prazo: ' + p.toLowerCase() + '.';
   await ela(['Fechou! Montei a mensagem pro Brenno. É só tocar no botão verde que ela já vai pronta no WhatsApp.'], 'animado');
   const d = document.createElement('p'); d.className = 'neonc-m pronta'; d.innerHTML = '<i>Mensagem pronta</i>'; d.append(msg); log.appendChild(d);
   opcoes([wa('Mandar pro Brenno no WhatsApp', msg), {rot: 'Tenho uma dúvida', ir: () => duvidas(false)}, {rot: 'Começar de novo', ir: recomeca}]);
@@ -213,7 +218,7 @@ async function escreveu(e) {
   e.preventDefault();
   const txt = inp.value.trim(); if (!txt || ocupado) return;
   inp.value = ''; eu(txt);
-  if (pedido.esperaRamo) { pedido.esperaRamo = false; pedido.ramo = txt; ocupado = true; try { await pergunta2(); } finally { ocupado = false; } return; }
+  if (pedido.esperaMarca) return marca(txt);
   const r = acha(txt);
   if (r && r.servico) return servico(r.servico);
   if (r && r.duvida) return responde(r.duvida);
