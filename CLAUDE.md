@@ -31,6 +31,12 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 - Cores extras só da loja: laranja `#FF7A3D` e verde `#6BFF9E`. Cada skill tem uma cor, sem repetir.
 - Os pacotes `.zip` das skills não ficam no repo: a entrega é pela plataforma de venda.
 
+## Personagem Neon (desde 2026-11-12)
+- A personagem do site se chama **Neon** (escolha do Brenno, 2026-11-12). É o olho da logo em tubo de neon 3D, com sobrancelha de mola. O nome vale só para ela: a empresa continua sendo sempre **Neon Scripts**.
+- Código em `assets/neon-personagem.js` (three.js 0.169.0 pelo jsdelivr, CSS embutido no próprio arquivo), carregado no fim de todas as páginas, inclusive a loja. Fica no canto de baixo à direita no computador; no celular senta na ponta do botão verde de WhatsApp e só aparece junto com ele (página sem `.wa` no celular não mostra).
+- Por enquanto **não fala**: olha o mouse, pisca, muda de cara por seção (hero oi, serviços curiosa, projetos orgulho, como pensando, quem carinho, contato animada), leva susto com mouse rápido ou clique e fica com sono depois de 8s parada. O chat dela é outro passo, que vai trazer o contato do site.
+- Na home espera a entrada com tecla (`ns:acesa`). É decorativa (`aria-hidden`), nunca cobre botão nem texto.
+
 ## Marca
 - Nome: **Neon Scripts** (com espaço). Instagram @neon.scripts. Nunca só "Neon": conflita com o banco Neon e com o Neon Postgres.
 - Não repetir "Neon Scripts" em texto no menu: o letreiro já é a marca.
