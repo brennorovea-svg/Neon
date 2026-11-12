@@ -34,8 +34,10 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 ## Personagem Neon (desde 2026-11-12)
 - A personagem do site se chama **Neon** (escolha do Brenno, 2026-11-12). É o olho da logo em tubo de neon 3D, com sobrancelha de mola. O nome vale só para ela: a empresa continua sendo sempre **Neon Scripts**.
 - Código em `assets/neon-personagem.js` (three.js 0.169.0 pelo jsdelivr, CSS embutido no próprio arquivo), carregado no fim de todas as páginas, inclusive a loja. Fica no canto de baixo à direita no computador; no celular senta na ponta do botão verde de WhatsApp e só aparece junto com ele (página sem `.wa` no celular não mostra).
-- Por enquanto **não fala**: olha o mouse, pisca, muda de cara por seção (hero oi, serviços curiosa, projetos orgulho, como pensando, quem carinho, contato animada), leva susto com mouse rápido ou clique e fica com sono depois de 8s parada. O chat dela é outro passo, que vai trazer o contato do site.
-- Na home espera a entrada com tecla (`ns:acesa`). É decorativa (`aria-hidden`), nunca cobre botão nem texto.
+- Olha o mouse, pisca, muda de cara por seção (hero oi, serviços curioso, projetos orgulho, como pensando, quem carinho, contato animado), leva susto com mouse rápido ou clique e fica com sono depois de 8s parado. No chat o Brenno trata no masculino: "Oi, eu sou o Neon! O que vamos desenvolver hoje?" (2026-11-12).
+- **Chat guiado** (`assets/neon-chat.js`, desde 2026-11-12, Brenno escolheu "guiado, custo zero"): o Neon é um botão; o clique carrega o chat (só no primeiro clique) e abre um painel acima dele (no celular, folha de baixo). Sem IA e sem servidor: botões levam por serviço > ramo > situação hoje > prazo e montam a mensagem pronta para o WhatsApp. Dúvidas comuns com resposta pronta; texto digitado busca por palavra-chave e, sem resposta, manda a pergunta pro WhatsApp. Preços dos pacotes desligados (`MOSTRA_PRECO = false`) até o Brenno decidir. Nada de IA paga sem o ok dele. Fecha com Esc ou ×.
+- No computador, 1,8s depois de aparecer, um balão "Oi, posso te ajudar?" sai do lado dele por 8s, uma vez por visita (`sessionStorage`). Clicar no balão também abre o chat.
+- Na home espera a entrada com tecla (`ns:acesa`). Nunca cobre botão nem texto. Classe do botão verde do chat é `neonc-wa`: não usar `.wa` dentro do chat, que no celular é o botão fixo do site.
 
 ## Marca
 - Nome: **Neon Scripts** (com espaço). Instagram @neon.scripts. Nunca só "Neon": conflita com o banco Neon e com o Neon Postgres.
