@@ -160,7 +160,7 @@ function inicia() {
   const clica = () => {
     conversou = true; escondeOi();
     sente('susto', 600); setTimeout(() => sente('animado', 1800), 600); puloV += .06;
-    (chat || (chat = import(new URL('neon-chat.js?v=20261112a', import.meta.url).href)))
+    (chat || (chat = import(new URL('neon-chat.js?v=20261112b', import.meta.url).href)))
       .then(m => m.alterna({sente, botao: caixa}))
       .catch(() => { chat = null; location.href = 'https://wa.me/5511999392800'; });
   };

@@ -1,4 +1,4 @@
-/* Chat da Neon (2026-11-12): conversa guiada, sem IA e sem servidor (Brenno escolheu "guiado, custo zero").
+/* Chat do Neon (2026-11-12): conversa guiada. Texto livre sem resposta pronta vai para a IA (teste aprovado pelo Brenno em 12/11).
    Abre quando a pessoa clica na Neon. Botões levam por 4 perguntas curtas e no fim montam a mensagem
    pronta para o WhatsApp. Texto digitado procura por palavra-chave nas respostas prontas; se não achar,
    oferece mandar a pergunta para a equipe. Voz da marca: "a gente", calorosa, curta, sem emoji. */
@@ -6,6 +6,13 @@
 const WA = '5511999392800';
 /* Preços dos pacotes no chat: desligado até o Brenno decidir. Ligar = trocar para true. */
 const MOSTRA_PRECO = false;
+
+/* IA (Haiku 5.5, função neon-site-chat no Supabase): só para texto livre que as respostas prontas não cobrem.
+   Desligar = IA_URL vazio; aí volta a oferecer o WhatsApp direto. */
+const IA_URL = 'https://eqpecumfyzpijocjyhqw.supabase.co/functions/v1/neon-site-chat';
+const IA_MAX = 8; // perguntas à IA por visita
+let iaUsos = 0;
+const iaHist = []; // só o que foi conversado no texto livre
 
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const linkWa = txt => 'https://wa.me/' + WA + '?text=' + encodeURIComponent(txt);
@@ -224,9 +231,34 @@ async function escreveu(e) {
   if (r && r.duvida) return responde(r.duvida);
   ocupado = true;
   try {
+    if (IA_URL && iaUsos < IA_MAX && await perguntaIa(txt)) return;
     await ela(['Essa eu ainda não sei responder. Mas a nossa equipe sabe!', 'Quer mandar a sua pergunta pra equipe? Ela já vai escrita.'], 'carinho');
     opcoes([wa('Mandar pra nossa equipe no WhatsApp', INICIO_MSG + ' Minha dúvida: ' + txt), {rot: 'Ver as dúvidas comuns', ir: () => duvidas(false)}]);
   } finally { ocupado = false; }
+}
+async function perguntaIa(txt) {
+  iaUsos++;
+  iaHist.push({de: 'voce', texto: txt.slice(0, 300)});
+  sente('pensando', 8000);
+  const dig = document.createElement('div'); dig.className = 'neonc-dig'; dig.innerHTML = '<i></i><i></i><i></i>';
+  dig.setAttribute('aria-hidden', 'true'); log.appendChild(dig); rola();
+  let r = null;
+  try {
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 20000);
+    const res = await fetch(IA_URL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({mensagens: iaHist.slice(-8)}), signal: ctl.signal});
+    clearTimeout(t);
+    if (res.ok) r = await res.json();
+  } catch (e) { r = null; }
+  dig.remove();
+  if (!r || !r.resposta) { iaHist.pop(); return false; }
+  iaHist.push({de: 'neon', texto: r.resposta});
+  const d = document.createElement('p'); d.className = 'neonc-m ela'; d.textContent = r.resposta; log.appendChild(d); rola();
+  sente(r.whatsapp ? 'animado' : 'carinho', 3000);
+  const msg = r.whatsapp && /^Oi! Vim pelo site/.test(r.mensagem_whatsapp || '') ? r.mensagem_whatsapp : INICIO_MSG + ' Minha dúvida: ' + txt;
+  opcoes(r.whatsapp
+    ? [wa('Mandar pra nossa equipe no WhatsApp', msg), {rot: 'Ver as dúvidas comuns', ir: () => duvidas(false)}]
+    : [{rot: 'Quero um orçamento', ir: recomeca}, {rot: 'Ver as dúvidas comuns', ir: () => duvidas(false)}]);
+  return true;
 }
 
 /* chamado pela personagem a cada clique nela */
