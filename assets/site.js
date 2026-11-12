@@ -386,3 +386,13 @@ io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){i
   /* Se a tela encolher para o celular com o painel aberto */
   matchMedia('(max-width:820px)').addEventListener('change',function(e){if(e.matches&&aberto){estado(false);fim()}});
 })();
+
+/* Rodapé: o tubo de neon se desenha e os títulos acendem quando o rodapé aparece */
+(function(){
+  var r=document.querySelector('.rodape');
+  if(!r||!r.querySelector('.tubo-r')||!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  r.classList.add('tubo-pronto');
+  var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){r.classList.add('on');io.disconnect();}},{threshold:.25});
+  io.observe(r);
+})();

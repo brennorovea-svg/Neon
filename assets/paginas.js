@@ -55,3 +55,13 @@
     }).observe(cab);
   }
 })();
+
+/* Rodapé: o tubo de neon se desenha e os títulos acendem quando o rodapé aparece */
+(function(){
+  var r=document.querySelector('.rodape');
+  if(!r||!r.querySelector('.tubo-r')||!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  r.classList.add('tubo-pronto');
+  var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){r.classList.add('on');io.disconnect();}},{threshold:.25});
+  io.observe(r);
+})();

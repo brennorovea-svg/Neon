@@ -153,7 +153,7 @@ a.card:active{transform:scale(.98)}
 
 /* Rodapé (igual ao da home, com serviços e clientes) */
 .rodape{padding:40px 0 44px;border-top:1px solid rgba(162,75,255,.3);background:var(--night)}
-.rodape .wrap{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:28px 40px;max-width:1320px}
+.rodape .wrap{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:28px 40px;max-width:1320px}
 .rodape h3,.rodape .tit{margin:0 0 12px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .rodape ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .rodape a{font-size:15px;font-weight:600;color:var(--soft);text-decoration:none;transition:color 180ms var(--ease)}
@@ -211,3 +211,25 @@ a.card:active{transform:scale(.98)}
 .bast img{display:block;width:100%;height:auto}
 .bast figcaption{padding:12px 16px;font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);background:#0E0A22}
 .bast figcaption b{color:var(--c)}
+
+/* Rodapé com tubo que acende (2026-11-12): a linha de cima é um tubo de neon que se desenha quando o rodapé aparece, e os títulos acendem um por um nas cores da marca. Sem JS fica tudo aceso. */
+.rodape{border-top:0}
+.rodape .tubo-r{grid-column:1/-1;height:3px;margin-bottom:8px;border-radius:3px;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue),var(--cyan));box-shadow:0 0 10px rgba(255,46,154,.55),0 0 24px rgba(46,140,255,.35);transform-origin:left}
+.rodape h3,.rodape .tit{transition:color 500ms var(--ease),text-shadow 500ms var(--ease)}
+.rodape>div:nth-child(2) h3,.rodape .wrap>div:nth-child(2) .tit{--tc:var(--pink)}
+.rodape>div:nth-child(3) h3,.rodape .wrap>div:nth-child(3) .tit{--tc:#C99BFF}
+.rodape>div:nth-child(4) h3,.rodape .wrap>div:nth-child(4) .tit{--tc:#8EC2FF}
+.rodape>div:nth-child(5) h3,.rodape .wrap>div:nth-child(5) .tit{--tc:var(--cyan)}
+.rodape h3,.rodape .tit{color:var(--tc,var(--muted));text-shadow:0 0 10px var(--tc,transparent)}
+.rodape.tubo-pronto .tubo-r{transform:scaleX(0)}
+.rodape.tubo-pronto:not(.on) h3,.rodape.tubo-pronto:not(.on) .tit{color:var(--muted);text-shadow:none}
+.rodape.tubo-pronto.on .tubo-r{transform:none;transition:transform 1100ms var(--ease)}
+.rodape.tubo-pronto.on h3,.rodape.tubo-pronto.on .tit{transition-duration:500ms;transition-delay:calc(700ms + var(--d,0ms))}
+.rodape>div:nth-child(3) h3,.rodape .wrap>div:nth-child(3) .tit{--d:140ms}
+.rodape>div:nth-child(4) h3,.rodape .wrap>div:nth-child(4) .tit{--d:280ms}
+.rodape>div:nth-child(5) h3,.rodape .wrap>div:nth-child(5) .tit{--d:420ms}
+.rodape ul a{background:linear-gradient(currentColor,currentColor) left bottom/0 1px no-repeat;padding-bottom:2px;transition:color 180ms var(--ease),background-size 260ms var(--ease)}
+.rodape ul a:hover{background-size:100% 1px}
+@media (prefers-reduced-motion:reduce){.rodape .tubo-r,.rodape h3,.rodape .tit,.rodape ul a{transition:none!important}.rodape.tubo-pronto .tubo-r{transform:none}}
+@media (max-width:820px){.rodape>div:nth-child(5),.rodape .wrap>div:nth-child(5){grid-column:1/-1}.rodape>div,.rodape .wrap>div{min-width:0}}
+.rodape li span{font-size:15px;font-weight:600;color:var(--soft)}

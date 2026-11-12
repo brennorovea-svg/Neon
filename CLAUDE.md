@@ -20,7 +20,8 @@ Site institucional da Neon Scripts (marca, site, inteligência e sistemas para p
 ## Páginas de serviço e de cliente (`/servicos/`, `/clientes/`)
 - Uma página por serviço (`/servicos/<slug>/`) e uma por cliente (`/clientes/<slug>/`), mais as listas `/servicos/` e `/clientes/`. Servem para o site aparecer em buscas genéricas e em buscas com IA.
 - HTML estático, sem build. CSS e JS compartilhados em `assets/paginas.css` e `assets/paginas.js` (mesmos tokens do `index.html`).
-- Cada página tem canonical, Open Graph e dados estruturados (`Service` + `FAQPage` nos serviços, `Article` nos clientes, `BreadcrumbList` em todas). Página nova entra no `sitemap.xml`, no `llms.txt` e no rodapé (home e páginas).
+- Cada página tem canonical, Open Graph e dados estruturados (`Service` + `FAQPage` nos serviços, `Article` nos clientes, `BreadcrumbList` em todas). Página nova entra no `sitemap.xml` e no `llms.txt`. Cliente novo entra também no rodapé. Desde 2026-11-12 as páginas de serviço e de cliente também não têm o bloco "Bora acender a sua placa?": o contato fica no rodapé.
+- Rodapé (Brenno, 2026-11-12, "tubo que acende"): 4 tópicos fixos em todas as páginas, exceto a loja: Neon Scripts (texto curto), Serviços (Sites, Sistemas, Consultorias só em texto por enquanto, Marca), Clientes e Fale conosco (WhatsApp, e-mail, Instagram). A linha de cima é um tubo de neon que se desenha quando o rodapé aparece, e os títulos acendem um por um em rosa, roxo, azul e ciano. Mesmo bloco em `assets/site.css` e `assets/paginas.css`, e o script no fim de `site.js` e `paginas.js`.
 - Cliente novo = um item a mais no carrossel da home e uma página em `/clientes/`. Nada de número ou depoimento inventado.
 
 ## Loja de skills (`/loja/`)
