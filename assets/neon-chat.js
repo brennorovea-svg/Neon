@@ -1,7 +1,7 @@
 /* Chat da Neon (2026-11-12): conversa guiada, sem IA e sem servidor (Brenno escolheu "guiado, custo zero").
    Abre quando a pessoa clica na Neon. Botões levam por 4 perguntas curtas e no fim montam a mensagem
    pronta para o WhatsApp. Texto digitado procura por palavra-chave nas respostas prontas; se não achar,
-   oferece mandar a pergunta para o Brenno. Voz da marca: "a gente", calorosa, curta, sem emoji. */
+   oferece mandar a pergunta para a equipe. Voz da marca: "a gente", calorosa, curta, sem emoji. */
 
 const WA = '5511999392800';
 /* Preços dos pacotes no chat: desligado até o Brenno decidir. Ligar = trocar para true. */
@@ -9,7 +9,7 @@ const MOSTRA_PRECO = false;
 
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const linkWa = txt => 'https://wa.me/' + WA + '?text=' + encodeURIComponent(txt);
-const INICIO_MSG = 'Oi, Brenno! Vim pelo site e falei com o Neon.';
+const INICIO_MSG = 'Oi! Vim pelo site e falei com o Neon.';
 
 const SERVICOS = {
   site: {rot: 'Um site', oQue: 'um site', fala: 'Boa! Site é a vitrine que trabalha de madrugada. A gente faz site rápido, bonito no celular e com o WhatsApp a um toque.',
@@ -27,9 +27,9 @@ const DUVIDAS = {
   preco: {rot: 'Quanto custa?', chaves: ['preco', 'custa', 'valor', 'quanto', 'orcamento', 'caro', 'barato', 'pacote'],
     r: () => MOSTRA_PRECO
       ? 'A gente tem 3 pacotes. Básico, R$ 1.000: logo, manual e site de uma página. Intermediário, R$ 1.700: site animado, SEO e 6 meses de manutenção. Avançado, a partir de R$ 2.700: visita, diagnóstico e sistema sob medida. O primeiro ano de hospedagem é por nossa conta.'
-      : 'Depende do que o seu negócio precisa. Tem desde um site simples até sistema sob medida. O Brenno te passa o valor certinho no WhatsApp, sem compromisso.'},
+      : 'Depende do que o seu negócio precisa. Tem desde um site simples até sistema sob medida. Nossa equipe te passa o valor certinho no WhatsApp, sem compromisso.'},
   prazo: {rot: 'Quanto tempo leva?', chaves: ['prazo', 'tempo', 'demora', 'quando', 'rapido', 'semana', 'dias'],
-    r: () => 'Um site pode ficar pronto na mesma semana. Sistema sob medida leva mais, porque a gente precisa entender a sua rotina antes. E o primeiro retorno do Brenno sai em até 24h.'},
+    r: () => 'Um site pode ficar pronto na mesma semana. Sistema sob medida leva mais, porque a gente precisa entender a sua rotina antes. E o primeiro retorno da nossa equipe sai em até 24h.'},
   como: {rot: 'Como funciona?', chaves: ['funciona', 'processo', 'etapa', 'comeca', 'passo'],
     r: () => 'Primeiro a gente conversa e entende o seu negócio. Depois manda uma proposta clara. Aí faz, te mostra, ajusta e coloca no ar. Você acompanha tudo.'},
   depois: {rot: 'Dá pra mexer depois?', chaves: ['mexer', 'alterar', 'mudar', 'editar', 'manutencao', 'atualiz', 'depois'],
@@ -41,7 +41,7 @@ const DUVIDAS = {
   cardapio: {chaves: ['cardapio', 'menu', 'delivery', 'pedido', 'ifood'],
     r: () => 'Faz! Cardápio digital com pedido direto no WhatsApp: o cliente escolhe e você recebe tudo organizado.'},
   insta: {chaves: ['instagram', 'post', 'redes', 'social', 'stories', 'reels'],
-    r: () => 'O foco da gente é marca, site e sistema. Mas a marca já sai pronta pra usar no Instagram também. Se quiser, o Brenno te explica melhor.'}
+    r: () => 'O foco da gente é marca, site e sistema. Mas a marca já sai pronta pra usar no Instagram também. Se quiser, nossa equipe te explica melhor.'}
 };
 
 const CSS = `.neonc{position:fixed;z-index:65;right:max(16px,env(safe-area-inset-right));bottom:118px;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 150px));display:flex;flex-direction:column;background:#0d0826;color:#F4EFFF;border:1px solid rgba(162,75,255,.35);border-radius:20px;overflow:hidden;font-family:'Sora',system-ui,sans-serif;font-size:16px;line-height:1.5;text-align:left;
@@ -164,7 +164,7 @@ const servico = passo(async k => {
   pedido.servico = k;
   /* o @ ou o nome da marca vai na mensagem, para o Brenno já chegar olhando o negócio (Brenno, 2026-11-12) */
   pedido.esperaMarca = true;
-  await ela([SERVICOS[k].fala, 'Me passa o @ do Instagram do seu negócio ou o nome da marca. Assim o Brenno já dá uma olhada antes de te responder.'], 'curioso');
+  await ela([SERVICOS[k].fala, 'Me passa o @ do Instagram do seu negócio ou o nome da marca. Assim nossa equipe já dá uma olhada antes de te responder.'], 'curioso');
   opcoes([{rot: 'Ainda não tenho marca', ir: () => marca(null)}]);
   inp.placeholder = 'Ex.: @seunegocio ou Nome da marca';
   inp.focus({preventScroll: true});
@@ -188,19 +188,19 @@ const situacao = passo(async o => {
 const prazo = passo(async p => {
   const neg = pedido.marca ? ' Meu negócio: ' + pedido.marca + '.' : ' Ainda não tenho marca.';
   const msg = INICIO_MSG + ' Quero ' + SERVICOS[pedido.servico].oQue + '.' + neg + ' Hoje: ' + pedido.hoje.toLowerCase() + '. Prazo: ' + p.toLowerCase() + '.';
-  await ela(['Fechou! Montei a mensagem pro Brenno. É só tocar no botão verde que ela já vai pronta no WhatsApp.'], 'animado');
+  await ela(['Fechou! Montei a mensagem pra nossa equipe. É só tocar no botão verde que ela já vai pronta no WhatsApp.'], 'animado');
   const d = document.createElement('p'); d.className = 'neonc-m pronta'; d.innerHTML = '<i>Mensagem pronta</i>'; d.append(msg); log.appendChild(d);
-  opcoes([wa('Mandar pro Brenno no WhatsApp', msg), {rot: 'Tenho uma dúvida', ir: () => duvidas(false)}, {rot: 'Começar de novo', ir: recomeca}]);
-  await ela(['Ele responde em horário comercial.']);
+  opcoes([wa('Mandar pra nossa equipe no WhatsApp', msg), {rot: 'Tenho uma dúvida', ir: () => duvidas(false)}, {rot: 'Começar de novo', ir: recomeca}]);
+  await ela(['A gente responde em horário comercial.']);
 });
 const duvidas = passo(async primeira => {
   await ela([primeira ? 'Pode perguntar! Escolhe uma ou escreve aqui embaixo.' : 'Claro. Qual é a dúvida?'], 'pensando');
-  opcoes([...Object.values(DUVIDAS).filter(d => d.rot).map(d => ({rot: d.rot, ir: () => responde(d)})), wa('Falar com o Brenno', INICIO_MSG + ' Queria tirar uma dúvida.')]);
+  opcoes([...Object.values(DUVIDAS).filter(d => d.rot).map(d => ({rot: d.rot, ir: () => responde(d)})), wa('Falar com a nossa equipe', INICIO_MSG + ' Queria tirar uma dúvida.')]);
 });
 const responde = passo(async d => {
   await ela([d.r()], 'carinho');
   await ela(['Mais alguma coisa?']);
-  const ops = [{rot: 'Outra dúvida', ir: () => duvidas(false)}, {rot: 'Quero um orçamento', ir: recomeca}, wa('Falar com o Brenno', INICIO_MSG + ' Queria conversar.')];
+  const ops = [{rot: 'Outra dúvida', ir: () => duvidas(false)}, {rot: 'Quero um orçamento', ir: recomeca}, wa('Falar com a nossa equipe', INICIO_MSG + ' Queria conversar.')];
   if (d.link) ops.unshift({rot: d.link[0], href: d.link[1]});
   opcoes(ops);
 });
@@ -224,8 +224,8 @@ async function escreveu(e) {
   if (r && r.duvida) return responde(r.duvida);
   ocupado = true;
   try {
-    await ela(['Essa eu ainda não sei responder. Mas o Brenno sabe!', 'Quer mandar a sua pergunta pra ele? Ela já vai escrita.'], 'carinho');
-    opcoes([wa('Mandar pro Brenno no WhatsApp', INICIO_MSG + ' Minha dúvida: ' + txt), {rot: 'Ver as dúvidas comuns', ir: () => duvidas(false)}]);
+    await ela(['Essa eu ainda não sei responder. Mas a nossa equipe sabe!', 'Quer mandar a sua pergunta pra equipe? Ela já vai escrita.'], 'carinho');
+    opcoes([wa('Mandar pra nossa equipe no WhatsApp', INICIO_MSG + ' Minha dúvida: ' + txt), {rot: 'Ver as dúvidas comuns', ir: () => duvidas(false)}]);
   } finally { ocupado = false; }
 }
 
