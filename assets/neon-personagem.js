@@ -1,8 +1,8 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js';
 
 /* Neon, a personagem do site (2026-11-12): o olho da logo em tubo de neon 3D, com sobrancelha de mola.
-   Fica no canto de baixo à direita. Ainda não fala: só reage (olha o mouse, pisca, muda de cara por seção,
-   leva susto, fica com sono). O chat dela é outro passo.
+   Fica no canto de baixo à direita. Reage (olha o mouse, pisca, muda de cara por seção, leva susto, fica com sono)
+   e, no clique, abre o chat guiado dela (assets/neon-chat.js, carregado só no primeiro clique).
    Regras: só desenha quando algo mexe, para com a aba oculta, com movimento reduzido fica parada,
    na home espera a entrada acender (evento ns:acesa). */
 
@@ -32,18 +32,28 @@ const SECOES = {hero: 'oi', servicos: 'curioso', projetos: 'orgulho', clientes: 
 /* estilo da caixa (fica aqui para valer em todas as páginas, inclusive a loja) */
 const CSS = `.neonp{position:fixed;z-index:8;right:max(8px,env(safe-area-inset-right));bottom:calc(8px + env(safe-area-inset-bottom));width:100px;height:100px;opacity:0;transform:translateY(16px);transition:opacity 720ms cubic-bezier(.22,1,.36,1),transform 720ms cubic-bezier(.22,1,.36,1);pointer-events:none}
 .neonp.on{opacity:1;transform:none}
+.neonp{appearance:none;border:0;padding:0;margin:0;background:none;color:inherit;border-radius:50%}
+.neonp:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .neonp canvas{display:block;width:100%;height:100%;pointer-events:auto;cursor:pointer;filter:drop-shadow(0 0 6px rgba(255,46,154,.5)) drop-shadow(0 0 16px rgba(162,75,255,.35))}
 @media (max-width:820px){.neonp{z-index:10;width:64px;height:64px;bottom:calc(9px + env(safe-area-inset-bottom));right:26px}}
 @media (prefers-reduced-motion:reduce){.neonp{transition:none}}
-html.pre .neonp{display:none}`;
+html.pre .neonp,html.pre .neonp-oi{display:none}
+.neonp-oi{position:fixed;z-index:8;right:calc(max(8px,env(safe-area-inset-right)) + 104px);bottom:52px;margin:0;background:#120a2e;color:#F4EFFF;border:1px solid rgba(46,140,255,.5);border-radius:16px 16px 4px 16px;padding:9px 14px;font:600 14px/1.4 'Sora',system-ui,sans-serif;cursor:pointer;
+transform-origin:100% 100%;transition:opacity 220ms cubic-bezier(.22,1,.36,1),transform 220ms cubic-bezier(.22,1,.36,1)}
+.neonp-oi.some{opacity:0;transform:translateY(6px) scale(.96);pointer-events:none}
+@media (max-width:820px){.neonp-oi{display:none}}
+@media (prefers-reduced-motion:reduce){.neonp-oi{transition:opacity 120ms linear;transform:none}}`;
 
 function inicia() {
   if (document.querySelector('.neonp')) return;
   if (CEL && !document.querySelector('a.wa')) return;
   const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
-  const caixa = document.createElement('div');
+  const caixa = document.createElement('button');
+  caixa.type = 'button';
   caixa.className = 'neonp';
-  caixa.setAttribute('aria-hidden', 'true');
+  caixa.setAttribute('aria-label', 'Conversar com o Neon');
+  caixa.setAttribute('aria-expanded', 'false');
+  caixa.setAttribute('aria-controls', 'neon-chat');
   const canvas = document.createElement('canvas');
   caixa.appendChild(canvas);
   document.body.appendChild(caixa);
@@ -141,7 +151,28 @@ function inicia() {
     pede();
   }, {passive: true});
   addEventListener('scroll', () => { ultMexe = performance.now(); if (dormindo) { dormindo = false; pede(); } }, {passive: true});
-  canvas.addEventListener('click', () => { sente('susto', 600); setTimeout(() => sente('animado', 1800), 600); puloV += .06; });
+  /* clique: susto, depois abre ou fecha o chat */
+  const oi = document.createElement('p');
+  oi.className = 'neonp-oi some'; oi.textContent = 'Oi, posso te ajudar?';
+  document.body.appendChild(oi);
+  let chat = null, conversou = false;
+  const escondeOi = () => oi.classList.add('some');
+  const clica = () => {
+    conversou = true; escondeOi();
+    sente('susto', 600); setTimeout(() => sente('animado', 1800), 600); puloV += .06;
+    (chat || (chat = import(new URL('neon-chat.js?v=20261112a', import.meta.url).href)))
+      .then(m => m.alterna({sente, botao: caixa}))
+      .catch(() => { chat = null; location.href = 'https://wa.me/5511999392800'; });
+  };
+  caixa.addEventListener('click', clica);
+  oi.addEventListener('click', clica);
+  /* o balão "Oi, posso te ajudar?" aparece uma vez por visita, 1,8s depois dela, e some em 8s */
+  let viuOi = false;
+  try { viuOi = sessionStorage.getItem('neon-oi') === '1'; } catch (e) {}
+  if (!CEL && !viuOi) {
+    setTimeout(() => { if (conversou) return; oi.classList.remove('some'); sente('oi', 2400); try { sessionStorage.setItem('neon-oi', '1'); } catch (e) {} }, 1800);
+    setTimeout(escondeOi, 9800);
+  }
 
   /* laço: só desenha enquanto algo mexe */
   let raf = 0, ativoAte = 0, proxPisca = performance.now() + 2400, piscaAte = 0, proxTique = performance.now() + 7000, tiqueAte = 0;
