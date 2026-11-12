@@ -90,7 +90,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Sora:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="/assets/hero-metro.jpg">
-<link rel="stylesheet" href="/assets/site.css?v=20261112b">
+<link rel="stylesheet" href="/assets/site.css?v=20261112c">
 <script>
 /* Decide antes da primeira pintura se o filme do hero vai tocar (mesmas regras do script do filme) */
 (function(){try{var m=window.matchMedia,c=navigator.connection;
@@ -181,9 +181,9 @@ html.pre #pre,#pre.sai{display:grid}
   <svg class="fios" id="fios" aria-hidden="true"></svg><div id="etqs"></div><span id="hud" aria-hidden="true"></span>
   <script>/* no computador o filme do hero dá lugar ao olho mecânico */
   window.MECHA_CFG={ex:.75,ey:.47,want:.24,hfrac:.5};if(matchMedia('(min-width:821px)').matches){var hh=document.getElementById('hero');hh.classList.add('o3');document.getElementById('grade').hidden=false;document.getElementById('gl').hidden=false;var vv=hh.querySelector('.ph-video');if(vv)vv.remove();
-    /* texto logo abaixo do letreiro e hero do tamanho do conteúdo: Serviços sobe */
+    /* texto logo abaixo do letreiro; o hero ocupa o que sobra da tela e Serviços fica no pé: home em uma tela só */
     var lay=function(){var sg=hh.querySelector('.sign'),cp=hh.querySelector('.copy');if(!sg||!cp)return;var hr=hh.getBoundingClientRect(),sr=sg.getBoundingClientRect();
-      var top=Math.round(sr.bottom-hr.top+Math.max(20,innerHeight*.035));cp.style.top=top+'px';cp.style.bottom='auto';hh.style.height=Math.max(420,Math.round(top+cp.offsetHeight+Math.max(48,innerHeight*.06)))+'px';};
+      var top=Math.round(sr.bottom-hr.top+Math.max(20,innerHeight*.035));cp.style.top=top+'px';cp.style.bottom='auto';hh.style.minHeight=Math.max(400,Math.round(top+cp.offsetHeight+Math.max(24,innerHeight*.03)))+'px';hh.style.height='auto';};
     lay();addEventListener('resize',lay);addEventListener('load',lay);if(document.fonts)document.fonts.ready.then(lay);}else{document.getElementById('hud').remove();}</script>
   <div class="par sign" aria-hidden="true">
     <div class="plate"><span class="parafusos" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="word"><span>N</span><span class="espelho">E</span><span class="o-olho"><svg class="olho-svg" viewBox="0 0 100 100" aria-hidden="true"><g class="palpebra"><path class="tubo" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><path class="friso" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><g class="olhar"><circle class="iris" cx="50" cy="50" r="15"/><circle class="pupila" cx="50" cy="50" r="6.5"/></g></g></svg></span><span>N</span></span><span class="word sub"><span>S</span><span>C</span><span>R</span><span>I</span><span>P</span><span>T</span><span>S</span></span></div>
@@ -252,28 +252,6 @@ html.pre #pre,#pre.sai{display:grid}
 </main>
 </div>
 
-<section class="contact" id="contato" aria-label="Contato">
-  <footer class="rodape">
-    <div class="tubo-r" aria-hidden="true"></div>
-    <div class="sobre">
-     <h3>Neon Scripts</h3>
-     <p>Marca, site, inteligência e sistemas para pequenos negócios. Feito na zona leste de São Paulo.</p>
-    </div>
-    <div role="navigation" aria-label="Serviços">
-     <h3>Serviços</h3>
-     <ul><li><a href="/servicos/site-para-pequeno-negocio/">Sites</a></li><li><a href="/servicos/sistema-de-comandas/">Sistemas</a></li><li><span>Consultorias</span></li><li><a href="/servicos/marca-e-identidade-visual/">Marca</a></li></ul>
-    </div>
-    <div role="navigation" aria-label="Clientes">
-     <h3>Clientes</h3>
-     <ul><li><a href="/clientes/narua/">Naruá</a></li><li><a href="/clientes/makiolki/">Makiolki</a></li><li><a href="/clientes/granola-pura/">Granola Pura</a></li><li><a href="/clientes/contorno/">Contorno</a></li></ul>
-    </div>
-    <div>
-     <h3>Fale conosco</h3>
-     <ul><li><a href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">WhatsApp</a></li><li><a href="mailto:contato@neonscripts.com.br">contato@neonscripts.com.br</a></li><li><a href="https://www.instagram.com/neon.scripts" target="_blank" rel="noopener">Instagram @neon.scripts</a></li></ul>
-    </div>
-    <div class="fim">© 2026 NEON SCRIPTS · FEITO PRA QUEM FAZ O BAIRRO GIRAR</div>
-  </footer>
-</section>
 </div>
 
 <div class="menu-cel" id="menu-cel" role="dialog" aria-modal="true" aria-label="Menu" hidden>
@@ -325,7 +303,7 @@ html.pre #pre,#pre.sai{display:grid}
     <div class="pe"><span class="sm">contato@neonscripts.com.br</span><a class="btn" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Chamar no WhatsApp</a></div>
   </div>
 </div>
-<script src="/assets/site.js?v=20261112b"></script>
+<script src="/assets/site.js?v=20261112c"></script>
 <script type="module">if(document.querySelector('#hero.o3'))import('/assets/olho-mecanico.js');</script>
 </body>
 </html>

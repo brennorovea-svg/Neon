@@ -96,12 +96,12 @@
 
 // Botão verde fixo: aparece depois do hero e sai de cena no Contato, onde já tem o botão de WhatsApp grande
 (function(){var wa=document.querySelector('.wa'),hero=document.getElementById('hero'),ct=document.getElementById('contato');
-if(!wa||!hero||!ct||!('IntersectionObserver' in window))return;
+if(!wa||!hero||!('IntersectionObserver' in window))return;
 var noHero=true,noContato=false;
 function upd(){wa.classList.toggle('show',!noHero&&!noContato)}
 var io=new IntersectionObserver(function(e){noHero=e[0].isIntersecting;upd()},{threshold:0.05});
 var io2=new IntersectionObserver(function(e){noContato=e[0].isIntersecting;upd()},{rootMargin:'0px 0px -25% 0px'});
-io.observe(hero);io2.observe(ct);window.addEventListener('pagehide',function(){io.disconnect();io2.disconnect()});})();
+io.observe(hero);if(ct)io2.observe(ct);window.addEventListener('pagehide',function(){io.disconnect();io2.disconnect()});})();
 
 // Projetos: um negócio por vez no palco (janelas empilhadas). Embaixo, um carrossel com nome e ramo de cada cliente; a cor do cliente pinta a seção.
 (function () {
