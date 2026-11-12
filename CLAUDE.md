@@ -1,6 +1,6 @@
 # Site da Neon Scripts
 
-Site institucional da Neon Scripts (marca, site, inteligência e sistemas para pequenos negócios). Publicado em https://neonscripts.com.br pelo GitHub Pages, a partir da raiz do `main`. Sem build. A home (`index.html`) e as páginas de seção (`/projetos/`, `/como-funciona/`, `/quem-somos/`) usam o mesmo CSS e JS, em `assets/site.css` e `assets/site.js` (desde 2026-11-11). Só a entrada com tecla e os scripts do `<head>` ficam embutidos na home. Identidade visual em `DESIGN.md`.
+Site institucional da Neon Scripts (marca, site, inteligência e sistemas para pequenos negócios). Publicado em https://neonscripts.com.br pelo GitHub Pages, a partir da raiz do `main`. Sem build. A home (`index.html`) e as páginas de seção (`/projetos/`, `/como-funciona/`, `/quem-somos/`) usam o mesmo CSS e JS, em `assets/site.css` e `assets/site.js` (desde 2026-11-11). Só a entrada com tecla e os scripts do `<head>` ficam embutidos na home. Identidade visual em `DESIGN.md`. Ao mudar CSS ou JS compartilhado, trocar o `?v=` nos links de todas as páginas, senão o navegador junta HTML novo com CSS velho (aconteceu em 2026-11-12 com o rodapé).
 
 ## Como trabalhar aqui
 - Toda mudança vai por PR. O Brenno avalia antes de publicar, nunca fazer push direto no `main`.
