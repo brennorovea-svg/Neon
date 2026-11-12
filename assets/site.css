@@ -335,7 +335,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .how-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;margin-top:36px}
 .how-foot .how-note{margin:0}
 /* Contato: o grande momento final, com a placa acesa sobre a foto */
-.contact{padding:14vh clamp(20px,5vw,72px) 0;background:var(--night)}
+.contact{padding:56px clamp(20px,5vw,72px) 0;background:var(--night)}
 .contact-ph{position:absolute;inset:0;background:url("/assets/hero-metro.jpg") center 55%/cover no-repeat;filter:blur(3px) saturate(1.3) brightness(.5);transform:scale(1.04)}
 .contact-ph::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(5,3,15,.35),rgba(5,3,15,.9) 75%),linear-gradient(180deg,var(--night) 0%,rgba(5,3,15,0) 22%,rgba(5,3,15,.2) 55%,var(--night) 88%)}
 .contact .wrap-c{position:relative;z-index:1;max-width:720px;gap:22px}
@@ -346,7 +346,7 @@ h2{margin:0;font-size:clamp(30px,3.6vw,46px);font-weight:800;line-height:1.08;le
 .placa .word.sub{font-size:.355em;letter-spacing:.06em;margin-top:.12em;color:var(--tubeB);text-shadow:0 0 6px var(--glowB),0 0 18px var(--glowB),0 0 44px var(--glowB)}
 .wrap-c.in .placa{opacity:1;animation:turnOn 1100ms linear 200ms backwards}
 /* Rodapé */
-.rodape{position:relative;z-index:1;margin-top:14vh;padding:36px 0 40px;border-top:1px solid rgba(162,75,255,.3);display:grid;grid-template-columns:1.3fr 1fr 1.3fr 1fr 1fr;gap:28px 40px;text-align:left}
+.rodape{position:relative;z-index:1;margin-top:0;padding:36px 0 40px;border-top:1px solid rgba(162,75,255,.3);display:grid;grid-template-columns:1.3fr 1fr 1.3fr 1fr 1fr;gap:28px 40px;text-align:left}
 .rodape h3{margin:0 0 12px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .rodape ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .rodape a{font-size:15px;font-weight:600;color:var(--soft);text-decoration:none;transition:color 180ms var(--ease)}
