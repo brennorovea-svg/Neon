@@ -151,6 +151,7 @@ html.pre #pre,#pre.sai{display:grid}
 #pre.on .pre-skip{opacity:0}
 @media (prefers-reduced-motion:reduce){#pre,#pre *,#pre *::before,#pre *::after{transition-duration:1ms!important;animation:none!important}}
 </style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 </head>
 <body>
 <!-- Entrada com tecla: o visitante acende a placa e o site aparece -->
@@ -169,13 +170,21 @@ html.pre #pre,#pre.sai{display:grid}
 </div>
 <div class="page">
 <div class="screen">
-<header class="hero" id="hero">
+<header class="hero" id="hero" data-palco>
   <div class="par par-photo" data-depth="10" aria-hidden="true">
     <div class="settle"><div class="ph" style="filter:saturate(1.25) contrast(1.08) brightness(.88)"></div><video class="ph-video" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video></div>
     <div class="spill"></div>
   </div>
   <svg class="grain" aria-hidden="true"><filter id="grao"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#grao)"/></svg>
+  <canvas id="grade" hidden aria-hidden="true"></canvas><canvas id="gl" hidden aria-label="Olho mecânico em neon aberto em peças: frente é Marca, lente é Site, sensor é Inteligência, motor é Sistemas. Arraste para girar."></canvas>
   <div class="shade" aria-hidden="true"></div>
+  <svg class="fios" id="fios" aria-hidden="true"></svg><div id="etqs"></div><span id="hud" aria-hidden="true"></span>
+  <script>/* no computador o filme do hero dá lugar ao olho mecânico */
+  window.MECHA_CFG={ex:.75,ey:.47,want:.24,hfrac:.5};if(matchMedia('(min-width:821px)').matches){var hh=document.getElementById('hero');hh.classList.add('o3');document.getElementById('grade').hidden=false;document.getElementById('gl').hidden=false;var vv=hh.querySelector('.ph-video');if(vv)vv.remove();
+    /* texto logo abaixo do letreiro e hero do tamanho do conteúdo: Serviços sobe */
+    var lay=function(){var sg=hh.querySelector('.sign'),cp=hh.querySelector('.copy');if(!sg||!cp)return;var hr=hh.getBoundingClientRect(),sr=sg.getBoundingClientRect();
+      var top=Math.round(sr.bottom-hr.top+Math.max(20,innerHeight*.035));cp.style.top=top+'px';cp.style.bottom='auto';hh.style.height=Math.max(420,Math.round(top+cp.offsetHeight+Math.max(48,innerHeight*.06)))+'px';};
+    lay();addEventListener('resize',lay);addEventListener('load',lay);if(document.fonts)document.fonts.ready.then(lay);}else{document.getElementById('hud').remove();}</script>
   <div class="par sign" aria-hidden="true">
     <div class="plate"><span class="parafusos" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="word"><span>N</span><span class="espelho">E</span><span class="o-olho"><svg class="olho-svg" viewBox="0 0 100 100" aria-hidden="true"><g class="palpebra"><path class="tubo" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><path class="friso" d="M4 50 Q50 -2 96 50 Q50 102 4 50 Z"/><g class="olhar"><circle class="iris" cx="50" cy="50" r="15"/><circle class="pupila" cx="50" cy="50" r="6.5"/></g></g></svg></span><span>N</span></span><span class="word sub"><span>S</span><span>C</span><span>R</span><span>I</span><span>P</span><span>T</span><span>S</span></span></div>
   </div>
@@ -332,5 +341,6 @@ html.pre #pre,#pre.sai{display:grid}
   </div>
 </div>
 <script src="/assets/site.js"></script>
+<script type="module">if(document.querySelector('#hero.o3'))import('/assets/olho-mecanico.js');</script>
 </body>
 </html>
