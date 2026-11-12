@@ -671,3 +671,4 @@ body:has(.hero.o3) .platform .glow{top:0}
 .rodape ul a:hover{background-size:100% 1px}
 @media (prefers-reduced-motion:reduce){.rodape .tubo-r,.rodape h3,.rodape .tit,.rodape ul a{transition:none!important}.rodape.tubo-pronto .tubo-r{transform:none}}
 @media (max-width:820px){.rodape>div:nth-child(5),.rodape .wrap>div:nth-child(5){grid-column:1/-1}.rodape>div,.rodape .wrap>div{min-width:0}}
+.rodape li span{font-size:15px;font-weight:600;color:var(--soft)}
