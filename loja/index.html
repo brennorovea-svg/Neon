@@ -290,6 +290,42 @@ section{padding-block:64px}
 .nl:hover::after,.nl[aria-current]::after{transform:scaleX(1)}
 .nl[aria-current]{color:var(--ink)}
 
+/* menu do computador: o mesmo botão "Menu" e painel de cartões das outras páginas (assets/site.css) */
+.sand{display:none}
+.pmenu{display:none}
+@media (min-width:821px){
+  .topo nav .nl{display:none}
+  .topo .wrap{padding-block:16px}
+  .topo nav{gap:14px}
+  .topo.sobre{z-index:70}
+  .sand{display:inline-flex;align-items:center;gap:12px;height:42px;padding:0 18px 0 16px;border-radius:999px;border:2px solid rgba(244,239,255,.85);background:rgba(7,3,26,.45);color:var(--ink);font:700 14px var(--f-body);cursor:pointer;transition:transform 180ms var(--ease),background-color 180ms var(--ease)}
+  .sand:hover{transform:translateY(-2px);background:rgba(244,239,255,.1)}
+  .sand:active{transform:scale(.97);transition-duration:100ms}
+  .sand i{position:relative;width:22px;height:14px}
+  .sand i b{position:absolute;left:0;right:0;height:2px;border-radius:2px;background:currentColor;transition:transform 260ms var(--ease),opacity 180ms var(--ease),top 260ms var(--ease)}
+  .sand i b:nth-child(1){top:0}.sand i b:nth-child(2){top:6px}.sand i b:nth-child(3){top:12px}
+  .sand.x i b:nth-child(1){top:6px;transform:rotate(45deg)}.sand.x i b:nth-child(2){opacity:0}.sand.x i b:nth-child(3){top:6px;transform:rotate(-45deg)}
+  .pmenu{display:block;position:fixed;inset:0;z-index:60;visibility:hidden;line-height:normal}
+  .pmenu.on{visibility:visible}
+  .pmenu a{text-decoration:none;color:inherit}
+  .pmenu .fundo{position:absolute;inset:0;background:rgba(5,3,15,.5);opacity:0}
+  .pmenu .pn{position:absolute;top:96px;right:clamp(20px,5vw,72px);width:min(560px,92vw);max-height:calc(100vh - 120px);overflow:auto;border-radius:22px;background:#120B30;border:1px solid rgba(162,75,255,.55);box-shadow:0 40px 100px -30px #000,0 0 80px -30px var(--pink);transform-origin:top right;padding:28px 30px 26px;visibility:hidden}
+  .pmenu .dec{font:700 13px var(--f-mono);letter-spacing:.2em;color:var(--cyan);opacity:0}
+  .pmenu ul{list-style:none;margin:16px 0 22px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .pmenu li{display:flex}
+  .pmenu li:last-child:nth-child(odd){grid-column:1/-1}
+  .pmenu li a{flex:1;display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:14px;border:1px solid rgba(244,239,255,.1);background:rgba(7,3,26,.5);opacity:0;transition:border-color 180ms var(--ease),transform 180ms var(--ease),background-color 180ms var(--ease)}
+  .pmenu li a .nm{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font:700 12px var(--f-mono);color:var(--c);border:2px solid var(--c);box-shadow:0 0 12px var(--c);text-shadow:0 0 8px var(--c)}
+  .pmenu li a b{font:400 19px/1.1 var(--f-body);transition:font-weight 250ms var(--ease),color 250ms var(--ease)}
+  .pmenu li a small{font-size:12.5px;color:var(--muted)}
+  .pmenu li a:hover,.pmenu li a:focus-visible{border-color:var(--c);transform:translateY(-2px);background:color-mix(in srgb,var(--c) 10%,#0A0620);outline:none}
+  .pmenu li a:hover b,.pmenu li a:focus-visible b{font-weight:800;color:var(--c)}
+  .pmenu .pe{display:flex;align-items:center;justify-content:space-between;gap:12px;opacity:0}
+  .pmenu .pe .sm{font:13px var(--f-mono);color:var(--muted);letter-spacing:.04em}
+  .pmenu .pe .btn{padding:12px 20px;background:#25D366;color:#04210F;box-shadow:0 0 22px rgba(37,211,102,.45)}
+}
+@media (prefers-reduced-motion:reduce){.sand,.sand i b,.pmenu *{transition-duration:1ms!important}}
+
 /* letreiro (logo v3) */
 .marca{--glow:#FF2E9A;--glow2:#A24BFF;--tube:#FFB8DC;--glowB:#2E8CFF;--tubeB:#B0DCFF;font-size:26px;display:inline-flex;flex-direction:column;align-items:center;padding:4px 11px 6px;border:3px solid var(--tube);border-radius:10px;background:rgba(7,3,26,.55);box-shadow:0 0 12px var(--glow),0 0 34px var(--glow2),inset 0 0 9px var(--glow);text-decoration:none;flex:none}
 .marca .word{display:inline-flex;font-family:var(--f-sign);line-height:1;color:var(--tube);text-shadow:0 0 6px var(--glow),0 0 18px var(--glow)}
@@ -734,9 +770,10 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 28px rgba(255,46,154,.
   <nav aria-label="Principal">
     <a class="nl" href="/servicos/">Serviços</a>
     <a class="nl" href="/projetos/">Projetos</a>
-    <a class="nl" href="#skills" aria-current="page">Loja</a>
+    <a class="nl" href="/como-funciona/">Como funciona</a>
     <a class="nl" href="/quem-somos/">Quem somos</a>
-    <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20a%20loja%20de%20skills%20da%20Neon%20Scripts%20e%20queria%20conversar%20%3D%29" target="_blank" rel="noopener">Bora conversar?</a>
+    <a class="nl" href="#skills" aria-current="page">Loja</a>
+    <a class="btn btn-p btn-s" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20a%20loja%20de%20skills%20da%20Neon%20Scripts%20e%20queria%20conversar%20%3D%29" target="_blank" rel="noopener">Fale com a gente</a>
   </nav>
 </div></header>
 
@@ -1973,5 +2010,71 @@ addEventListener('pagehide', () => { clearTimeout(pisca); timers.forEach(clearTi
 </script>
 
 <script type="module" src="/assets/neon-personagem.js?v=20261112c"></script>
+<div class="pmenu" id="pmenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
+  <div class="fundo" data-fecha></div>
+  <div class="pn">
+    <span class="dec">MENU</span>
+    <ul>
+      <li style="--c:#FF2E9A"><a href="/servicos/"><span class="nm">01</span><b>Serviços</b><small>Marca, site, inteligência e sistemas</small></a></li>
+      <li style="--c:#FF8A1F"><a href="/projetos/"><span class="nm">02</span><b>Projetos</b><small>Naruá, Makiolki, Granola Pura, Contorno</small></a></li>
+      <li style="--c:#2E8CFF"><a href="/como-funciona/"><span class="nm">03</span><b>Como funciona</b><small>Do primeiro oi ao site no ar</small></a></li>
+      <li style="--c:#A24BFF"><a href="/quem-somos/"><span class="nm">04</span><b>Quem somos</b><small>Zona leste de SP, quase dez anos de dados</small></a></li>
+      <li style="--c:#6BFF9E"><a href="/loja/" aria-current="page"><span class="nm">05</span><b>Loja</b><small>Skills para o Claude, R$ 20 cada</small></a></li>
+      
+    </ul>
+    <div class="pe"><span class="sm">contato@neonscripts.com.br</span><a class="btn" href="https://wa.me/5511999392800?text=Oi%21%20Vi%20o%20site%20da%20Neon%20Scripts%20e%20queria%20conversar%20sobre%20o%20meu%20neg%C3%B3cio%20%3D%29">Chamar no WhatsApp</a></div>
+  </div>
+</div>
+<script>
+/* Menu do computador: mesmo painel das outras páginas (cópia do bloco de assets/site.js) */
+(function(){
+  var mn=document.getElementById('pmenu'),nav=document.querySelector('.topo'),links=nav&&nav.querySelector('nav');
+  if(!mn||!links)return;
+  var E='cubic-bezier(.22,1,.36,1)',calmo=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sl=function(ms){return new Promise(function(r){setTimeout(r,calmo?0:ms)})};
+  var bt=document.createElement('button');
+  bt.type='button';bt.className='sand';bt.setAttribute('aria-expanded','false');bt.setAttribute('aria-controls','pmenu');
+  bt.innerHTML='<i aria-hidden="true"><b></b><b></b><b></b></i><span>Menu</span>';
+  links.appendChild(bt);
+  var f=mn.querySelector('.fundo'),pn=mn.querySelector('.pn'),dc=mn.querySelector('.dec'),pe=mn.querySelector('.pe'),as=[].slice.call(mn.querySelectorAll('li a'));
+  var aberto=false,ocupado=false;
+  function A(el,kf,o){return el.animate(kf,Object.assign({easing:E,fill:'forwards',duration:1},o,calmo?{duration:1,delay:0}:{}))}
+  function limpa(){[f,pn,dc,pe].concat(as).forEach(function(el){el.getAnimations().forEach(function(x){x.cancel()})});as.forEach(function(x){x.querySelector('.nm').getAnimations().forEach(function(y){y.cancel()})})}
+  function decod(el,txt){var CH='!<>-_/[]{}=+*^?#',t0=performance.now();(function g(){var e=performance.now()-t0,s='',ok=true;for(var i=0;i<txt.length;i++){if(e>=200+i*40)s+=txt[i];else{ok=false;s+=CH[Math.random()*CH.length|0]}}el.textContent=s;if(!ok&&!calmo&&aberto)setTimeout(g,40);else el.textContent=txt})()}
+  function rumo(){var a=bt.getBoundingClientRect(),b=pn.getBoundingClientRect();return 'translate('+(a.right-b.right)+'px,'+(a.top-b.top)+'px) scale('+(a.width/b.width)+','+(a.height/b.height)+')'}
+  function estado(on){
+    aberto=on;bt.classList.toggle('x',on);bt.querySelector('span').textContent=on?'Fechar':'Menu';
+    bt.setAttribute('aria-expanded',on?'true':'false');mn.setAttribute('aria-hidden',on?'false':'true');
+  }
+  async function abre(){
+    estado(true);nav.classList.add('sobre');mn.classList.add('on');
+    pn.style.top=(bt.getBoundingClientRect().bottom+14)+'px';pn.style.visibility='visible';
+    A(f,[{opacity:0},{opacity:1}],{duration:250});
+    A(pn,[{transform:rumo(),backgroundColor:'#FF2E9A',borderRadius:'999px'},{transform:'none',backgroundColor:'#120B30',borderRadius:'22px'}],{duration:420});
+    await sl(300);dc.style.opacity=1;decod(dc,'MENU');
+    as.forEach(function(x,i){
+      A(x,[{opacity:0,transform:'translateY(12px)'},{opacity:1,transform:'none'}],{duration:600,delay:i*70});
+      if(!calmo)x.querySelector('.nm').animate([{opacity:.1,offset:0},{opacity:1,offset:.1},{opacity:.2,offset:.16},{opacity:1,offset:.26},{opacity:.4,offset:.32},{opacity:1,offset:.42},{opacity:1}],{duration:900,delay:200+i*70});
+    });
+    A(pe,[{opacity:0},{opacity:1}],{duration:600,delay:500});
+    as[0].focus({preventScroll:true});
+  }
+  async function fecha(){
+    estado(false);
+    as.concat([pe,dc]).forEach(function(x){A(x,[{opacity:1},{opacity:0}],{duration:120})});
+    await A(pn,[{transform:'none',backgroundColor:'#120B30',borderRadius:'22px'},{transform:rumo(),backgroundColor:'#FF2E9A',borderRadius:'999px'}],{duration:340,easing:'cubic-bezier(.65,0,.35,1)'}).finished;
+    pn.style.visibility='hidden';await A(f,[{opacity:1},{opacity:0}],{duration:200}).finished;
+    fim();bt.focus({preventScroll:true});
+  }
+  function fim(){limpa();pn.style.visibility='hidden';dc.style.opacity=0;mn.classList.remove('on');nav.classList.remove('sobre')}
+  bt.addEventListener('click',function(){if(ocupado)return;ocupado=true;(aberto?fecha():abre()).then(function(){ocupado=false})});
+  f.addEventListener('click',function(){if(aberto&&!ocupado)bt.click()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&aberto&&!ocupado)bt.click()});
+  /* Clique num item: fecha na hora e deixa o link seguir */
+  as.forEach(function(a){a.addEventListener('click',function(){estado(false);fim();ocupado=false})});
+  /* Se a tela encolher para o celular com o painel aberto */
+  matchMedia('(max-width:820px)').addEventListener('change',function(e){if(e.matches&&aberto){estado(false);fim()}});
+})();
+</script>
 </body>
 </html>
