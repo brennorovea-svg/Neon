@@ -850,7 +850,7 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 28px rgba(255,46,154,.
 <script>
 // Links de pagamento. Cole aqui o link de cada skill na plataforma de venda.
 // Enquanto um link estiver vazio, o botão daquela skill abre o WhatsApp com o pedido pronto.
-const PAGAMENTO = {cores:'', motion:'', branding:'', videos:'', leitor:'', relatorios:'', documente:''};
+const PAGAMENTO = {cores:'https://pay.kiwify.com.br/SEU3xjL', motion:'', branding:'', videos:'', leitor:'', relatorios:'', documente:''};
 const linkCompra = s => PAGAMENTO[s.id] || 'https://wa.me/5511999392800?text=' + encodeURIComponent('Oi! Quero comprar a skill ' + s.nome + ' (R$ 20) =)');
 
 const SKILLS = [
