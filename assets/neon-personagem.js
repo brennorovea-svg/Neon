@@ -35,11 +35,12 @@ const CSS = `.neonp{position:fixed;z-index:8;right:max(8px,env(safe-area-inset-r
 .neonp{appearance:none;border:0;padding:0;margin:0;background:none;color:inherit;border-radius:50%}
 .neonp:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .neonp canvas{display:block;width:100%;height:100%;pointer-events:auto;cursor:pointer;filter:drop-shadow(0 0 6px rgba(255,46,154,.5)) drop-shadow(0 0 16px rgba(162,75,255,.35))}
-@media (max-width:820px){.neonp{z-index:10;width:64px;height:64px;bottom:calc(9px + env(safe-area-inset-bottom));right:26px}}
+@media (max-width:820px){.neonp{z-index:10;width:64px;height:64px;bottom:calc(10px + env(safe-area-inset-bottom));right:max(14px,env(safe-area-inset-right))}html.tem-neonp .wa{right:calc(max(14px,env(safe-area-inset-right)) + 74px)}}
 @media (prefers-reduced-motion:reduce){.neonp{transition:none}}
 html.pre .neonp,html.pre .neonp-oi{display:none}
-.neonp-oi{position:fixed;z-index:8;right:calc(max(8px,env(safe-area-inset-right)) + 104px);bottom:52px;margin:0;background:#120a2e;color:#F4EFFF;border:1px solid rgba(46,140,255,.5);border-radius:16px 16px 4px 16px;padding:9px 14px;font:600 14px/1.4 'Sora',system-ui,sans-serif;cursor:pointer;
+.neonp-oi{position:fixed;z-index:12;right:calc(max(8px,env(safe-area-inset-right)) + 104px);bottom:52px;margin:0;background:#120a2e;color:#F4EFFF;border:1px solid rgba(46,140,255,.5);border-radius:16px 16px 4px 16px;box-shadow:0 10px 30px -10px #000;padding:9px 14px;font:600 14px/1.4 'Sora',system-ui,sans-serif;cursor:pointer;
 transform-origin:100% 100%;transition:opacity 220ms cubic-bezier(.22,1,.36,1),transform 220ms cubic-bezier(.22,1,.36,1)}
+.neonp-oi.cima{right:max(14px,env(safe-area-inset-right));bottom:112px}
 .neonp-oi.some{opacity:0;transform:translateY(6px) scale(.96);pointer-events:none}
 @media (max-width:820px){.neonp-oi{display:none}}
 @media (prefers-reduced-motion:reduce){.neonp-oi{transition:opacity 120ms linear;transform:none}}`;
@@ -166,11 +167,29 @@ function inicia() {
   };
   caixa.addEventListener('click', clica);
   oi.addEventListener('click', clica);
+  /* o balão nunca cobre texto nem botão: tenta ao lado do olho, depois em cima; se os dois cobrem, não aparece */
+  const TEXTO = 'p,h1,h2,h3,h4,h5,li,a,button,label,input,textarea,select,img,video,iframe,figcaption,blockquote';
+  const cobre = () => {
+    const r = oi.getBoundingClientRect();
+    for (let i = 0; i <= 4; i++) for (let j = 0; j <= 2; j++) {
+      const x = r.left + 2 + (r.width - 4) * i / 4, y = r.top + 2 + (r.height - 4) * j / 2;
+      for (const el of document.elementsFromPoint(x, y)) {
+        if (el === oi || el === caixa || caixa.contains(el)) continue;
+        if (el.closest(TEXTO)) return true;
+      }
+    }
+    return false;
+  };
+  const lugarLivre = () => {
+    oi.classList.remove('cima'); if (!cobre()) return true;
+    oi.classList.add('cima'); if (!cobre()) return true;
+    oi.classList.remove('cima'); return false;
+  };
   /* o balão "Oi, posso te ajudar?" aparece uma vez por visita, 1,8s depois dela, e some em 8s */
   let viuOi = false;
   try { viuOi = sessionStorage.getItem('neon-oi') === '1'; } catch (e) {}
   if (!CEL && !viuOi) {
-    setTimeout(() => { if (conversou) return; oi.classList.remove('some'); sente('oi', 2400); try { sessionStorage.setItem('neon-oi', '1'); } catch (e) {} }, 1800);
+    setTimeout(() => { if (conversou || !lugarLivre()) return; oi.classList.remove('some'); sente('oi', 2400); try { sessionStorage.setItem('neon-oi', '1'); } catch (e) {} }, 1800);
     setTimeout(escondeOi, 9800);
   }
 
@@ -216,10 +235,13 @@ function inicia() {
   document.addEventListener('visibilitychange', () => { if (!document.hidden) { ultMexe = performance.now(); pede(); } });
   if (base === 'neutro' && document.getElementById('hero')) base = 'oi';
   tamanho();
-  /* no celular ela senta na ponta do botão verde de WhatsApp e só aparece junto com ele */
+  /* no celular ele senta ao lado do botão verde de WhatsApp e só aparece junto com ele */
   const wa = document.querySelector('a.wa');
   if (CEL && wa) {
-    const sync = () => caixa.classList.toggle('on', wa.classList.contains('show'));
+    /* o botão verde encolhe para a direita e ele senta ao lado, sem cobrir o texto */
+    document.documentElement.classList.add('tem-neonp');
+    /* home marca .show e as outras páginas marcam .on */
+    const sync = () => caixa.classList.toggle('on', wa.classList.contains('show') || wa.classList.contains('on'));
     new MutationObserver(sync).observe(wa, {attributes: true, attributeFilter: ['class']}); sync();
   } else requestAnimationFrame(() => caixa.classList.add('on'));
   pede();

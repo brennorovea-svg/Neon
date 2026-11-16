@@ -396,3 +396,29 @@ io.observe(hero);if(ct)io2.observe(ct);window.addEventListener('pagehide',functi
   var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){r.classList.add('on');io.disconnect();}},{threshold:.25});
   io.observe(r);
 })();
+
+/* Hero no celular sem a foto antiga (Brenno, 2026-11-16): chuva neon (motion 44), riscos rosa, roxo, azul e ciano caindo.
+   Exceção à regra "sem partículas", liberada pelo Brenno. Só roda com o hero na tela; parada em reduzir movimento. */
+(function(){
+  var hero=document.getElementById('hero');
+  if(!hero||!window.matchMedia||!matchMedia('(max-width:820px)').matches)return;
+  document.documentElement.classList.add('sf');
+  var c=document.createElement('canvas');c.id='sf';c.setAttribute('aria-hidden','true');
+  hero.insertBefore(c,hero.querySelector('.shade'));
+  var g=c.getContext('2d'),W=0,H=0,gotas=[],dpr=Math.min(2,window.devicePixelRatio||1),reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CORES=['255,46,154','162,75,255','46,140,255','64,230,220'];
+  function nova(solta){return{x:Math.random()*W,y:solta?Math.random()*H:-40,v:1.3+Math.random()*3,l:14+Math.random()*34,a:.35+Math.random()*.55,c:CORES[Math.random()*4|0]};}
+  function tam(){var w=hero.clientWidth,h=hero.clientHeight;if(w===W&&h===H)return;W=w;H=h;c.width=W*dpr;c.height=H*dpr;g.setTransform(dpr,0,0,dpr,0,0);
+    gotas=[];for(var n=Math.round(W/5),i=0;i<n;i++)gotas.push(nova(true));if(reduz)quadro();}
+  var vis=true,pedido=false;
+  function quadro(){pedido=false;g.clearRect(0,0,W,H);g.lineCap='round';g.lineWidth=1.6;
+    for(var j=0;j<gotas.length;j++){var q=gotas[j];if(!reduz){q.y+=q.v;if(q.y-q.l>H)gotas[j]=q=nova(false);}
+      var gr=g.createLinearGradient(0,q.y-q.l,0,q.y);gr.addColorStop(0,'rgba('+q.c+',0)');gr.addColorStop(1,'rgba('+q.c+','+q.a+')');
+      g.strokeStyle=gr;g.beginPath();g.moveTo(q.x,q.y-q.l);g.lineTo(q.x,q.y);g.stroke();}
+    pede();}
+  function pede(){if(!reduz&&vis&&!document.hidden&&!pedido){pedido=true;requestAnimationFrame(quadro);}}
+  tam();addEventListener('resize',tam);
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;pede();}).observe(hero);
+  document.addEventListener('visibilitychange',pede);
+  if(reduz)quadro();else pede();
+})();
