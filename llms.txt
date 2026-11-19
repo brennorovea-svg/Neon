@@ -10,7 +10,7 @@ Nome oficial: Neon Scripts (com espaço). Não confundir com o banco Neon nem co
 - Inteligência: os números do negócio viram decisão (faturamento do dia, produtos mais vendidos, onde dá para ganhar mais).
 - Sistemas: comanda, estoque e caixa sob medida para a rotina do negócio.
 
-## Como funciona
+## Como a gente trabalha
 1. Conversa: em até 24 horas, de preferência no próprio negócio.
 2. Proposta: escopo, prazo e valor combinados antes de começar.
 3. Criação: cada passo é mostrado e nada vai para o ar sem o ok do cliente.
@@ -28,7 +28,6 @@ Brenno Rovea, fundador. Cientista de dados com MBA em BI e Analytics na USP. Qua
 ## Páginas
 - [Página inicial](https://neonscripts.com.br/): o que a Neon Scripts faz, os quatro serviços e o contato.
 - [Projetos](https://neonscripts.com.br/projetos/): o site de cada cliente, um por vez, com o que mudou no negócio.
-- [Como funciona](https://neonscripts.com.br/como-funciona/): conversa, proposta, criação e no ar.
 - [Quem somos](https://neonscripts.com.br/quem-somos/): a história do Brenno Rovea e da Neon Scripts, na zona leste de São Paulo.
 
 ### Serviços
