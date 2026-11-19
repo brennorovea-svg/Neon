@@ -38,7 +38,7 @@ const CSS = `.neonp{position:fixed;z-index:8;right:max(8px,env(safe-area-inset-r
 @media (max-width:820px){.neonp{z-index:10;width:64px;height:64px;bottom:calc(10px + env(safe-area-inset-bottom));right:max(14px,env(safe-area-inset-right))}html.tem-neonp .wa{right:calc(max(14px,env(safe-area-inset-right)) + 74px)}}
 @media (prefers-reduced-motion:reduce){.neonp{transition:none}}
 html.pre .neonp,html.pre .neonp-oi{display:none}
-.neonp-oi{position:fixed;z-index:12;right:calc(max(8px,env(safe-area-inset-right)) + 104px);bottom:52px;margin:0;background:#120a2e;color:#F4EFFF;border:1px solid rgba(46,140,255,.5);border-radius:16px 16px 4px 16px;box-shadow:0 10px 30px -10px #000;padding:9px 14px;font:600 14px/1.4 'Sora',system-ui,sans-serif;cursor:pointer;
+.neonp-oi{position:fixed;z-index:12;right:calc(max(8px,env(safe-area-inset-right)) + 104px);bottom:52px;margin:0;background:#120a2e;color:#F4EFFF;border:1px solid rgba(46,140,255,.5);border-radius:16px 16px 4px 16px;box-shadow:0 10px 30px -10px #000;padding:9px 14px;font:600 14px/1.4 'Exo 2',system-ui,sans-serif;cursor:pointer;
 transform-origin:100% 100%;transition:opacity 220ms cubic-bezier(.22,1,.36,1),transform 220ms cubic-bezier(.22,1,.36,1)}
 .neonp-oi.cima{right:max(14px,env(safe-area-inset-right));bottom:112px}
 .neonp-oi.some{opacity:0;transform:translateY(6px) scale(.96);pointer-events:none}
@@ -161,7 +161,7 @@ function inicia() {
   const clica = () => {
     conversou = true; escondeOi();
     sente('susto', 600); setTimeout(() => sente('animado', 1800), 600); puloV += .06;
-    (chat || (chat = import(new URL('neon-chat.js?v=20261112b', import.meta.url).href)))
+    (chat || (chat = import(new URL('neon-chat.js?v=20261119a', import.meta.url).href)))
       .then(m => m.alterna({sente, botao: caixa}))
       .catch(() => { chat = null; location.href = 'https://wa.me/5511999392800'; });
   };
