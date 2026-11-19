@@ -145,10 +145,7 @@ html.pre #pre,#pre.sai{display:grid}
 #pre .pre-ir{fill:none;stroke:var(--b);stroke-width:5;filter:drop-shadow(0 0 3px var(--b)) drop-shadow(0 0 9px var(--b))}#pre .pre-pu{fill:#DCEBFF}
 #pre.on .pre-pp{transform:none}#pre.on .pre-tu{stroke:#FFE3F1;filter:drop-shadow(0 0 3px var(--c)) drop-shadow(0 0 10px var(--c))}#pre.on .pre-lk{opacity:1}
 #pre .pre-cap{margin:0;text-align:center;font:700 12px 'Space Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#6c6590}
-#pre .pre-cap b{display:block;font:800 clamp(24px,3.6vh,36px)/1.1 'Sora',sans-serif;letter-spacing:-.03em;text-transform:none;color:#F4EFFF;margin-bottom:8px}
-#pre .pre-skip{grid-row:3;align-self:end;background:none;border:0;padding:12px 16px;font:700 11px 'Space Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#6c6590;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
-#pre .pre-skip:hover,#pre .pre-skip:focus-visible{color:#F4EFFF}
-#pre.on .pre-skip{opacity:0}
+#pre .pre-cap b{display:block;font:800 clamp(24px,3.6vh,36px)/1.1 'Sora',sans-serif;letter-spacing:-.03em;text-transform:none;color:#F4EFFF;margin-bottom:0}
 @media (prefers-reduced-motion:reduce){#pre,#pre *,#pre *::before,#pre *::after{transition-duration:1ms!important;animation:none!important}}
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
@@ -164,10 +161,12 @@ html.pre #pre,#pre.sai{display:grid}
         <span class="pre-hg"></span>
       </button>
     </div></div>
-    <p class="pre-cap"><b>Acende aí.</b>a placa tá apagada</p>
+    <p class="pre-cap"><b>Acende aí.</b></p>
   </div>
-  <button class="pre-skip" id="preSkip" type="button">Entrar sem acender</button>
 </div>
+<script src="/assets/neon-revela.js?v=20261119a"></script>
+<script>/* tubo de neon acende no topo da entrada e revela a tecla (Neon Reveal, 2026-11-19) */
+if(document.documentElement.classList.contains('pre'))NeonRevela(document.getElementById('pre'),{dir:'down',from:'center',colors:['#FF2E9A','#A24BFF'],dur:2500,delay:300,flicker:1,night:'#04030A',trigger:'now'});</script>
 <div class="page">
 <div class="screen">
 <header class="hero" id="hero" data-palco>
@@ -284,7 +283,6 @@ html.pre #pre,#pre.sai{display:grid}
     },wait);
   }
   document.getElementById('preKey').addEventListener('click',function(){pre.classList.add('on');entra(rm?0:1050);});
-  document.getElementById('preSkip').addEventListener('click',function(){entra(0);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')entra(0);});
 })();
 </script>
