@@ -247,6 +247,9 @@ if(document.documentElement.classList.contains('pre'))NeonRevela(document.getEle
     </div>
   </div>
 </section>
+<script>/* divisória hero/serviços: o tubo acende e revela os serviços (Neon Reveal, 2026-11-19). Sem JS fica o tubo fixo. */
+(function(){var sv=document.getElementById('servicos'),t=document.querySelector('#hero > .tubo');if(!sv||!window.NeonRevela)return;if(t)t.style.opacity=0;
+NeonRevela(sv,{dir:'down',from:'center',colors:['#FF2E9A','#2E8CFF'],dur:2200,delay:200,flicker:1,inset:0,length:1,thick:3,reach:.6,night:'#07041A',trigger:matchMedia('(max-width:820px)').matches?'inView':'mount'});})();</script>
 </main>
 </div>
 
