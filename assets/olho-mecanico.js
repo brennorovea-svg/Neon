@@ -149,8 +149,8 @@ const gears=[];
  /* cabos saindo por trás */
  const cmats=[M.Bt,M.At,M.Bt,new THREE.MeshBasicMaterial({color:new THREE.Color('#40E6DC').multiplyScalar(1.3)})];
  for(let i=0;i<4;i++){const a=i/4*Math.PI*2+.4,o=new THREE.Vector3(Math.cos(a)*.25,Math.sin(a)*.25,-.8);
-   const cur=new THREE.CatmullRomCurve3([o,o.clone().add(new THREE.Vector3(0,0,-.4)),new THREE.Vector3(.5+i*.06,-.3-i*.05,-1.7),new THREE.Vector3(1.4+i*.05,-.7-i*.06,-2.3),new THREE.Vector3(3.2+i*.08,-1.25-i*.09,-2.6),new THREE.Vector3(6+i*.1,-2-i*.12,-2.9),new THREE.Vector3(11+i*.12,-3.2-i*.15,-3.2),new THREE.Vector3(18+i*.15,-4.8-i*.2,-3.5)]);
-   /* cabos esticados até sair da tela (Brenno, 2026-11-19) */
+   const cur=new THREE.CatmullRomCurve3([o,o.clone().add(new THREE.Vector3(0,0,-.4)),new THREE.Vector3(.5+i*.06,-.3-i*.05,-1.7),new THREE.Vector3(1.4+i*.05,-.7-i*.06,-2.3),new THREE.Vector3(2.5+i*.1,-1.7-i*.14,-2.5),new THREE.Vector3(4+i*.14,-2.45-i*.2,-2.7),new THREE.Vector3(6+i*.12,-2.35-i*.16,-2.9),new THREE.Vector3(8.6+i*.1,-2.9-i*.12,-3.1),new THREE.Vector3(12+i*.1,-3.8-i*.1,-3.3)]);
+   /* cabos soltos, com barriga, até sair da tela (Brenno, 2026-11-19) */
    back.add(new THREE.Mesh(new THREE.TubeGeometry(cur,220,.035,10,false),M.dark2));back.add(new THREE.Mesh(new THREE.TubeGeometry(cur,220,.012,6,false),cmats[i]));}
  const plug=cyl(.3,.12,M.dark2);plug.position.z=-.86;back.add(plug);
 }
