@@ -246,7 +246,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Caveat:wght@600&family=Sora:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Caveat:wght@600&family=Chakra+Petch:wght@500;600;700&family=Exo+2:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap">
 <style>
 /* Layout: vitrine de rua à noite. Hero em duas colunas (promessa + pasta de skills em terminal),
    faixa de condições, prateleira de 8 cartões (7 skills + pedido), 3 passos, gratuitas, dúvidas.
@@ -258,7 +258,7 @@
   --pink:#FF2E9A;--purple:#A24BFF;--blue:#2E8CFF;--cyan:#40E6DC;--yellow:#F2D75A;
   --orange:#FF7A3D;--green:#6BFF9E;--rosa-claro:#FF8CC6;--sobre-rosa:#0B0420;
   --card:rgba(14,10,34,.72);--painel:#0D0824;--line:rgba(162,75,255,.35);--line2:rgba(162,75,255,.18);
-  --f-sign:'Bungee Inline',Impact,sans-serif;--f-body:'Sora',system-ui,sans-serif;--f-mono:'Space Mono',ui-monospace,monospace;
+  --f-sign:'Bungee Inline',Impact,sans-serif;--f-body:'Exo 2',system-ui,sans-serif;--f-mono:'Space Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -550,9 +550,9 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 28px rgba(255,46,154,.
 .mot .de-novo{align-self:flex-start;margin-top:auto;background:none;border:2px solid var(--line);border-radius:999px;color:var(--ink);font:600 12.5px var(--f-body);padding:6px 14px;cursor:pointer;transition:transform 180ms var(--ease),border-color 180ms var(--ease)}
 .mot .de-novo:hover{transform:translateY(-2px);border-color:var(--ink)}
 .mot .de-novo:active{transform:scale(.97)}
-.stage{position:relative;height:210px;background:var(--bg);color:#F4EFFF;font-family:Sora,sans-serif;overflow:hidden;isolation:isolate}
+.stage{position:relative;height:210px;background:var(--bg);color:#F4EFFF;font-family:'Exo 2',sans-serif;overflow:hidden;isolation:isolate}
 .stage .c{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.stage .w{font:800 clamp(26px,7.5vw,46px)/1 Sora,sans-serif;text-transform:uppercase;letter-spacing:-.02em;opacity:0;display:inline-block}
+.stage .w{font:800 clamp(26px,7.5vw,46px)/1 'Exo 2',sans-serif;text-transform:uppercase;letter-spacing:-.02em;opacity:0;display:inline-block}
 .stage .mono{font:11px/1 'Space Mono',monospace;color:#B2A7D4;margin-bottom:6px}
 .stage .row{display:flex;align-items:flex-end;justify-content:center;gap:clamp(6px,2.5vw,14px);height:64px}
 .stage .term{white-space:pre;font:13px/1.6 'Space Mono',monospace;color:#40E6DC;padding:0 22px;width:100%}
@@ -567,8 +567,8 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 28px rgba(255,46,154,.
 .stage .mk2::before{content:'';position:absolute;inset:18% 0 6% 0;background:#FF2E9A;opacity:.6;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform 500ms cubic-bezier(.65,0,.35,1)}
 .stage .mk2.on::before{transform:scaleX(1)}
 .stage .ph{height:9px;border-radius:5px;background:rgba(255,255,255,.14)}
-.stage .mi{font:600 14px Sora;padding:7px 14px;background:rgba(162,75,255,.22);border:1px solid rgba(162,75,255,.4);border-radius:8px;width:fit-content;opacity:0}
-.stage .tb{padding:10px 16px;font:600 15px Sora}
+.stage .mi{font:600 14px 'Exo 2';padding:7px 14px;background:rgba(162,75,255,.22);border:1px solid rgba(162,75,255,.4);border-radius:8px;width:fit-content;opacity:0}
+.stage .tb{padding:10px 16px;font:600 15px 'Exo 2'}
 .stage .dt{width:11px;height:11px;border-radius:50%;background:#40E6DC}
 .stage .bl{position:absolute;left:50%;top:46%;width:180px;height:120px;margin:-60px 0 0 -90px;border-radius:50%;filter:blur(32px);opacity:.4}
 .stage .sign{--glow:#FF2E9A;--glow2:#A24BFF;--tube:#FFB8DC;--glowB:#2E8CFF;--tubeB:#B0DCFF;display:flex;flex-direction:column;align-items:center}
@@ -761,6 +761,9 @@ h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 28px rgba(255,46,154,.
   .rv,.janela .l{animation:none}
   *,*::before,*::after{transition-duration:1ms!important}
 }
+
+/* Fontes (Brenno, 2026-11-19): títulos em Chakra Petch, texto em Exo 2 */
+h1,h2,h3,.pmenu li a b,.mlist a{font-family:'Chakra Petch',var(--f-body)}
 </style>
 </head>
 <body>
@@ -1242,7 +1245,7 @@ R[6]=(S,al)=>{
 };
 
 R[7]=(S,al)=>{
-  S.innerHTML=`<div class="c"><div id="bt" style="font:800 16px Sora;color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 32px;box-shadow:0 0 26px rgba(255,46,154,.6);cursor:pointer;user-select:none">Chama no direct</div></div>`;
+  S.innerHTML=`<div class="c"><div id="bt" style="font:800 16px 'Exo 2';color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 32px;box-shadow:0 0 26px rgba(255,46,154,.6);cursor:pointer;user-select:none">Chama no direct</div></div>`;
   const bt=S.querySelector('#bt');
   const pr=()=>bt.animate([{transform:'scale(1)'},{transform:'scale(.92)',offset:.25},{transform:'scale(1.07)',offset:.6},{transform:'scale(.98)',offset:.8},{transform:'scale(1)'}],{duration:520,easing:'ease-out'});
   bt.onclick=pr;
@@ -1279,7 +1282,7 @@ R[10]=(S,al)=>{
 };
 
 R[11]=(S,al)=>{
-  S.innerHTML=`<div class="c"><div style="position:relative;font:800 clamp(26px,7.5vw,42px)/1 Sora;letter-spacing:-.02em"><span>NEON SCRIPTS</span><span id="g1" style="position:absolute;left:0;top:0;color:#40E6DC;opacity:0;mix-blend-mode:screen">NEON SCRIPTS</span><span id="g2" style="position:absolute;left:0;top:0;color:#FF2E9A;opacity:0;mix-blend-mode:screen">NEON SCRIPTS</span></div></div>`;
+  S.innerHTML=`<div class="c"><div style="position:relative;font:800 clamp(26px,7.5vw,42px)/1 'Exo 2';letter-spacing:-.02em"><span>NEON SCRIPTS</span><span id="g1" style="position:absolute;left:0;top:0;color:#40E6DC;opacity:0;mix-blend-mode:screen">NEON SCRIPTS</span><span id="g2" style="position:absolute;left:0;top:0;color:#FF2E9A;opacity:0;mix-blend-mode:screen">NEON SCRIPTS</span></div></div>`;
   const g1=S.querySelector('#g1'),g2=S.querySelector('#g2');
   (async()=>{await sl(500);while(al()){
     g1.animate([{opacity:1,transform:'translate(-3px,0)',clipPath:'inset(10% 0 60% 0)'},{opacity:1,transform:'translate(3px,0)',clipPath:'inset(55% 0 15% 0)'},{opacity:1,transform:'translate(-2px,0)',clipPath:'inset(30% 0 40% 0)'},{opacity:0,transform:'translate(0,0)',clipPath:'inset(0 0 0 0)'}],{duration:200,easing:'steps(1)'});
@@ -1315,7 +1318,7 @@ R[14]=(S,al)=>{
 };
 
 R[15]=(S,al)=>{
-  S.innerHTML=`<div class="c"><div style="font:600 clamp(22px,6vw,32px)/1.2 Sora">Seu <span id="e" class="mk2">site</span> aqui</div></div>`;
+  S.innerHTML=`<div class="c"><div style="font:600 clamp(22px,6vw,32px)/1.2 'Exo 2'">Seu <span id="e" class="mk2">site</span> aqui</div></div>`;
   const e=S.querySelector('#e');
   (async()=>{await sl(400);while(al()){e.classList.toggle('on');await sl(2400);}})();
 };
@@ -1334,7 +1337,7 @@ R[16]=(S,al)=>{
 };
 
 R[17]=(S,al)=>{
-  S.innerHTML=`<div style="position:absolute;left:10%;right:10%;top:22px"><div style="display:flex;justify-content:space-between;align-items:center;font:600 16px Sora;padding:12px 14px;background:rgba(162,75,255,.2);border-radius:10px"><span>Sistemas</span><i id="ac" class="ti ti-chevron-down" aria-hidden="true"></i></div><div id="ab" style="overflow:hidden;height:0"><div id="ai" style="padding:12px 14px;font-size:14px;line-height:1.5;color:#B2A7D4;opacity:0">Painéis, automações e integrações sob medida.</div></div></div>`;
+  S.innerHTML=`<div style="position:absolute;left:10%;right:10%;top:22px"><div style="display:flex;justify-content:space-between;align-items:center;font:600 16px 'Exo 2';padding:12px 14px;background:rgba(162,75,255,.2);border-radius:10px"><span>Sistemas</span><i id="ac" class="ti ti-chevron-down" aria-hidden="true"></i></div><div id="ab" style="overflow:hidden;height:0"><div id="ai" style="padding:12px 14px;font-size:14px;line-height:1.5;color:#B2A7D4;opacity:0">Painéis, automações e integrações sob medida.</div></div></div>`;
   const ab=S.querySelector('#ab'),ai=S.querySelector('#ai'),ac=S.querySelector('#ac');
   (async()=>{while(al()){
     const H=ai.offsetHeight;
@@ -1350,12 +1353,12 @@ R[17]=(S,al)=>{
 };
 
 R[18]=(S,al)=>{
-  S.innerHTML=`<div id="ts" style="position:absolute;right:14px;top:24px;display:flex;align-items:center;gap:8px;font:600 14px Sora;padding:12px 16px;background:#150a38;border:1px solid rgba(64,230,220,.55);border-radius:12px;transform:translateX(130%)"><i class="ti ti-check" style="color:#40E6DC;font-size:18px" aria-hidden="true"></i>Orçamento enviado</div>`;
+  S.innerHTML=`<div id="ts" style="position:absolute;right:14px;top:24px;display:flex;align-items:center;gap:8px;font:600 14px 'Exo 2';padding:12px 16px;background:#150a38;border:1px solid rgba(64,230,220,.55);border-radius:12px;transform:translateX(130%)"><i class="ti ti-check" style="color:#40E6DC;font-size:18px" aria-hidden="true"></i>Orçamento enviado</div>`;
   S.querySelector('#ts').animate([{transform:'translateX(130%)',easing:E,offset:0},{transform:'translateX(-6px)',easing:'ease-out',offset:.06},{transform:'translateX(0)',offset:.095},{transform:'translateX(0)',easing:'ease-in',offset:.777},{transform:'translateX(130%)',offset:.834},{transform:'translateX(130%)',offset:1}],{duration:4400,iterations:Infinity});
 };
 
 R[19]=(S,al)=>{
-  S.innerHTML=`<div id="md" style="position:absolute;left:14%;right:14%;top:18px;height:104px;border-radius:14px;background:#1c0f42;border:1px solid rgba(162,75,255,.5);transform-origin:top left;visibility:hidden"><div id="mc" style="padding:16px;opacity:0"><div style="font:800 16px Sora">Fale com a gente</div><div style="font-size:13px;color:#B2A7D4;margin-top:6px">Resposta em até 1 dia útil.</div></div></div><div id="mb" style="position:absolute;left:18px;bottom:20px;font:800 14px Sora;color:#0B0420;background:#FF2E9A;border-radius:999px;padding:11px 22px">Abrir</div>`;
+  S.innerHTML=`<div id="md" style="position:absolute;left:14%;right:14%;top:18px;height:104px;border-radius:14px;background:#1c0f42;border:1px solid rgba(162,75,255,.5);transform-origin:top left;visibility:hidden"><div id="mc" style="padding:16px;opacity:0"><div style="font:800 16px 'Exo 2'">Fale com a gente</div><div style="font-size:13px;color:#B2A7D4;margin-top:6px">Resposta em até 1 dia útil.</div></div></div><div id="mb" style="position:absolute;left:18px;bottom:20px;font:800 14px 'Exo 2';color:#0B0420;background:#FF2E9A;border-radius:999px;padding:11px 22px">Abrir</div>`;
   const md=S.querySelector('#md'),mb=S.querySelector('#mb'),mc=S.querySelector('#mc');
   const flip=()=>{const a=mb.getBoundingClientRect(),b=md.getBoundingClientRect();return [{transform:'translate('+(a.left-b.left)+'px,'+(a.top-b.top)+'px) scale('+(a.width/b.width)+','+(a.height/b.height)+')',backgroundColor:'#FF2E9A'},{transform:'translate(0,0) scale(1,1)',backgroundColor:'#1c0f42'}];};
   (async()=>{await sl(500);while(al()){
@@ -1400,7 +1403,7 @@ R[21]=(S,al)=>{
 };
 
 R[22]=(S,al)=>{
-  S.innerHTML=`<div class="bl" style="background:#FF2E9A" data-d="9000" data-rx="90" data-ry="30"></div><div class="bl" style="background:#A24BFF" data-d="11000" data-rx="110" data-ry="24"></div><div class="bl" style="background:#2E8CFF" data-d="13500" data-rx="80" data-ry="40"></div><div class="c" style="font:800 clamp(20px,5.5vw,30px)/1 Sora;letter-spacing:-.02em">Marca. Site. Sistemas.</div>`;
+  S.innerHTML=`<div class="bl" style="background:#FF2E9A" data-d="9000" data-rx="90" data-ry="30"></div><div class="bl" style="background:#A24BFF" data-d="11000" data-rx="110" data-ry="24"></div><div class="bl" style="background:#2E8CFF" data-d="13500" data-rx="80" data-ry="40"></div><div class="c" style="font:800 clamp(20px,5.5vw,30px)/1 'Exo 2';letter-spacing:-.02em">Marca. Site. Sistemas.</div>`;
   S.querySelectorAll('.bl').forEach(b=>{
     const rx=+b.dataset.rx,ry=+b.dataset.ry,d=+b.dataset.d,kf=[];
     for(let i=0;i<=8;i++){const a=i/8*2*Math.PI;kf.push({transform:'translate('+(Math.cos(a)*rx).toFixed(1)+'px,'+(Math.sin(a)*ry).toFixed(1)+'px)'});}
@@ -1486,7 +1489,7 @@ R[27]=(S,al)=>{
 };
 
 R[28]=(S,al)=>{
-  S.innerHTML=`<div class="c"><div style="display:flex;gap:8px"><div class="dt"></div><div class="dt"></div><div class="dt"></div></div><div id="dn" style="position:absolute;display:flex;align-items:center;gap:8px;font:800 16px Sora;padding:12px 20px;background:rgba(162,75,255,.22);border:1px solid rgba(162,75,255,.5);border-radius:12px;opacity:0"><i class="ti ti-check" style="color:#40E6DC;font-size:18px" aria-hidden="true"></i>Pronto</div></div>`;
+  S.innerHTML=`<div class="c"><div style="display:flex;gap:8px"><div class="dt"></div><div class="dt"></div><div class="dt"></div></div><div id="dn" style="position:absolute;display:flex;align-items:center;gap:8px;font:800 16px 'Exo 2';padding:12px 20px;background:rgba(162,75,255,.22);border:1px solid rgba(162,75,255,.5);border-radius:12px;opacity:0"><i class="ti ti-check" style="color:#40E6DC;font-size:18px" aria-hidden="true"></i>Pronto</div></div>`;
   const ds=[...S.querySelectorAll('.dt')],dn=S.querySelector('#dn');
   (async()=>{while(al()){
     ds.forEach((d,i)=>d.animate([{transform:'translateY(0)'},{transform:'translateY(-10px)'},{transform:'translateY(0)'}],{duration:900,delay:i*120,iterations:3,easing:'ease-in-out'}));
@@ -1501,7 +1504,7 @@ R[28]=(S,al)=>{
 
 R[29]=(S,al)=>{
   const W=S.clientWidth,H=210,dpr=devicePixelRatio||1;
-  S.innerHTML=`<canvas style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas><div class="c"><div id="bt" style="font:800 16px Sora;color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 32px;cursor:pointer;user-select:none">Concluir</div></div>`;
+  S.innerHTML=`<canvas style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas><div class="c"><div id="bt" style="font:800 16px 'Exo 2';color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 32px;cursor:pointer;user-select:none">Concluir</div></div>`;
   const cv=S.querySelector('canvas'),bt=S.querySelector('#bt');cv.width=W*dpr;cv.height=H*dpr;const c=cv.getContext('2d');c.scale(dpr,dpr);
   const COL=['#FF2E9A','#A24BFF','#2E8CFF','#40E6DC','#F2D75A'];let parts=[],lt=0;
   function burst(x,y){for(let i=0;i<24;i++){const a=-Math.PI/2+(Math.random()-.5)*Math.PI*1.3,sp=120+Math.random()*160;parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,t:0,s:3+Math.random()*2.5,c:COL[i%5]});}}
@@ -1519,7 +1522,7 @@ R[29]=(S,al)=>{
 };
 
 R[30]=(S,al)=>{
-  S.innerHTML=`<div class="c" style="perspective:600px"><div id="fc" style="position:relative;width:150px;height:92px;transform-style:preserve-3d"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#FF2E9A;color:#0B0420;font:800 18px Sora;backface-visibility:hidden">Marca</div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#2E8CFF;color:#0B0420;font:800 15px Sora;backface-visibility:hidden;transform:rotateY(180deg);text-align:center;padding:0 10px">Logo, cores e peças</div></div><div id="shd" style="position:absolute;bottom:34px;width:120px;height:9px;border-radius:50%;background:rgba(162,75,255,.35)"></div></div>`;
+  S.innerHTML=`<div class="c" style="perspective:600px"><div id="fc" style="position:relative;width:150px;height:92px;transform-style:preserve-3d"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#FF2E9A;color:#0B0420;font:800 18px 'Exo 2';backface-visibility:hidden">Marca</div><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#2E8CFF;color:#0B0420;font:800 15px 'Exo 2';backface-visibility:hidden;transform:rotateY(180deg);text-align:center;padding:0 10px">Logo, cores e peças</div></div><div id="shd" style="position:absolute;bottom:34px;width:120px;height:9px;border-radius:50%;background:rgba(162,75,255,.35)"></div></div>`;
   S.querySelector('#fc').animate([{transform:'rotateY(0deg)',offset:0},{transform:'rotateY(180deg)',offset:.1667},{transform:'rotateY(180deg)',offset:.5},{transform:'rotateY(360deg)',offset:.6667},{transform:'rotateY(360deg)',offset:1}],{duration:3600,iterations:Infinity,easing:'ease-in-out'});
   S.querySelector('#shd').animate([{transform:'scaleX(1)',offset:0},{transform:'scaleX(.4)',offset:.0833},{transform:'scaleX(1)',offset:.1667},{transform:'scaleX(1)',offset:.5},{transform:'scaleX(.4)',offset:.5833},{transform:'scaleX(1)',offset:.6667},{transform:'scaleX(1)',offset:1}],{duration:3600,iterations:Infinity,easing:'ease-in-out'});
 };
@@ -1556,7 +1559,7 @@ R[32]=(S,al)=>{
 
 R[33]=(S,al)=>{
   const its=['Marca','Site','Inteligência','Sistemas','Projetos','Contato','Como funciona','Quem somos'];
-  S.innerHTML=`<div id="sc" style="position:absolute;inset:0;overflow:hidden;padding:20px 22px"><div style="height:120px"></div>${its.map(x=>`<div class="ci" style="opacity:0;margin-bottom:10px;padding:12px 14px;border-radius:10px;background:rgba(162,75,255,.18);border:1px solid rgba(162,75,255,.4);font:600 15px Sora">${x}</div>`).join('')}<div style="height:60px"></div></div>`;
+  S.innerHTML=`<div id="sc" style="position:absolute;inset:0;overflow:hidden;padding:20px 22px"><div style="height:120px"></div>${its.map(x=>`<div class="ci" style="opacity:0;margin-bottom:10px;padding:12px 14px;border-radius:10px;background:rgba(162,75,255,.18);border:1px solid rgba(162,75,255,.4);font:600 15px 'Exo 2'">${x}</div>`).join('')}<div style="height:60px"></div></div>`;
   const sc=S.querySelector('#sc'),cs=[...S.querySelectorAll('.ci')];
   const io=new IntersectionObserver(es=>{let k=0;es.forEach(e=>{if(e.isIntersecting&&!e.target._on){e.target._on=1;e.target.animate([{opacity:0,transform:'translateY(16px)'},{opacity:1,transform:'none'}],{duration:600,delay:(k++)*70,easing:E,fill:'forwards'})}})},{root:sc,threshold:.6});
   cs.forEach(c=>io.observe(c));
@@ -1570,7 +1573,7 @@ R[33]=(S,al)=>{
 
 R[34]=(S,al)=>{
   const ls=['Todo negócio','merece uma','placa acesa.'];
-  S.innerHTML=`<div class="c" style="flex-direction:column;gap:2px">${ls.map((l,i)=>`<span style="display:block;overflow:hidden;padding:0 4px"><span class="ml" style="display:block;font:800 clamp(24px,6vw,34px)/1.15 Sora;${i==2?'color:#FF2E9A':''};transform:translateY(105%)">${l}</span></span>`).join('')}</div>`;
+  S.innerHTML=`<div class="c" style="flex-direction:column;gap:2px">${ls.map((l,i)=>`<span style="display:block;overflow:hidden;padding:0 4px"><span class="ml" style="display:block;font:800 clamp(24px,6vw,34px)/1.15 'Exo 2';${i==2?'color:#FF2E9A':''};transform:translateY(105%)">${l}</span></span>`).join('')}</div>`;
   const ms=[...S.querySelectorAll('.ml')];
   (async()=>{while(al()){
     ms.forEach((m,i)=>m.animate([{transform:'translateY(105%)'},{transform:'translateY(0)'}],{duration:720,delay:i*90,easing:E,fill:'forwards'}));
@@ -1582,7 +1585,7 @@ R[34]=(S,al)=>{
 
 R[35]=(S,al)=>{
   const secs=[['Serviços','#40E6DC'],['Projetos','#FF2E9A'],['Como funciona','#F2D75A'],['Contato','#A24BFF']];
-  S.innerHTML=`<div class="c" style="flex-direction:column;gap:8px"><span class="mono" id="cl">seção</span><span id="ct" style="font:800 clamp(26px,7vw,38px)/1 Sora">Serviços</span></div><div id="cv" style="position:absolute;inset:0;background:#FF2E9A;transform:scaleX(0);transform-origin:left"></div>`;
+  S.innerHTML=`<div class="c" style="flex-direction:column;gap:8px"><span class="mono" id="cl">seção</span><span id="ct" style="font:800 clamp(26px,7vw,38px)/1 'Exo 2'">Serviços</span></div><div id="cv" style="position:absolute;inset:0;background:#FF2E9A;transform:scaleX(0);transform-origin:left"></div>`;
   const cv=S.querySelector('#cv'),ct=S.querySelector('#ct');let i=0;
   (async()=>{while(al()){
     await sl(1600);if(!al())return;
@@ -1593,7 +1596,7 @@ R[35]=(S,al)=>{
 };
 
 R[36]=(S,al)=>{
-  S.innerHTML=`<div class="c"><div id="mb" style="font:800 16px Sora;color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 30px;box-shadow:0 0 26px rgba(255,46,154,.55);user-select:none">Bora conversar?</div></div><div id="fc" style="position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;border:2px solid #F4EFFF;pointer-events:none;opacity:.8"></div>`;
+  S.innerHTML=`<div class="c"><div id="mb" style="font:800 16px 'Exo 2';color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 30px;box-shadow:0 0 26px rgba(255,46,154,.55);user-select:none">Bora conversar?</div></div><div id="fc" style="position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;border:2px solid #F4EFFF;pointer-events:none;opacity:.8"></div>`;
   const mb=S.querySelector('#mb'),fc=S.querySelector('#fc');
   let real=null,x=0,y=0,t0=performance.now();
   S.onpointermove=e=>{const r=S.getBoundingClientRect();real=[e.clientX-r.left,e.clientY-r.top];};
@@ -1613,7 +1616,7 @@ R[36]=(S,al)=>{
 };
 
 R[37]=(S,al)=>{
-  S.innerHTML=`<div class="c" style="perspective:700px"><div id="tc" style="position:relative;width:200px;height:130px;border-radius:14px;background:linear-gradient(135deg,#1B1040,#0E0A22);border:1px solid rgba(162,75,255,.5);border-top:3px solid #40E6DC;padding:16px;overflow:hidden;transform-style:preserve-3d"><span style="font:700 12px 'Space Mono';color:#40E6DC;letter-spacing:.14em">02</span><div style="font:800 20px Sora;margin-top:8px">Site</div><div style="font:12px Sora;color:#D6CDEE;margin-top:4px">Página que vende sozinha.</div><div id="gl" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.18),transparent 55%);pointer-events:none"></div></div></div>`;
+  S.innerHTML=`<div class="c" style="perspective:700px"><div id="tc" style="position:relative;width:200px;height:130px;border-radius:14px;background:linear-gradient(135deg,#1B1040,#0E0A22);border:1px solid rgba(162,75,255,.5);border-top:3px solid #40E6DC;padding:16px;overflow:hidden;transform-style:preserve-3d"><span style="font:700 12px 'Space Mono';color:#40E6DC;letter-spacing:.14em">02</span><div style="font:800 20px 'Exo 2';margin-top:8px">Site</div><div style="font:12px 'Exo 2';color:#D6CDEE;margin-top:4px">Página que vende sozinha.</div><div id="gl" style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.18),transparent 55%);pointer-events:none"></div></div></div>`;
   const tc=S.querySelector('#tc'),gl=S.querySelector('#gl');let real=null,rx=0,ry=0,t0=performance.now();
   S.onpointermove=e=>{const r=tc.getBoundingClientRect();real=[(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height];};
   S.onpointerleave=()=>{real=null;};
@@ -1629,7 +1632,7 @@ R[37]=(S,al)=>{
 };
 
 R[38]=(S,al)=>{
-  S.innerHTML=`<div class="c" style="flex-direction:column;gap:12px"><svg width="86" height="86" viewBox="0 0 86 86" id="ck"><circle cx="43" cy="43" r="36" fill="none" stroke="#40E6DC" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 43 43)" style="filter:drop-shadow(0 0 6px #40E6DC)"/><path d="M27 44 L38 55 L60 32" fill="none" stroke="#F4EFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg><span id="ctx" style="font:600 15px Sora;opacity:0">Mensagem enviada</span></div>`;
+  S.innerHTML=`<div class="c" style="flex-direction:column;gap:12px"><svg width="86" height="86" viewBox="0 0 86 86" id="ck"><circle cx="43" cy="43" r="36" fill="none" stroke="#40E6DC" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 43 43)" style="filter:drop-shadow(0 0 6px #40E6DC)"/><path d="M27 44 L38 55 L60 32" fill="none" stroke="#F4EFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg><span id="ctx" style="font:600 15px 'Exo 2';opacity:0">Mensagem enviada</span></div>`;
   const ck=S.querySelector('#ck'),[ci,pa]=ck.children,tx=S.querySelector('#ctx');
   (async()=>{while(al()){
     [ci,pa].forEach(e=>e.getAnimations().forEach(a=>a.cancel()));
@@ -1660,8 +1663,8 @@ R[40]=(S,al)=>{
   <div style="position:absolute;inset:0;display:flex;gap:16px;align-items:center;padding:0 26px">
    <div style="position:relative;width:84px;height:84px;flex:none"><div class="skr" style="position:absolute;inset:0;border-radius:14px"></div><div class="rl" style="position:absolute;inset:0;border-radius:14px;background:linear-gradient(135deg,#FF2E9A,#A24BFF);opacity:0"></div></div>
    <div style="flex:1;display:flex;flex-direction:column;gap:10px;position:relative">
-    <div style="position:relative;height:18px"><div class="skr" style="position:absolute;inset:0;width:70%"></div><div class="rl" style="position:absolute;inset:0;font:800 16px/18px Sora;opacity:0">Lanche da semana</div></div>
-    <div style="position:relative;height:12px"><div class="skr" style="position:absolute;inset:0"></div><div class="rl" style="position:absolute;inset:0;font:12px/12px Sora;color:#D6CDEE;opacity:0">Post pronto para o feed</div></div>
+    <div style="position:relative;height:18px"><div class="skr" style="position:absolute;inset:0;width:70%"></div><div class="rl" style="position:absolute;inset:0;font:800 16px/18px 'Exo 2';opacity:0">Lanche da semana</div></div>
+    <div style="position:relative;height:12px"><div class="skr" style="position:absolute;inset:0"></div><div class="rl" style="position:absolute;inset:0;font:12px/12px 'Exo 2';color:#D6CDEE;opacity:0">Post pronto para o feed</div></div>
     <div style="position:relative;height:12px"><div class="skr" style="position:absolute;inset:0;width:45%"></div><div class="rl" style="position:absolute;inset:0;font:12px/12px 'Space Mono';color:#40E6DC;opacity:0">[SEU PREÇO]</div></div>
    </div></div>`;
   const sk=[...S.querySelectorAll('.skr')],rl=[...S.querySelectorAll('.rl')];
@@ -1689,7 +1692,7 @@ R[41]=(S,al)=>{
 
 R[42]=(S,al)=>{
   const it=['Marca','Site','Inteligência','Sistemas'],cor=['#FF2E9A','#40E6DC','#F2D75A','#A24BFF'];
-  const one=it.map((x,i)=>`<span style="display:inline-flex;align-items:center;gap:18px;padding-right:18px"><span style="font:800 28px Sora;color:${cor[i]}">${x}</span><span style="width:8px;height:8px;border-radius:50%;background:#F4EFFF;opacity:.4"></span></span>`).join('');
+  const one=it.map((x,i)=>`<span style="display:inline-flex;align-items:center;gap:18px;padding-right:18px"><span style="font:800 28px 'Exo 2';color:${cor[i]}">${x}</span><span style="width:8px;height:8px;border-radius:50%;background:#F4EFFF;opacity:.4"></span></span>`).join('');
   S.innerHTML=`<div style="position:absolute;left:0;right:0;top:50%;transform:translateY(-50%) rotate(-3deg);padding:14px 0;background:rgba(14,10,34,.9);border-block:1px solid rgba(162,75,255,.5);overflow:hidden"><div id="tk" style="display:inline-flex;white-space:nowrap">${one}${one}${one}</div></div>`;
   const tk=S.querySelector('#tk');let x=0,last=performance.now(),hold=false;
   S.onpointerenter=()=>hold=true;S.onpointerleave=()=>hold=false;
@@ -1698,7 +1701,7 @@ R[42]=(S,al)=>{
 };
 
 R[43]=(S,al)=>{
-  S.innerHTML=`<div class="c" style="flex-direction:column;gap:12px"><div id="rb" style="font:800 16px Sora;color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 30px;box-shadow:0 0 22px rgba(255,46,154,.5);user-select:none">Chama no direct</div><span id="rs" class="mono">mexa o mouse aqui para parar</span></div>`;
+  S.innerHTML=`<div class="c" style="flex-direction:column;gap:12px"><div id="rb" style="font:800 16px 'Exo 2';color:#0B0420;background:#FF2E9A;border-radius:999px;padding:14px 30px;box-shadow:0 0 22px rgba(255,46,154,.5);user-select:none">Chama no direct</div><span id="rs" class="mono">mexa o mouse aqui para parar</span></div>`;
   const rb=S.querySelector('#rb'),rs=S.querySelector('#rs');let an=null,idle=0;
   const stopB=()=>{idle=performance.now();if(an){an.cancel();an=null;rs.textContent='parado: espera 3s';}};
   S.onpointermove=stopB;S.onpointerdown=stopB;
@@ -2007,7 +2010,7 @@ if(!calmo) agendaPisca();
 addEventListener('pagehide', () => { clearTimeout(pisca); timers.forEach(clearTimeout); olheiro.disconnect(); });
 </script>
 
-<script type="module" src="/assets/neon-personagem.js?v=20261116a"></script>
+<script type="module" src="/assets/neon-personagem.js?v=20261119a"></script>
 <div class="pmenu" id="pmenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true">
   <div class="fundo" data-fecha></div>
   <div class="pn">

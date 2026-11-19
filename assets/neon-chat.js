@@ -51,7 +51,7 @@ const DUVIDAS = {
     r: () => 'O foco da gente é marca, site e sistema. Mas a marca já sai pronta pra usar no Instagram também. Se quiser, nossa equipe te explica melhor.'}
 };
 
-const CSS = `.neonc{position:fixed;z-index:65;right:max(16px,env(safe-area-inset-right));bottom:118px;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 150px));display:flex;flex-direction:column;background:#0d0826;color:#F4EFFF;border:1px solid rgba(162,75,255,.35);border-radius:20px;overflow:hidden;font-family:'Sora',system-ui,sans-serif;font-size:16px;line-height:1.5;text-align:left;
+const CSS = `.neonc{position:fixed;z-index:65;right:max(16px,env(safe-area-inset-right));bottom:118px;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 150px));display:flex;flex-direction:column;background:#0d0826;color:#F4EFFF;border:1px solid rgba(162,75,255,.35);border-radius:20px;overflow:hidden;font-family:'Exo 2',system-ui,sans-serif;font-size:16px;line-height:1.5;text-align:left;
 box-shadow:0 0 0 1px rgba(255,46,154,.12),0 20px 60px rgba(0,0,0,.55),0 0 40px rgba(162,75,255,.18);transform-origin:calc(100% - 50px) 100%;transition:opacity 220ms cubic-bezier(.22,1,.36,1),transform 220ms cubic-bezier(.22,1,.36,1)}
 .neonc.fechado{opacity:0;transform:translateY(10px) scale(.96);pointer-events:none;visibility:hidden;transition:opacity 160ms cubic-bezier(.22,1,.36,1),transform 160ms cubic-bezier(.22,1,.36,1),visibility 0s 160ms}
 .neonc *{box-sizing:border-box}

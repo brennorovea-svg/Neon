@@ -23,7 +23,7 @@ Texto sobre botão rosa: `#0B0420`. Cards: fundo `rgba(14,10,34,.72)` com `backd
 
 ## Tipografia (Google Fonts)
 - **Bungee Inline**: só o letreiro (só tem maiúsculas).
-- **Sora** 400/600/800: todo o resto. Título `h1` 800, `clamp(38px,5.2vw,70px)`, entrelinha 1.02, `letter-spacing -.02em`. `h2` 800, `clamp(30px,3.6vw,46px)`. Corpo 16-19px, entrelinha 1.5.
+- **Chakra Petch** 500/600/700 nos títulos (h1, h2, h3, nomes de cliente e itens do menu) e **Exo 2** 400/600/700/800 no texto, botões e cards (Brenno, 2026-11-19; antes era Sora). Título `h1` 800 (renderiza 700 na Chakra Petch), `clamp(38px,5.2vw,70px)`, entrelinha 1.02, `letter-spacing -.02em`. `h2` 800, `clamp(30px,3.6vw,46px)`. Corpo 16-19px, entrelinha 1.5.
 - **Space Mono** 400/700: sobretítulos em caixa alta com `letter-spacing .2em`, marca no menu, toques de terminal (`$ ./orcamento`).
 
 ## Letreiro
