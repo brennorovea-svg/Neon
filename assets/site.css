@@ -689,12 +689,3 @@ body:has(.hero.o3) .platform .glow{top:0}
 /* Os fios das etiquetas do olho mecânico só existem no computador (.o3). Sem isso, no celular o <svg> vazio
    ficava no fluxo com 150px e empurrava o letreiro para baixo (vão acima da placa, Brenno, 2026-11-16). */
 .hero:not(.o3) svg.fios,.hero:not(.o3) #etqs{display:none}
-
-/* Letreiro do hero com tubo que acende (modelo 7, 2026-11-19): palco em volta da placa recebe o tubo do Neon Reveal; a placa fica apagada até a luz terminar e liga piscando */
-.sign-palco{position:absolute!important;inset:-34px -44px -22px;pointer-events:none}
-.sign.apagada,.sign.apagada.azul{--glow:transparent;--glow2:transparent;--tube:#3A2E52;--glowB:transparent;--tubeB:#2C2A48}
-.sign.apagada .plate{animation:none;opacity:1;box-shadow:0 22px 40px -12px rgba(0,0,0,.85)}
-.sign.liga .plate{opacity:1;animation:liga 900ms linear}
-@keyframes liga{0%{opacity:.3}10%{opacity:1}18%{opacity:.35}30%{opacity:1}38%{opacity:.5}55%,100%{opacity:1}}
-@media (max-width:820px){.sign-palco{inset:-26px -8px -16px}}
-@media (prefers-reduced-motion:reduce){.sign.liga .plate{animation:none}}
